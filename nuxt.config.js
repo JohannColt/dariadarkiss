@@ -21,7 +21,7 @@ module.exports = {
     '@nuxtjs/style-resources'
   ],
   styleResources: {
-    scss: ['./assets/scss/index.scss']
+    scss: ['./assets/scss/*.scss']
   },
   /*
   ** Customize the progress bar color

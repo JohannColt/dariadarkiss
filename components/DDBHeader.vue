@@ -12,7 +12,7 @@
     }
 </script>
 
-<style type="scss" scoped>
+<style lang="scss" scoped>
   .ddb-header {
     padding: 0 40px;
     &__burger {
