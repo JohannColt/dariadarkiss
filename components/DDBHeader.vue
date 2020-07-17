@@ -15,9 +15,16 @@
 <style lang="scss" scoped>
   .ddb-header {
     padding: 0 40px;
+    height: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    background: rgba(244, 240, 238, 0.6);
     &__burger {
+      height: 100%;
       img {
-        height: 24px;
+        height: 100%;
       }
     }
   }

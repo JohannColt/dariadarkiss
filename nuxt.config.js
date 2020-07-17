@@ -23,6 +23,7 @@ module.exports = {
   styleResources: {
     scss: ['./assets/scss/*.scss']
   },
+  plugins: ['./plugins/vue-awesome-swiper.js'],
   /*
   ** Customize the progress bar color
   */
@@ -31,6 +32,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['swiper'],
     /*
     ** Run ESLint on save
     */
