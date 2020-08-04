@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ddb-layout">
     <ddb-header></ddb-header>
     <nuxt/>
   </div>
@@ -13,7 +13,15 @@
     }
   }
 </script>
-
 <style>
+  @media all and (orientation: landscape) {
+
+  }
+
+  @media all and (orientation: portrait) {
+    .ddb-layout{
+      min-width: 100vh;
+    }
+  }
 </style>
 

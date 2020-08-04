@@ -1,32 +1,23 @@
 <template>
   <section class="container">
     <div>
+      <ddb-second-block></ddb-second-block>
       <h1 class="title">
         dariadarkiss
       </h1>
       <h2 class="subtitle">
         Portfolio site
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import DDBSecondBlock from "../components/DDBSecondBlock";
 
 export default {
   components: {
-    AppLogo
+    'ddb-second-block': DDBSecondBlock
   }
 }
 </script>
@@ -34,6 +25,7 @@ export default {
 <style>
 .container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,5 +52,6 @@ export default {
 .links {
   padding-top: 15px;
 }
+
 </style>
 

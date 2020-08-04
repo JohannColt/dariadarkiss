@@ -22,7 +22,7 @@
     <transition name="ddb-animation">
       <header-menu v-if="isActive"></header-menu>
     </transition>
-    <div v-on:click="isActive=false" class="ddb-header__hiden__field"></div>
+    <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__hiden__field"></div>
     </div>
     <div class="ddb-header__desktop">
       <div class="ddb-header__desktop__container">
@@ -79,7 +79,7 @@
   .ddb-header {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
   }
 
@@ -175,13 +175,13 @@
   .ddb-animation-leave-active {
     animation: ddb-animation 0.3s reverse;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 800px) {
     .ddb-header__mobile{
       display: none;
     }
 
   }
-  @media (max-width: 1199px) {
+  @media (max-width: 799px) {
     .ddb-header__desktop{
       display: none;
     }
