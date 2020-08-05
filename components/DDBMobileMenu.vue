@@ -32,8 +32,6 @@
   }
 
   .ddb-header__menu__elem {
-    width: 100%;
-    justify-content: center;
     text-align: center;
     color: $primary-color1;
   }
@@ -41,5 +39,4 @@
   .ddb-header__menu__text {
     height: 28px;
   }
-
 </style>
