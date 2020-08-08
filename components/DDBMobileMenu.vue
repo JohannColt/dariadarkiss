@@ -24,7 +24,6 @@
 <style lang="scss" scoped>
   .ddb-header__menu {
     position: absolute;
-    height: 312px;
     width: 100%;
     z-index: 2;
     flex-direction: column;

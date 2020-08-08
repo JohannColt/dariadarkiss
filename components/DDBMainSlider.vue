@@ -13,14 +13,30 @@
           >
         </div>
       </div>
-      <div class="ddb-main-slider__switcher">
-        Hello
-      </div>
+      <transition name="ddb-animation-bottom">
+        <div class="ddb-main-slider__switcher" v-if="showBottom">
+          <div class="ddb-main-slider__buttons">
+            <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
+                 v-for="(banner, key) in banners">
+              <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
+              <div v-else class="ddb-main-slider__button"></div>
+            </div>
+          </div>
+          <div class="ddb-main-slider__instagram">
+            <div class="ddb-main-slider__instagram-link">
+              @dariadarkiss
+            </div>
+            <img src="/images/ui-elements/instagram.svg" alt="instagram">
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+  import DDBHeader from "../components/DDBHeader";
+
   export default {
     name: "DDBMainSlider",
     data() {
@@ -57,7 +73,11 @@
             desktop: '/images/slider/4.jpg'
         }
         ],
+        showBottom: false,
       }
+    },
+    components: {
+      'ddb-header': DDBHeader,
     },
     mounted() {
       this.elements = document.querySelectorAll('.ddb-main-slider__item');
@@ -65,8 +85,15 @@
       this.elements[this.currentIndex].classList.add(this.activeClassName);
       window.addEventListener('mouseup', this.mouseUp);
       window.addEventListener('touchend', this.mouseUp);
-      this.startAutoPlay();
-      this.startProgress();
+
+      if (window.innerWidth < 1200) {
+        this.showBottom = true
+      }
+      setTimeout(this.displayBottom, 550);
+      setTimeout(() => {
+        this.startAutoPlay();
+        this.startProgress();
+      }, 1350);
     },
     methods: {
       startProgress() {
@@ -147,6 +174,17 @@
           this.elements[this.prevIndex].style.transform = "scale(" + currentScale + ")";
         }
       },
+      setIndex(index) {
+        clearInterval(this.interval)
+        clearInterval(this.progressInterval)
+        this.refreshWidth();
+        this.elements[this.currentIndex].classList.remove(this.classWithoutAnimation);
+        this.elements[this.currentIndex].classList.remove(this.activeClassName);
+        this.elements[index].classList.add(this.activeClassName);
+        this.currentIndex = index;
+        this.startAutoPlay();
+        this.startProgress();
+      },
       next(animation = true) {
         clearInterval(this.interval)
         clearInterval(this.progressInterval)
@@ -174,6 +212,9 @@
         this.currentIndex = this.prevIndex;
         this.startAutoPlay();
         this.startProgress();
+      },
+      displayBottom() {
+        this.showBottom = true;
       }
     },
     computed: {
@@ -198,10 +239,11 @@
 
 <style lang="scss" scoped>
   .ddb-main-slider {
-    height: calc(100vh - 48px);
+    height: calc(100vh);
     &__container {
       height: 100%;
       position: relative;
+      z-index: 1;
     }
     &__wrapper {
       position: relative;
@@ -209,11 +251,12 @@
       overflow: hidden;
     }
     &__progress {
-      width: 100%;
+      width: 0;
       height: 5px;
       background: #ffffff;
       position: absolute;
-      z-index: 1;
+      z-index: 2;
+      top: 48px;
     }
     &__item {
       opacity: 0;
@@ -244,13 +287,54 @@
       }
     }
     &__switcher {
+      display: flex;
+      justify-content: center;
       position: absolute;
       bottom: 0;
       width: 100%;
       height: 43px;
+      padding: 0 40px;
       background: $primary-color2;
     }
+    &__buttons {
+      display: flex;
+      align-items: center;
+    }
+    &__button-wrapper {
+      margin-left: 16px;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    &__button {
+      width: 16px;
+      height: 16px;
+      border-radius: 32px;
+      border: 1px solid $primary-color1;
+      &--active {
+        background-color: $primary-color1;
+      }
+    }
+    &__instagram {
+      display: none;
+      align-items: center;
+      img {
+        height: 24px;
+      }
+    }
+    &__instagram-link {
+      margin-right: 16px;
+    }
   }
+
+  .ddb-animation-bottom-enter {
+    transform: translateY(80px);
+  }
+  .ddb-animation-bottom-enter-active {
+    transition: all 0.3s ease;
+  }
+
   @include for-desktop-up {
     .ddb-main-slider {
       height: 100vh;
@@ -258,8 +342,14 @@
         height: 80px;
       }
       &__progress {
-        top: 80px
+        top: 80px;
       }
+    }
+    .ddb-main-slider__instagram {
+      display: flex;
+    }
+    .ddb-main-slider__switcher {
+      justify-content: space-between;
     }
   }
 </style>

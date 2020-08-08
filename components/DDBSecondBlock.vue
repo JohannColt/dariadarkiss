@@ -42,6 +42,7 @@
   .ddb-second-block {
     display: flex;
     height: 100vh;
+    padding-top: 43px;
   }
 
   .ddb-second-block-photo {
@@ -85,6 +86,12 @@
 
   .ddb-second-block__element__last__line {
     width: 45%;
+  }
+
+  @include for-desktop-up {
+    .ddb-second-block{
+      padding-top: 80px;
+    }
   }
 
   @media (min-width: 800px) {

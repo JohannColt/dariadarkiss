@@ -7,11 +7,11 @@
             <img src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
           </button>
           <button v-if="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
-            <img src="ui-elements/arrow.svg" alt="burger-icon">
+            <img src="/images/ui-elements/arrow.svg" alt="burger-icon">
           </button>
         </div>
         <div class="ddb-header__text">
-          DARIADARKISS
+          <a href="/" class="default-text">DARIADARKISS</a>
         </div>
         <div class="ddb-header__inst">
           <button class="ddb-header__menu-button">
@@ -27,12 +27,12 @@
     <div class="ddb-header__desktop">
       <div class="ddb-header__desktop-container">
         <div class="ddb-header__logo">
-          DARIADARKISS
+          <a href="/" class="default-text">DARIADARKISS</a>
         </div>
         <div class="ddb-header__menu">
           <div class="ddb-header__desktop-elem">
             <button class="ddb-header__menu-button">
-              Главная
+              <a href="/" class="default-text">Главная</a>
             </button>
             <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop__anchor" alt="anchor-icon">
           </div>
@@ -81,6 +81,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: fixed;
+    z-index: 2;
+    opacity: 0.9;
     &__desktop {
       display: none;
     }
@@ -125,7 +128,10 @@
     padding: 0;
     border: none;
     background: none;
-    cursor: pointer
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 
   .ddb-header__text__htext {
@@ -162,10 +168,6 @@
     margin: 0;
   }
 
-  .header-menu {
-    animation: ddb-animation;
-  }
-
   @keyframes ddb-animation {
     0% {
       transform: translateY(-312px);
@@ -185,8 +187,7 @@
 
   @include for-desktop-up() {
     .ddb-header {
-      position: absolute;
-      z-index: 1;
+      z-index: 2;
       &__mobile {
         display: none;
       }
