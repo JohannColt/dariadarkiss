@@ -4,18 +4,18 @@
       <div class="ddb-header__container">
         <div class="ddb-header__burger">
           <button v-if="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
-            <img src="/ui-elements/burger-menu.svg" alt="burger-icon">
+            <img src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
           </button>
           <button v-if="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
-            <img src="ui-elements/arrow.svg" alt="burger-icon">
+            <img src="/images/ui-elements/arrow.svg" alt="burger-icon">
           </button>
         </div>
         <div class="ddb-header__text">
-          <h2 class="ddb-header__text__htext">DARIADARKISS</h2>
+          <a href="/" class="default-text">DARIADARKISS</a>
         </div>
         <div class="ddb-header__inst">
           <button class="ddb-header__menu-button">
-            <img src="/ui-elements/instagram.svg" alt="insta-icon">
+            <img src="/images/ui-elements/instagram.svg" alt="insta-icon">
           </button>
         </div>
       </div>
@@ -25,36 +25,37 @@
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__hidden__field"></div>
     </div>
     <div class="ddb-header__desktop">
-      <div class="ddb-header__desktop__container">
-        <div class="ddb-header__desktop__elem ddb-header__desktop__dd">
-          <h2 class="ddb-header__desktop__text">DARIADARKISS</h2>
+      <div class="ddb-header__desktop-container">
+        <div class="ddb-header__logo">
+          <a href="/" class="default-text">DARIADARKISS</a>
         </div>
-
-        <div class="ddb-header__desktop__elem ddb-header__desktop__oe">
-          <button class="ddb-header__menu-button">
-            <h4 class="ddb-header__desktop__text ">Главная</h4>
-          </button>
-          <img src="/ui-elements/anchor.png" class="ddb-header__desktop__anchor" alt="anchor-icon">
-        </div>
-        <div class="ddb-header__desktop__elem ddb-header__desktop__oe">
-          <button class="ddb-header__menu-button">
-            <h4 class="ddb-header__desktop__text ">Портфолио</h4>
-          </button>
-        </div>
-        <div class="ddb-header__desktop__elem ddb-header__desktop__oe">
-          <button class="ddb-header__menu-button">
-            <h4 class="ddb-header__desktop__text ">Цены</h4>
-          </button>
-        </div>
-        <div class="ddb-header__desktop__elem ddb-header__desktop__oe">
-          <button class="ddb-header__menu-button">
-            <h4 class="ddb-header__desktop__text ">Услуги</h4>
-          </button>
-        </div>
-        <div class="ddb-header__desktop__elem ddb-header__desktop__oe">
-          <button class="ddb-header__menu-button">
-            <h4 class="ddb-header__desktop__text ">Контакты</h4>
-          </button>
+        <div class="ddb-header__menu">
+          <div class="ddb-header__desktop-elem">
+            <button class="ddb-header__menu-button">
+              <a href="/" class="default-text">Главная</a>
+            </button>
+            <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop__anchor" alt="anchor-icon">
+          </div>
+          <div class="ddb-header__desktop-elem">
+            <button class="ddb-header__menu-button">
+              Портфолио
+            </button>
+          </div>
+          <div class="ddb-header__desktop-elem">
+            <button class="ddb-header__menu-button">
+              Цены
+            </button>
+          </div>
+          <div class="ddb-header__desktop-elem">
+            <button class="ddb-header__menu-button">
+              Услуги
+            </button>
+          </div>
+          <div class="ddb-header__desktop-elem">
+            <button class="ddb-header__menu-button">
+              Контакты
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -80,6 +81,26 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: fixed;
+    z-index: 2;
+    opacity: 0.9;
+    &__desktop {
+      display: none;
+    }
+    &__container {
+      position: relative;
+      z-index: 3;
+    }
+    &__desktop-container {
+      padding-left: 40px;
+    }
+    &__menu {
+      display: flex;
+    }
+    &__logo {
+      font-weight: $font-weight-bold;
+      font-size: 1.3em;
+    }
   }
 
   .ddb-header__container {
@@ -88,60 +109,52 @@
         height: 24px;
       }
     }
-
+    padding: 0 22px;
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $primary-color2;
-    border-bottom: 1px solid $primary-color1;
 
-  }
-
-  .ddb-header__burger {
-    padding-left: 10px;
-  }
-
-  .ddb-header__inst {
-    padding-right: 10px;
   }
 
   .ddb-header__text {
     color: $primary-color1;
+    font-weight: $font-weight-semi-bold;
   }
 
   .ddb-header__menu-button {
+    display: flex;
     padding: 0;
     border: none;
     background: none;
-    cursor: pointer
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
 
   .ddb-header__text__htext {
     height: 28px;
+    font-size: 1em;
+    line-height: 1em;
   }
 
   .ddb-header__hidden__field {
+    position: absolute;
     min-height: 100vh;
-    opacity: 0;
+    opacity: 1;
   }
 
-  .ddb-header__desktop__container {
+  .ddb-header__desktop-container {
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $primary-color2;
-    border-bottom: 1px solid $primary-color1;
-
   }
 
-  .ddb-header__desktop__dd {
-    width: 50%;
-    margin-left: 40px;
-  }
-
-  .ddb-header__desktop__oe {
+  .ddb-header__desktop-elem {
     display: flex;
     flex-direction: column;
     margin-right: 40px;
@@ -155,15 +168,10 @@
     margin: 0;
   }
 
-  .header-menu {
-    animation: ddb-animation;
-  }
-
   @keyframes ddb-animation {
     0% {
       transform: translateY(-312px);
     }
-
     100% {
       transform: translateY(0);
     }
@@ -177,16 +185,15 @@
     animation: ddb-animation 0.3s reverse;
   }
 
-  @media (min-width: 800px) {
-    .ddb-header__mobile {
-      display: none;
-    }
-
-  }
-
-  @media (max-width: 799px) {
-    .ddb-header__desktop {
-      display: none;
+  @include for-desktop-up() {
+    .ddb-header {
+      z-index: 2;
+      &__mobile {
+        display: none;
+      }
+      &__desktop {
+        display: block;
+      }
     }
   }
 

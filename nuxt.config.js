@@ -18,19 +18,27 @@ module.exports = {
     '~assets/scss/index.scss'
   ],
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-webfontloader'
   ],
   styleResources: {
     scss: ['./assets/scss/*.scss']
   },
+  plugins: ['./plugins/vue-awesome-swiper.js'],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  webfontloader: {
+    google: {
+      families: ['Montserrat:400,600,700:cyrillic&display=swap']
+    }
+  },
   /*
   ** Build configuration
   */
   build: {
+    vendor: ['swiper'],
     /*
     ** Run ESLint on save
     */

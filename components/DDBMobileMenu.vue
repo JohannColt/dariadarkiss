@@ -1,16 +1,16 @@
 <template>
   <div class="ddb-header__menu">
     <div class="ddb-header__menu__elem">
-      <h2 class="ddb-header__menu__text">ПОРТФОЛИО</h2>
+      Портфолио
     </div>
     <div class="ddb-header__menu__elem">
-      <h2 class="ddb-header__menu__text">ЦЕНЫ</h2>
+      Цены
     </div>
     <div class="ddb-header__menu__elem">
-      <h2 class="ddb-header__menu__text">УСЛУГИ</h2>
+      Услуги
     </div>
     <div class="ddb-header__menu__elem">
-      <h2 class="ddb-header__menu__text">КОНТАКТЫ</h2>
+      Контакты
     </div>
   </div>
 </template>
@@ -23,7 +23,9 @@
 
 <style lang="scss" scoped>
   .ddb-header__menu {
-    height: 312px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -34,9 +36,17 @@
   .ddb-header__menu__elem {
     text-align: center;
     color: $primary-color1;
+    line-height: 32px;
+    padding: 12px;
+    font-weight: $font-weight-semi-bold;
+    &:first-child {
+      padding-top: 24px;
+    }
+    &:last-child {
+      padding-bottom: 32px;
+    }
   }
 
   .ddb-header__menu__text {
-    height: 28px;
   }
 </style>
