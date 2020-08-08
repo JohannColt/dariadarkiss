@@ -47,7 +47,8 @@
         progressBar: null,
         buttonPressed: false,
         autoplayDelay: 6000,
-        pressedPosition: 0,
+        pressedPositionX: 0,
+        pressedPositionY: 0,
         progressWidth: 0,
         distance: 0,
         movingOpacity: 0,
@@ -119,13 +120,17 @@
         return data.mobile + ' 320w, ' + data.tablet + ' 480w, ' + data.desktop + ' 800w'
       },
       mouseDown(event) {
-        event.preventDefault()
+        if (window.innerWidth > 1200) {
+          event.preventDefault()
+        }
         this.buttonPressed = true;
         if (event.changedTouches && event.changedTouches.length > 0) {
-          this.pressedPosition = event.changedTouches[0].clientX
+          this.pressedPositionX = event.changedTouches[0].clientX;
+          this.pressedPositionY = event.changedTouches[0].clientY;
           return
         }
-        this.pressedPosition = event.clientX;
+        this.pressedPositionX = event.clientX;
+        this.pressedPositionY = event.clientY;
       },
       mouseUp(event) {
         if (this.buttonPressed) {
@@ -135,17 +140,27 @@
         }
       },
       mouseMove(event) {
-        event.preventDefault()
         if (this.buttonPressed) {
           let eventPosition;
           if (event.changedTouches && event.changedTouches.length > 0) {
+            if (this.swipeScroll(event.changedTouches)) {
+              return
+            }
             eventPosition =  event.changedTouches[0].clientX;
           } else {
             eventPosition = event.clientX;
           }
-          this.distance = eventPosition - this.pressedPosition;
+          this.distance = eventPosition - this.pressedPositionX;
           this.moving();
         }
+        event.preventDefault()
+      },
+      swipeScroll(changedTouches) {
+        const clientX = changedTouches[0].clientX;
+        const clientY = changedTouches[0].clientY;
+        const distanceX = Math.abs(clientX - this.pressedPositionX);
+        const distanceY = Math.abs(clientY - this.pressedPositionY);
+        return distanceY > distanceX;
       },
       update() {
         this.elements[this.currentIndex].style = {};
