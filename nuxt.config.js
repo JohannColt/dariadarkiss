@@ -18,7 +18,8 @@ module.exports = {
     '~assets/scss/index.scss'
   ],
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-webfontloader'
   ],
   styleResources: {
     scss: ['./assets/scss/*.scss']
@@ -28,6 +29,11 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  webfontloader: {
+    google: {
+      families: ['Montserrat:400,600,700:cyrillic&display=swap']
+    }
+  },
   /*
   ** Build configuration
   */

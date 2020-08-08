@@ -1,12 +1,12 @@
 <template>
   <div class="ddb-second-block">
     <div class="ddb-second-block-photo">
-      <img src="ui-elements/photo.png">
+      <img src="/images/ui-elements/photo.png" alt="photo">
     </div>
     <div class="ddb-second-block__container">
       <div class="ddb-second-block__element__heading">
         <h2 class="ddb-second-block__element__heading__text">Всем привет!</h2>
-        <img src="ui-elements/smile.png" class="ddb-second-block__element__heading__smile">
+        <img src="/images/ui-elements/smile.png" class="ddb-second-block__element__heading__smile" alt="smile">
       </div>
       <div class="ddb-second-block__element">
         <a>Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
@@ -26,7 +26,7 @@
       </div>
       <div class="ddb-second-block__element__last">
         <h3 class="ddb-second-block__element__last__text">Оценить работы</h3>
-        <img src="ui-elements/second-block-line.png" class="ddb-second-block__element__last__line">
+        <img src="/images/ui-elements/second-block-line.png" class="ddb-second-block__element__last__line" alt="second-block">
       </div>
     </div>
   </div>
@@ -41,6 +41,7 @@
 <style lang="scss" scoped>
   .ddb-second-block {
     display: flex;
+    height: 100vh;
   }
 
   .ddb-second-block-photo {

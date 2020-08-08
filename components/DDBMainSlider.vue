@@ -13,6 +13,9 @@
           >
         </div>
       </div>
+      <div class="ddb-main-slider__switcher">
+        Hello
+      </div>
     </div>
   </div>
 </template>
@@ -195,8 +198,7 @@
 
 <style lang="scss" scoped>
   .ddb-main-slider {
-    width: 100%;
-    height: 100vh;
+    height: calc(100vh - 48px);
     &__container {
       height: 100%;
       position: relative;
@@ -211,7 +213,6 @@
       height: 5px;
       background: #ffffff;
       position: absolute;
-      top: 80px;
       z-index: 1;
     }
     &__item {
@@ -240,6 +241,24 @@
       }
       &--boring {
         animation: unset;
+      }
+    }
+    &__switcher {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 43px;
+      background: $primary-color2;
+    }
+  }
+  @include for-desktop-up {
+    .ddb-main-slider {
+      height: 100vh;
+      &__switcher {
+        height: 80px;
+      }
+      &__progress {
+        top: 80px
       }
     }
   }
