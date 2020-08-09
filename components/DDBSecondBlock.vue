@@ -41,7 +41,7 @@
 <style lang="scss" scoped>
   .ddb-second-block {
     display: flex;
-    height: 100vh;
+    height: 100%;
     padding-top: 43px;
   }
 

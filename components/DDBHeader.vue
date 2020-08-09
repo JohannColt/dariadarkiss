@@ -22,7 +22,7 @@
       <transition name="ddb-animation">
         <header-menu v-if="isActive"></header-menu>
       </transition>
-      <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__hidden__field"></div>
+      <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>
     <div class="ddb-header__desktop">
       <div class="ddb-header__desktop-container">
@@ -140,9 +140,10 @@
     line-height: 1em;
   }
 
-  .ddb-header__hidden__field {
+  .ddb-header__fade {
     position: absolute;
     min-height: 100vh;
+    width: 100%;
     opacity: 1;
   }
 

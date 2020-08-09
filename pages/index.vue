@@ -61,16 +61,19 @@ import DDBMainSlider from "../components/DDBMainSlider";
 
 <style lang="scss">
   .container {
-    min-height: 100vh;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
+  .main-page {
+    height: 100%;
+  }
   @include for-desktop-up {
     .main-page {
-      height: 100%;
       width: 100%;
       transition: 1s;
     }
@@ -82,7 +85,6 @@ import DDBMainSlider from "../components/DDBMainSlider";
     }
     .container {
       overflow: hidden;
-      height: 100vh;
     }
   }
 

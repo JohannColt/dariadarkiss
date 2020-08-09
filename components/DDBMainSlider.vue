@@ -116,6 +116,10 @@
         this.progressWidth = 0
         this.progressBar.style.width = this.progressWidth + 'px';
       },
+      refreshDistance() {
+        this.distance = 0;
+        this.movingOpacity = 0;
+      },
       srcset(data) {
         return data.mobile + ' 320w, ' + data.tablet + ' 480w, ' + data.desktop + ' 800w'
       },
@@ -134,7 +138,9 @@
       },
       mouseUp(event) {
         if (this.buttonPressed) {
-          event.preventDefault()
+          if (event.cancelable) {
+            event.preventDefault()
+          }
           this.buttonPressed = false;
           this.update();
         }
@@ -153,7 +159,9 @@
           this.distance = eventPosition - this.pressedPositionX;
           this.moving();
         }
-        event.preventDefault()
+        if (event.cancelable) {
+          event.preventDefault()
+        }
       },
       swipeScroll(changedTouches) {
         const clientX = changedTouches[0].clientX;
@@ -204,6 +212,7 @@
         clearInterval(this.interval)
         clearInterval(this.progressInterval)
         this.refreshWidth();
+        this.refreshDistance();
         this.elements[this.currentIndex].classList.remove(this.classWithoutAnimation);
         this.elements[this.currentIndex].classList.remove(this.activeClassName);
         this.elements[this.nextIndex].classList.add(this.activeClassName);
@@ -218,6 +227,7 @@
         clearInterval(this.interval)
         clearInterval(this.progressInterval)
         this.refreshWidth();
+        this.refreshDistance();
         this.elements[this.currentIndex].classList.remove(this.classWithoutAnimation);
         this.elements[this.currentIndex].classList.remove(this.activeClassName);
         this.elements[this.prevIndex].classList.add(this.activeClassName);
@@ -254,7 +264,7 @@
 
 <style lang="scss" scoped>
   .ddb-main-slider {
-    height: calc(100vh);
+    height: 100%;
     &__container {
       height: 100%;
       position: relative;
@@ -352,7 +362,6 @@
 
   @include for-desktop-up {
     .ddb-main-slider {
-      height: 100vh;
       &__switcher {
         height: 80px;
       }
