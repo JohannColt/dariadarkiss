@@ -1,65 +1,104 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        dariadarkiss
-      </h1>
-      <h2 class="subtitle">
-        Portfolio site
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <div class="main-page" ref="main">
+      <ddb-main-slider/>
+      <ddb-second-block/>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
-export default {
-  components: {
-    AppLogo
+import DDBSecondBlock from "../components/DDBSecondBlock";
+import DDBMainSlider from "../components/DDBMainSlider";
+  export default {
+    data() {
+      return {
+        maxItems: 1,
+        currentItem: 0
+      }
+    },
+    components: {
+      'ddb-second-block': DDBSecondBlock,
+      'ddb-main-slider': DDBMainSlider
+    },
+    computed: {
+    },
+    methods: {
+      onWheel(e) {
+        const delta = e.deltaY || e.detail || e.wheelDelta;
+        if (delta > 0) {
+          if (this.currentItem === this.maxItems) {
+            return
+          }
+          this.currentItem ++;
+          const y = this.currentItem * 100;
+          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+        } else {
+          if (this.currentItem === 0) {
+            return
+          }
+          this.currentItem --;
+          const y = this.currentItem * 100;
+          this.$refs.main.style.transform = 'translateY(' + y + 'vh)';
+        }
+      }
+    },
+    mounted() {
+      if (window.innerWidth < 1200) {
+        return;
+      }
+      if ('onwheel' in document) {
+        window.addEventListener("wheel", this.onWheel);
+      } else if ('onmousewheel' in document) {
+        window.addEventListener("mousewheel", this.onWheel);
+      } else {
+        // Firefox < 17
+        window.addEventListener("MozMousePixelScroll", this.onWheel);
+      }
+    }
   }
-}
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style lang="scss">
+  .container {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .main-page {
+    height: 100%;
+  }
+  @include for-desktop-up {
+    .main-page {
+      width: 100%;
+      transition: 1s;
+    }
+    .main-page--up {
+      transform: translateY(100vh);
+    }
+    .main-page--down {
+      transform: translateY(-100vh);
+    }
+    .container {
+      overflow: hidden;
+    }
+  }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  .page-item-enter {
+    transform: translateY(100vh);
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  .page-item-enter-active {
+    transition: all 0.5s ease;
+  }
 
-.links {
-  padding-top: 15px;
-}
+  .page-item-leave {
+    transform: translateY(-100vh);
+  }
+
 </style>
 
