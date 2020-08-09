@@ -24,9 +24,13 @@
           </div>
           <div class="ddb-main-slider__instagram">
             <div class="ddb-main-slider__instagram-link">
-              @dariadarkiss
+              <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
+                @dariadarkiss
+              </a>
             </div>
-            <img src="/images/ui-elements/instagram.svg" alt="instagram">
+            <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
+              <img src="/images/ui-elements/instagram.svg" alt="instagram">
+            </a>
           </div>
         </div>
       </transition>
