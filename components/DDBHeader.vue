@@ -36,7 +36,7 @@
             <button class="ddb-header__menu-button">
               <a href="/" class="default-text">Главная</a>
             </button>
-            <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop__anchor" alt="anchor-icon">
+            <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop-anchor" alt="anchor-icon">
           </div>
           <div class="ddb-header__desktop-elem">
             <button class="ddb-header__menu-button">
@@ -163,12 +163,8 @@
     margin-right: 40px;
   }
 
-  .ddb-header__desktop__anchor {
+  .ddb-header__desktop-anchor {
     width: 60%;
-  }
-
-  .ddb-header__desktop__text {
-    margin: 0;
   }
 
   @keyframes ddb-animation {
