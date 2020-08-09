@@ -124,7 +124,7 @@
         return data.mobile + ' 320w, ' + data.tablet + ' 480w, ' + data.desktop + ' 800w'
       },
       mouseDown(event) {
-        if (window.innerWidth > 1200) {
+        if (window.innerWidth >= 1200) {
           event.preventDefault()
         }
         this.buttonPressed = true;
@@ -174,10 +174,11 @@
         this.elements[this.currentIndex].style = {};
         this.elements[this.nextIndex].style = {};
         this.elements[this.prevIndex].style = {};
+        const animation = window.innerWidth < 1200;
         if (this.distance < 0 && this.movingOpacity > 0.5) {
-          this.next(false);
+          this.next(animation);
         } else if (this.distance > 0 && this.movingOpacity > 0.5) {
-          this.prev(false);
+          this.prev(animation);
         }
       },
       moving() {
@@ -188,8 +189,11 @@
         this.movingOpacity = currentOpacity > 1 ? 1 : currentOpacity;
         let currentScale = startScale * (1 - this.movingOpacity);
         currentScale = currentScale < finishedScale ? finishedScale : currentScale;
+        if (window.innerWidth < 1200) {
+          return
+        }
         this.elements[this.currentIndex].style.opacity = 1 - this.movingOpacity;
-        if (this.distance < 0) {
+        if (this.distance < 0 ) {
           this.elements[this.nextIndex].style.opacity = this.movingOpacity;
           this.elements[this.nextIndex].style.transform = "scale(" + currentScale + ")";
         } else {

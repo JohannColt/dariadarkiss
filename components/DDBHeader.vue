@@ -15,7 +15,9 @@
         </div>
         <div class="ddb-header__inst">
           <button class="ddb-header__menu-button">
-            <img src="/images/ui-elements/instagram.svg" alt="insta-icon">
+            <a href="https://www.instagram.com/dariadarkiss" target="_blank">
+              <img src="/images/ui-elements/instagram.svg" alt="insta-icon">
+            </a>
           </button>
         </div>
       </div>
