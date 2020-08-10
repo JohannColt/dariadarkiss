@@ -1,11 +1,14 @@
 <template>
   <div class="ddb-second-block">
     <div class="ddb-second-block-photo">
-      <img src="/images/ui-elements/photo.png" alt="photo">
+      <img src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame" class="bottom-left-frame">
+      <img src="/images/ui-elements/top-right-frame.png" alt="top-right-frame" class="top-right-frame">
+      <img src="/images/ui-elements/smile.svg" alt="smile" class="smile">
+      <img src="/images/ui-elements/photo.png" alt="photo" class="photo">
     </div>
     <div class="ddb-second-block__container">
       <div class="ddb-second-block__element__heading">
-        <h2 class="ddb-second-block__element__heading__text">Всем привет!</h2>
+        <h3 class="ddb-second-block__element__heading__text">Всем привет!</h3>
         <img src="/images/ui-elements/smile.png" class="ddb-second-block__element__heading__smile" alt="smile">
       </div>
       <div class="ddb-second-block__element">
@@ -26,7 +29,8 @@
       </div>
       <div class="ddb-second-block__element__last">
         <h3 class="ddb-second-block__element__last__text">Оценить работы</h3>
-        <img src="/images/ui-elements/second-block-line.png" class="ddb-second-block__element__last__line" alt="second-block">
+        <img src="/images/ui-elements/second-block-line.png" class="ddb-second-block__element__last__line"
+             alt="second-block">
       </div>
     </div>
   </div>
@@ -47,49 +51,89 @@
 
   .ddb-second-block-photo {
     margin: 30px;
+    position: relative;
+    width: 472px;
+    height: 768px;
+  }
+
+  .bottom-left-frame {
+    position: absolute;
+    left: -23px;
+    bottom: -23px;
+  }
+
+  .top-right-frame {
+    position: absolute;
+    right: -23px;
+    top: -23px;
+  }
+
+  .smile {
+    position: absolute;
+    right: -23px;
+    bottom: -23px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .photo {
   }
 
   .ddb-second-block__container {
+    text-align: left;
     width: 100%;
     display: flex;
     flex-direction: column;
   }
 
   .ddb-second-block__element {
-    margin: 20px;
+    margin: 4px;
     display: flex;
-    text-align: left;
-    font-size: 24px;
-    line-height: 50px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    align-items: center;
   }
 
   .ddb-second-block__element__heading {
     display: flex;
-    justify-content: center;
+    font-size: 21px;
+    line-height: 24px;
     align-items: center;
   }
-
-  .ddb-second-block__element__heading__text {
-    font-size: 30px;
-    margin: 20px;
+  .ddb-second-block__element__heading__text{
+    font-weight: 600;
+  }
+  .ddb-second-block__element__heading__smile {
+    width: 20px;
+    height: 20px;
   }
 
   .ddb-second-block__element__last {
-    text-align: left;
     margin: 20px;
+    width: 216px;
+    height: 48px;
   }
 
   .ddb-second-block__element__last__text {
     margin: 0;
-    font-size: 40px;
+    width: 216px;
+    height: 48px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 48px;
   }
 
   .ddb-second-block__element__last__line {
-    width: 45%;
+    margin: 0;
+    width: 80%;
   }
 
+
+
   @include for-desktop-up {
-    .ddb-second-block{
+    .ddb-second-block {
       padding-top: 80px;
     }
   }
@@ -98,8 +142,17 @@
     .ddb-second-block__element__heading__smile {
       display: none;
     }
+
     .ddb-second-block__element {
-      line-height: normal;
+      margin: 10px;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 40px;
+    }
+    .ddb-second-block__element__heading {
+      display: flex;
+      font-size: 42px;
+      line-height: 48px;
     }
   }
 
