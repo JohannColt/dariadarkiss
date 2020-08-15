@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import DDBSecondBlock from "../components/DDBSecondBlock";
+import DDBAboutMe from "../components/DDBAboutMe";
 import DDBMainSlider from "../components/DDBMainSlider";
   export default {
     data() {
@@ -18,7 +18,7 @@ import DDBMainSlider from "../components/DDBMainSlider";
       }
     },
     components: {
-      'ddb-second-block': DDBSecondBlock,
+      'ddb-second-block': DDBAboutMe,
       'ddb-main-slider': DDBMainSlider
     },
     computed: {
