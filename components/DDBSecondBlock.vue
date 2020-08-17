@@ -26,7 +26,7 @@
       </div>
       <div class="ddb-second-block__element__last">
         <h3 class="ddb-second-block__element__last__text">Оценить работы</h3>
-        <img src="/images/ui-elements/second-block-line.png" class="ddb-second-block__element__last__line" alt="second-block">
+        <img src="/images/ui-elements/button-line.svg" class="ddb-second-block__element__last__line" alt="second-block">
       </div>
     </div>
   </div>
