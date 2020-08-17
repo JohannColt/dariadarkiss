@@ -5,49 +5,49 @@
       </div>
       <div class="ddb-about-me__photo">
         <transition name="ddb-animation-lb-frames">
-        <img v-if="isVisible" src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame"
+        <img v-if="isActive" src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame"
              class="ddb-about-me__left-side__bottom-left-frame">
         </transition>
         <transition name="ddb-animation-tr-frames">
-        <img v-if="isVisible" src="/images/ui-elements/top-right-frame.png" alt="top-right-frame"
+        <img v-if="isActive" src="/images/ui-elements/top-right-frame.png" alt="top-right-frame"
              class="ddb-about-me__left-side__top-right-frame">
         </transition>
         <transition name="ddb-animation-smile">
-            <img v-if="isVisible" src="/images/ui-elements/smile.svg" alt="smile" class="ddb-about-me__left-side__smile">
+            <img v-if="isActive" src="/images/ui-elements/smile.svg" alt="smile" class="ddb-about-me__left-side__smile">
         </transition>
         <transition name="ddb-animation-photo">
-            <img v-if="isVisible" src="/images/ui-elements/photo.png" alt="photo" class="ddb-about-me__left-side__main">
+            <img v-if="isActive" src="/images/ui-elements/photo.png" alt="photo" class="ddb-about-me__left-side__main">
         </transition>
       </div>
     </div>
     <div class="ddb-about-me__container">
       <transition name="ddb-animation-photo">
-        <div v-if="isVisible" class="ddb-about-me__heading">
+        <div v-if="isActive" class="ddb-about-me__heading">
           <h3 class="ddb-about-me__heading__text">Всем привет!</h3>
           <img src="/images/ui-elements/smile.png" class="ddb-about-me__heading__smile" alt="smile">
         </div>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isVisible" class="ddb-about-me__element">
+        <div v-if="isActive" class="ddb-about-me__element">
           <a>Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
             материального ци</a>
         </div>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isVisible" class="ddb-about-me__element">
+        <div v-if="isActive" class="ddb-about-me__element">
           <a>Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией Гумбольдт
             считал материю, наделенную внутренней активностью, несмотря на это интеллект неоднозначен.</a>
         </div>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isVisible" class="ddb-about-me__element">
+        <div v-if="isActive" class="ddb-about-me__element">
           <a>Наряду с этим свобода раскладывает на элементы гравитационный парадокс. Согласно мнению известных
             философов,
             эклектика нетривиальна.</a>
         </div>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isVisible" class="ddb-about-me__element">
+        <div v-if="isActive" class="ddb-about-me__element">
           <a> Дедуктивный метод, как следует из вышесказанного, индуцирует гедонизм. Априори, отношение к современности
             индуктивно принимает во внимание неоднозначный дуализм. Гравитационный парадокс.</a>
         </div>
@@ -55,16 +55,10 @@
       <div class="ddb-about-me__last">
         <h3 class="ddb-about-me__last__text">Оценить работы</h3>
       </div>
-      <div v-on:click="isVisible=!isVisible" class="ddb-about-me__last-desktop">
+      <div  class="ddb-about-me__last-desktop">
         <transition name="ddb-animation-photo">
-          <div v-if="isVisible">
+          <div v-if="isActive">
             <h3 class="ddb-about-me__last-desktop__text">Оценить работы</h3>
-          </div>
-        </transition>
-        <transition name="ddb-animation-photo">
-          <div v-if="isVisible">
-            <img src="/images/ui-elements/second-block-line.png" class="ddb-about-me__last-desktop__line"
-                 alt="second-block">
           </div>
         </transition>
       </div>
@@ -76,12 +70,12 @@
   export default {
     name: "DDBAboutMe",
     data() {
-      return {
-        isVisible: false
-      }
     },
-    mounted() {
-      this.isVisible = true
+    props: {
+      isActive: {
+        type: Boolean,
+        default: false
+      }
     }
   }
 </script>
@@ -90,7 +84,7 @@
   .ddb-about-me {
     display: flex;
     height: 100vh;
-    padding-top: 45px;
+    padding-top: 40px;
     &__left-side {
       height: 100vh;
       max-width: 50%;
@@ -166,7 +160,7 @@
     }
     &__element {
       padding-left: 10px;
-      padding-bottom: 10px;
+      padding-bottom: 5px;
       display: flex;
       font-style: normal;
       font-weight: normal;
