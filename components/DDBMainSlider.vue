@@ -325,9 +325,10 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 43px;
+      height: 48px;
       padding: 0 40px;
-      background: $primary-color2;
+      background: transparentize($primary-color2, 0.6);
+      backdrop-filter: blur(10px);
     }
     &__buttons {
       display: flex;

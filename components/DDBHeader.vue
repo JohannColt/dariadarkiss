@@ -22,7 +22,7 @@
         </div>
       </div>
       <transition name="ddb-animation">
-        <header-menu v-if="isActive"></header-menu>
+        <ddb-mobile-menu v-if="isActive"></ddb-mobile-menu>
       </transition>
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>
@@ -33,30 +33,29 @@
         </div>
         <div class="ddb-header__menu">
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button :is-active="true">
               <a href="/" class="default-text">Главная</a>
-            </button>
-            <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop-anchor" alt="anchor-icon">
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Портфолио
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Цены
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Услуги
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Контакты
-            </button>
+            </ddb-button>
           </div>
         </div>
       </div>
@@ -65,11 +64,13 @@
 </template>
 
 <script>
-  import HeaderMenu from "./DDBMobileMenu";
-
+  import DDBMobileMenu from "./DDBMobileMenu";
+  import DDBButton from "@/components/DDBButton";
   export default {
     name: "ddb-header",
-    components: {HeaderMenu},
+    components: {
+      'ddb-mobile-menu': DDBMobileMenu,
+      'ddb-button': DDBButton},
     data() {
       return {
         isActive: false
@@ -85,7 +86,6 @@
     width: 100%;
     position: fixed;
     z-index: 2;
-    opacity: 0.9;
     &__desktop {
       display: none;
     }
@@ -116,7 +116,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary-color2;
+    background-color: transparentize($primary-color2, 0.6);
+    backdrop-filter: blur(10px);
 
   }
 
@@ -154,7 +155,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary-color2;
+    background-color: transparentize($primary-color2, 0.6);
+    backdrop-filter: blur(10px);
   }
 
   .ddb-header__desktop-elem {
@@ -169,7 +171,7 @@
 
   @keyframes ddb-animation {
     0% {
-      transform: translateY(-312px);
+      transform: translateY(-264px);
     }
     100% {
       transform: translateY(0);
