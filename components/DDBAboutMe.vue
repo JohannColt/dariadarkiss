@@ -89,8 +89,8 @@
 <style lang="scss" scoped>
   .ddb-about-me {
     display: flex;
-    height: 100%;
-    padding-top: 43px;
+    height: 100vh;
+    padding-top: 45px;
     &__left-side {
       height: 100vh;
       max-width: 50%;
@@ -140,6 +140,7 @@
 
     &__container {
       text-align: left;
+      align-items: center;
       width: 100%;
       height: 100vh;
       display: flex;
@@ -165,7 +166,7 @@
     }
     &__element {
       padding-left: 10px;
-      margin: auto;
+      padding-bottom: 10px;
       display: flex;
       font-style: normal;
       font-weight: normal;
@@ -179,8 +180,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      margin: auto;
 
       &__text {
         color: white;
