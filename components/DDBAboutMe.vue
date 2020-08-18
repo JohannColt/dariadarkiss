@@ -57,9 +57,10 @@
       </div>
       <div  class="ddb-about-me__last-desktop">
         <transition name="ddb-animation-photo">
-          <div v-if="isActive">
-            <h3 class="ddb-about-me__last-desktop__text">Оценить работы</h3>
-          </div>
+          <ddb-button>
+            <h4 class="ddb-about-me__last-desktop__text">Оценить работы</h4>
+            <img class="ddb-about-me__last-desktop__line" src="images/ui-elements/button-line.png">
+          </ddb-button>
         </transition>
       </div>
     </div>
@@ -67,24 +68,30 @@
 </template>
 
 <script>
+  import DDBButton from "./DDBButton";
   export default {
     name: "DDBAboutMe",
-    data() {
-    },
+    components: {
+      'ddb-button': DDBButton},
     props: {
       isActive: {
         type: Boolean,
         default: false
       }
+    },
+    mounted(){
+      if (window.innerWidth < 1200) {
+        this.isActive = true;
+      }
     }
   }
+
 </script>
 
 <style lang="scss" scoped>
   .ddb-about-me {
     display: flex;
-    height: 100vh;
-    padding-top: 40px;
+    padding-top: 20px;
     &__left-side {
       height: 100vh;
       max-width: 50%;
@@ -124,6 +131,7 @@
       background-color: $primary-color3;
     }
     &__photo {
+      margin-top: 40px;
       position: relative;
       display: flex;
       padding-left: 40px;
@@ -142,11 +150,12 @@
     }
 
     &__heading {
-      padding-left: 10px;
+      width: 100%;
+      padding: 8px 20px;
       display: flex;
       font-size: 21px;
       line-height: 24px;
-      align-items: center;
+      justify-content: left;
 
       &__text {
         margin: 0;
@@ -159,8 +168,7 @@
       }
     }
     &__element {
-      padding-left: 10px;
-      padding-bottom: 5px;
+      padding: 8px 20px;
       display: flex;
       font-style: normal;
       font-weight: normal;
@@ -169,6 +177,8 @@
       align-items: center;
     }
     &__last {
+      padding: 8px 20px;
+      height: 56px;
       width: 90%;
       background-color: $primary-color1;
       display: flex;
@@ -185,34 +195,39 @@
     }
 
     &__last-desktop {
-      margin: 20px;
-      width: 216px;
-      height: 48px;
+      padding: 8px 20px;
+      width: 100%;
       display: none;
+      position: relative;
+
 
       &__text {
         margin: 0;
         width: 216px;
         height: 48px;
+        font-style: normal;
         font-weight: 600;
         font-size: 20px;
         line-height: 48px;
       }
 
       &__line {
-        margin: 0;
-        height: 1px;
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
         width: 80%;
+        height: 1px;
       }
     }
   }
 
   @include for-desktop-up {
     .ddb-about-me {
+      height: 100vh;
       padding-top: 80px;
 
       &__element {
-        margin: 10px;
         font-weight: normal;
         font-size: 20px;
         line-height: 40px;
@@ -234,8 +249,6 @@
 
       &__last-desktop {
         display: flex;
-        flex-direction: column;
-        justify-content: left;
         align-items: start;
       }
 
