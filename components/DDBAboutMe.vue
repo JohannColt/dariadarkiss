@@ -257,6 +257,26 @@
       }
     }
   }
+  @include for-medium-desktop-up{
+    .ddb-about-me{
+      &__heading{
+        padding: 12px 30px;
+      }
+      &__element{
+        padding: 12px 30px;
+      }
+      &__last-desktop{
+        padding: 20px 30px;
+        &__text{
+          width: 240px;
+          font-size: 25px;
+        }
+      }
+      &__photo{
+        margin-left: 60px;
+      }
+    }
+  }
 
   @keyframes ddb-animation-photo {
     0% {
