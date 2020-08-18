@@ -3,10 +3,10 @@
     <div class="ddb-header__mobile">
       <div class="ddb-header__container">
         <div class="ddb-header__burger">
-          <button v-if="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
+          <button v-show="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
             <img src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
           </button>
-          <button v-if="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
+          <button v-show="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
             <img src="/images/ui-elements/arrow.svg" alt="burger-icon">
           </button>
         </div>

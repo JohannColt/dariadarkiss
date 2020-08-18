@@ -32,6 +32,7 @@
     justify-content: center;
     background-color: transparentize($primary-color2, 0.6);
     backdrop-filter: blur(10px);
+    border-top: 1px solid rgba($primary-color1, 0.2);
   }
 
   .ddb-header__menu__elem {
@@ -49,6 +50,4 @@
     }
   }
 
-  .ddb-header__menu__text {
-  }
 </style>
