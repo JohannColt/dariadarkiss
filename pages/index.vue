@@ -14,7 +14,8 @@ import DDBMainSlider from "../components/DDBMainSlider";
     data() {
       return {
         maxItems: 1,
-        currentItem: 0
+        currentItem: 0,
+        isMobile: false
       }
     },
     components: {
@@ -30,31 +31,52 @@ import DDBMainSlider from "../components/DDBMainSlider";
           if (this.currentItem === this.maxItems) {
             return
           }
-          this.currentItem ++;
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+          this.currentItem++;
+          this.refreshTranslateY();
         } else {
           if (this.currentItem === 0) {
             return
           }
-          this.currentItem --;
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + y + 'vh)';
+          this.currentItem--;
+          this.refreshTranslateY();
         }
+      },
+      refreshTranslateY() {
+        const y = this.currentItem * 100;
+        this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+      },
+      addEventListeners() {
+        if ('onwheel' in document) {
+          window.addEventListener("wheel", this.onWheel);
+        } else if ('onmousewheel' in document) {
+          window.addEventListener("mousewheel", this.onWheel);
+        } else {
+          window.addEventListener("MozMousePixelScroll", this.onWheel); // Firefox < 17
+        }
+      },
+      removeEventListeners() {
+        this.currentItem = 0;
+        this.refreshTranslateY();
+        window.removeEventListener("wheel", this.onWheel);
+        window.removeEventListener("mousewheel", this.onWheel);
+        window.removeEventListener("MozMousePixelScroll", this.onWheel);
       }
     },
     mounted() {
+      window.addEventListener('resize', () => {
+        if (window.innerWidth < 1200 && !this.isMobile) {
+          this.isMobile = true;
+          this.removeEventListeners();
+        } else if (window.innerWidth >= 1200 && this.isMobile) {
+          this.isMobile = false;
+          this.addEventListeners();
+        }
+      })
       if (window.innerWidth < 1200) {
+        this.isMobile = true;
         return;
       }
-      if ('onwheel' in document) {
-        window.addEventListener("wheel", this.onWheel);
-      } else if ('onmousewheel' in document) {
-        window.addEventListener("mousewheel", this.onWheel);
-      } else {
-        // Firefox < 17
-        window.addEventListener("MozMousePixelScroll", this.onWheel);
-      }
+      this.addEventListeners();
     }
   }
 </script>
@@ -72,7 +94,7 @@ import DDBMainSlider from "../components/DDBMainSlider";
   .main-page {
     height: 100%;
   }
-  @include for-desktop-up {
+  @include for-extra-large {
     .main-page {
       width: 100%;
       transition: 1s;

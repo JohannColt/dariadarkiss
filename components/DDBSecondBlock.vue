@@ -88,7 +88,7 @@
     width: 45%;
   }
 
-  @include for-desktop-up {
+  @include for-extra-large {
     .ddb-second-block{
       padding-top: 80px;
     }

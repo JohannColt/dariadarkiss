@@ -7,9 +7,9 @@
 @mixin for-medium {
   @media (min-width: 768px) { @content; }
 }
-@mixin for-desktop-up {
+@mixin for-large {
   @media (min-width: 992px) { @content; }
 }
-@mixin for-big-desktop-up {
+@mixin for-extra-large {
   @media (min-width: 1200px) { @content; }
 }
