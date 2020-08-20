@@ -90,6 +90,7 @@
       this.elements[this.currentIndex].classList.add(this.activeClassName);
       window.addEventListener('mouseup', this.mouseUp);
       window.addEventListener('touchend', this.mouseUp);
+      window.addEventListener('resize', this.progress);
 
       if (window.innerWidth < 1200) {
         this.showBottom = true
@@ -112,13 +113,13 @@
       },
       progress() {
         const pieces = this.autoplayDelay / 5;
-        const pixelsByIter = window.innerWidth / pieces;
-        this.progressWidth += pixelsByIter;
-        this.progressBar.style.width = this.progressWidth + 'px';
+        const percentsByIter = 100 / pieces;
+        this.progressWidth += percentsByIter;
+        this.progressBar.style.width = this.progressWidth + '%';
       },
       refreshWidth() {
         this.progressWidth = 0
-        this.progressBar.style.width = this.progressWidth + 'px';
+        this.progressBar.style.width = this.progressWidth + '%';
       },
       refreshDistance() {
         this.distance = 0;
@@ -369,7 +370,7 @@
     transition: all 0.3s ease;
   }
 
-  @include for-desktop-up {
+  @include for-extra-large {
     .ddb-main-slider {
       &__switcher {
         height: 80px;

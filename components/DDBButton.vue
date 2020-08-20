@@ -34,7 +34,7 @@ export default {
       display: none;
     }
   }
-  @include for-desktop-up {
+  @include for-extra-large {
     .ddb-button {
       &__line {
         display: block;
@@ -45,8 +45,9 @@ export default {
       &:before, &:after {
         content: '';
         width: 0;
+        height: 1px;
         position: absolute;
-        border-top: 0 solid $primary-color1;
+        border-top: 1px solid $primary-color1;
         transition: width 1s, border-top-width 1s;
       }
       &:before {
@@ -54,12 +55,11 @@ export default {
         right: 0;
       }
       &:after {
-        bottom: 1px;
+        bottom: 0;
         left: 0;
       }
       &:hover {
         &:before, &:after {
-          border-width: 1px;
           width: 100%;
         }
       }

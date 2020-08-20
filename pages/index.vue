@@ -2,24 +2,25 @@
   <section class="container">
     <div class="main-page" ref="main">
       <ddb-main-slider/>
-      <ddb-second-block v-bind:is-active="ddbAboutMeIsActive"/>
+      <ddb-second-block  v-bind:is-active="ddbAboutMeIsActive"/>
     </div>
   </section>
 </template>
 
 <script>
-import DDBAboutMe from "../components/DDBAboutMe";
+import DDBSecondBlock from "../components/DDBSecondBlock";
 import DDBMainSlider from "../components/DDBMainSlider";
   export default {
     data() {
       return {
         maxItems: 1,
         currentItem: 0,
-        ddbAboutMeIsActive: false
+        ddbAboutMeIsActive: false,
+        isMobile: false
       }
     },
     components: {
-      'ddb-second-block': DDBAboutMe,
+      'ddb-second-block': DDBSecondBlock,
       'ddb-main-slider': DDBMainSlider
     },
     computed: {
@@ -35,8 +36,7 @@ import DDBMainSlider from "../components/DDBMainSlider";
           if(this.currentItem ===1){
             this.ddbAboutMeIsActive = true;
           }
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+          this.refreshTranslateY();
         } else {
           if (this.currentItem === 0) {
             return
