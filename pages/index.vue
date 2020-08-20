@@ -2,14 +2,15 @@
   <section class="container">
     <div class="main-page" ref="main">
       <ddb-main-slider/>
-      <ddb-second-block  v-bind:is-active="ddbAboutMeIsActive"/>
+      <ddb-about-me v-bind:is-active="ddbAboutMeIsActive"/>
     </div>
   </section>
 </template>
 
 <script>
-import DDBSecondBlock from "../components/DDBSecondBlock";
-import DDBMainSlider from "../components/DDBMainSlider";
+  import DDBAboutMe from "../components/DDBAboutMe";
+  import DDBMainSlider from "../components/DDBMainSlider";
+
   export default {
     data() {
       return {
@@ -20,11 +21,10 @@ import DDBMainSlider from "../components/DDBMainSlider";
       }
     },
     components: {
-      'ddb-second-block': DDBSecondBlock,
+      'ddb-about-me': DDBAboutMe,
       'ddb-main-slider': DDBMainSlider
     },
-    computed: {
-    },
+    computed: {},
     methods: {
       onWheel(e) {
         const delta = e.deltaY || e.detail || e.wheelDelta;
@@ -32,8 +32,8 @@ import DDBMainSlider from "../components/DDBMainSlider";
           if (this.currentItem === this.maxItems) {
             return
           }
-          this.currentItem ++;
-          if(this.currentItem ===1){
+          this.currentItem++;
+          if (this.currentItem === 1) {
             this.ddbAboutMeIsActive = true;
           }
           this.refreshTranslateY();
@@ -41,24 +41,47 @@ import DDBMainSlider from "../components/DDBMainSlider";
           if (this.currentItem === 0) {
             return
           }
-          this.currentItem --;
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + y + 'vh)';
+          this.currentItem--;
+          this.refreshTranslateY();
         }
+      },
+      refreshTranslateY() {
+        const y = this.currentItem * 100;
+        this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+      },
+      addEventListeners() {
+        if ('onwheel' in document) {
+          window.addEventListener("wheel", this.onWheel);
+        } else if ('onmousewheel' in document) {
+          window.addEventListener("mousewheel", this.onWheel);
+        } else {
+          window.addEventListener("MozMousePixelScroll", this.onWheel); // Firefox < 17
+        }
+      },
+      removeEventListeners() {
+        this.currentItem = 0;
+        this.refreshTranslateY();
+        window.removeEventListener("wheel", this.onWheel);
+        window.removeEventListener("mousewheel", this.onWheel);
+        window.removeEventListener("MozMousePixelScroll", this.onWheel);
       }
+
     },
     mounted() {
+      window.addEventListener('resize', () => {
+        if (window.innerWidth < 1200 && !this.isMobile) {
+          this.isMobile = true;
+          this.removeEventListeners();
+        } else if (window.innerWidth >= 1200 && this.isMobile) {
+          this.isMobile = false;
+          this.addEventListeners();
+        }
+      })
       if (window.innerWidth < 1200) {
+        this.isMobile = true;
         return;
       }
-      if ('onwheel' in document) {
-        window.addEventListener("wheel", this.onWheel);
-      } else if ('onmousewheel' in document) {
-        window.addEventListener("mousewheel", this.onWheel);
-      } else {
-        // Firefox < 17
-        window.addEventListener("MozMousePixelScroll", this.onWheel);
-      }
+      this.addEventListeners();
     }
   }
 </script>
@@ -73,10 +96,12 @@ import DDBMainSlider from "../components/DDBMainSlider";
     align-items: center;
     text-align: center;
   }
+
   .main-page {
     height: 100%;
   }
-  @include for-desktop-up {
+
+  @include for-extra-large {
     .main-page {
       width: 100%;
       transition: 1s;

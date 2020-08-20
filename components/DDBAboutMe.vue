@@ -5,59 +5,53 @@
       </div>
       <div class="ddb-about-me__photo">
         <transition name="ddb-animation-lb-frames">
-        <img v-if="isActive" src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame"
-             class="ddb-about-me__left-side__bottom-left-frame">
+          <img v-if="isFramesActive" src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame"
+               class="ddb-about-me__left-side__bottom-left-frame">
         </transition>
         <transition name="ddb-animation-tr-frames">
-        <img v-if="isActive" src="/images/ui-elements/top-right-frame.png" alt="top-right-frame"
-             class="ddb-about-me__left-side__top-right-frame">
+          <img v-if="isFramesActive" src="/images/ui-elements/top-right-frame.png" alt="top-right-frame"
+               class="ddb-about-me__left-side__top-right-frame">
         </transition>
         <transition name="ddb-animation-smile">
-            <img v-if="isActive" src="/images/ui-elements/smile.svg" alt="smile" class="ddb-about-me__left-side__smile">
+          <img v-if="isSmileActive" src="/images/ui-elements/smile.svg" alt="smile" class="ddb-about-me__left-side__smile">
         </transition>
         <transition name="ddb-animation-photo">
-            <img v-if="isActive" src="/images/ui-elements/photo.png" alt="photo" class="ddb-about-me__left-side__main">
+          <img v-if="isPhotoActive" src="/images/ui-elements/photo.png" alt="photo" class="ddb-about-me__left-side__main">
         </transition>
       </div>
     </div>
     <div class="ddb-about-me__container">
       <transition name="ddb-animation-photo">
-        <div v-if="isActive" class="ddb-about-me__heading">
+        <div v-if="isHeadingActive" class="ddb-about-me__heading">
           <h3 class="ddb-about-me__heading__text">Всем привет!</h3>
           <img src="/images/ui-elements/smile.png" class="ddb-about-me__heading__smile" alt="smile">
         </div>
       </transition>
+      <div>
       <transition name="ddb-animation-photo">
-        <div v-if="isActive" class="ddb-about-me__element">
-          <a>Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
-            материального ци</a>
-        </div>
+          <p v-if="isFirstElemActive" class="ddb-about-me__element">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
+            материального ци</p>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isActive" class="ddb-about-me__element">
-          <a>Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией Гумбольдт
-            считал материю, наделенную внутренней активностью, несмотря на это интеллект неоднозначен.</a>
-        </div>
+          <p v-if="isSecondElemActive" class="ddb-about-me__element">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией Гумбольдт
+            считал материю, наделенную внутренней активностью, несмотря на это интеллект неоднозначен.</p>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isActive" class="ddb-about-me__element">
-          <a>Наряду с этим свобода раскладывает на элементы гравитационный парадокс. Согласно мнению известных
+          <p v-if="isThirdElemActive" class="ddb-about-me__element">Наряду с этим свобода раскладывает на элементы гравитационный парадокс. Согласно мнению известных
             философов,
-            эклектика нетривиальна.</a>
-        </div>
+            эклектика нетривиальна.</p>
       </transition>
       <transition name="ddb-animation-photo">
-        <div v-if="isActive" class="ddb-about-me__element">
-          <a> Дедуктивный метод, как следует из вышесказанного, индуцирует гедонизм. Априори, отношение к современности
-            индуктивно принимает во внимание неоднозначный дуализм. Гравитационный парадокс.</a>
-        </div>
+          <p v-if="isFourthElemActive" class="ddb-about-me__element"> Дедуктивный метод, как следует из вышесказанного, индуцирует гедонизм. Априори, отношение к современности
+            индуктивно принимает во внимание неоднозначный дуализм. Гравитационный парадокс.</p>
       </transition>
+      </div>
       <div class="ddb-about-me__last">
         <h3 class="ddb-about-me__last__text">Оценить работы</h3>
       </div>
-      <div  class="ddb-about-me__last-desktop">
+      <div class="ddb-about-me__last-desktop">
         <transition name="ddb-animation-photo">
-          <ddb-button>
+          <ddb-button v-if="isLastActive">
             <h4 class="ddb-about-me__last-desktop__text">Оценить работы</h4>
             <img class="ddb-about-me__last-desktop__line" src="images/ui-elements/button-line.png">
           </ddb-button>
@@ -69,19 +63,77 @@
 
 <script>
   import DDBButton from "./DDBButton";
+
   export default {
     name: "DDBAboutMe",
     components: {
-      'ddb-button': DDBButton},
+      'ddb-button': DDBButton
+    },
+    data() {
+      return {
+        isPhotoActive: false,
+        isHeadingActive: false,
+        isFirstElemActive:false,
+        isSecondElemActive:false,
+        isThirdElemActive:false,
+        isFourthElemActive:false,
+        isSmileActive:false,
+        isLastActive:false,
+        isFramesActive: false,
+
+      }
+    },
     props: {
       isActive: {
         type: Boolean,
         default: false
       }
     },
-    mounted(){
+    mounted() {
       if (window.innerWidth < 1200) {
         this.isActive = true;
+      }
+    },
+    methods :{
+      setIsPhotoActive(){
+        this.isPhotoActive= true;
+      },
+      setIsHeadingActive(){
+        this.isHeadingActive= true;
+      },
+
+      setIsFirstElementActive(){
+        this.isFirstElemActive= true;
+      },
+      setIsSecondElementActive(){
+        this.isSecondElemActive= true;
+      },
+      setIsThirdElementActive(){
+        this.isThirdElemActive= true;
+      },
+      setIsFourthElementAndSmileActive(){
+        this.isFourthElemActive= true;
+        this.isSmileActive= true;
+      },
+      setIsLastActive(){
+        this.isLastActive= true;
+      },
+      setIsFrameActive(){
+        this.isFramesActive= true;
+      },
+    },
+    watch: {
+      isActive: function () {
+        if(window.innerWidth >= 1200 && this.isActive===true){
+          setTimeout(this.setIsPhotoActive,500);
+          setTimeout(this.setIsHeadingActive,1000);
+          setTimeout(this.setIsFirstElementActive,1500);
+          setTimeout(this.setIsSecondElementActive,2000);
+          setTimeout(this.setIsThirdElementActive,2500);
+          setTimeout(this.setIsFourthElementAndSmileActive,3000);
+          setTimeout(this.setIsLastActive,3500);
+          setTimeout(this.setIsFrameActive,4000);
+        }
       }
     }
   }
@@ -92,6 +144,7 @@
   .ddb-about-me {
     display: flex;
     padding-top: 20px;
+
     &__left-side {
       height: 100vh;
       max-width: 50%;
@@ -125,11 +178,15 @@
         max-height: 768px;
       }
     }
-    &__yellow-line{
+
+    &__yellow-line {
+      position: absolute;
+      left: 0;
       height: 100vh;
       width: 64px;
       background-color: $primary-color3;
     }
+
     &__photo {
       margin-top: 40px;
       position: relative;
@@ -141,6 +198,7 @@
     }
 
     &__container {
+      padding: 8px 20px;
       text-align: left;
       align-items: center;
       width: 100%;
@@ -151,7 +209,6 @@
 
     &__heading {
       width: 100%;
-      padding: 8px 20px;
       display: flex;
       font-size: 21px;
       line-height: 24px;
@@ -167,8 +224,8 @@
         height: 20px;
       }
     }
+
     &__element {
-      padding: 8px 20px;
       display: flex;
       font-style: normal;
       font-weight: normal;
@@ -176,8 +233,8 @@
       line-height: 24px;
       align-items: center;
     }
+
     &__last {
-      padding: 8px 20px;
       height: 56px;
       width: 90%;
       background-color: $primary-color1;
@@ -195,7 +252,6 @@
     }
 
     &__last-desktop {
-      padding: 8px 20px;
       width: 100%;
       display: none;
       position: relative;
@@ -222,10 +278,18 @@
     }
   }
 
-  @include for-desktop-up {
+  @include for-extra-large {
     .ddb-about-me {
       height: 100vh;
       padding-top: 80px;
+
+      &__photo {
+        margin-left: 60px;
+      }
+
+      &__container {
+        padding: 12px 30px;
+      }
 
       &__element {
         font-weight: normal;
@@ -250,6 +314,12 @@
       &__last-desktop {
         display: flex;
         align-items: start;
+        padding: 20px 30px;
+
+        &__text {
+          width: 240px;
+          font-size: 25px;
+        }
       }
 
       &__left-side {
@@ -257,26 +327,7 @@
       }
     }
   }
-  @include for-medium-desktop-up{
-    .ddb-about-me{
-      &__heading{
-        padding: 12px 30px;
-      }
-      &__element{
-        padding: 12px 30px;
-      }
-      &__last-desktop{
-        padding: 20px 30px;
-        &__text{
-          width: 240px;
-          font-size: 25px;
-        }
-      }
-      &__photo{
-        margin-left: 60px;
-      }
-    }
-  }
+
 
   @keyframes ddb-animation-photo {
     0% {
@@ -300,7 +351,7 @@
     0% {
       transform: translate(-312px, 312px);
     }
-    100%{
+    100% {
       transform: translate(0);
     }
   }
@@ -309,7 +360,7 @@
     0% {
       transform: translate(312px, -312px);
     }
-    100%{
+    100% {
       transform: translate(0);
     }
   }
@@ -330,19 +381,19 @@
     animation: ddb-animation-smile 3s reverse;
   }
 
-  .ddb-animation-tr-frames-enter-active{
+  .ddb-animation-tr-frames-enter-active {
     animation: ddb-animation-tr-frames 3s;
   }
 
-  .ddb-animation-tr-frames-leave-active{
+  .ddb-animation-tr-frames-leave-active {
     animation: ddb-animation-tr-frames 3s reverse;
   }
 
-  .ddb-animation-lb-frames-enter-active{
+  .ddb-animation-lb-frames-enter-active {
     animation: ddb-animation-lb-frames 3s;
   }
 
-  .ddb-animation-lb-frames-leave-active{
+  .ddb-animation-lb-frames-leave-active {
     animation: ddb-animation-lb-frames 3s reverse;
   }
 
