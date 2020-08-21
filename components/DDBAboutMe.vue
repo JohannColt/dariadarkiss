@@ -21,27 +21,27 @@
       </div>
     </div>
     <div class="ddb-about-me__container">
-      <transition name="ddb-animation-photo">
+      <transition name="ddb-animation-elements">
         <div v-if="isHeadingActive" class="ddb-about-me__heading">
           <h3 class="ddb-about-me__heading__text">Всем привет!</h3>
           <img src="/images/ui-elements/smile.png" class="ddb-about-me__heading__smile" alt="smile">
         </div>
       </transition>
       <div>
-      <transition name="ddb-animation-photo">
+      <transition name="ddb-animation-elements">
           <p v-if="isFirstElemActive" class="ddb-about-me__element">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
             материального ци</p>
       </transition>
-      <transition name="ddb-animation-photo">
+      <transition name="ddb-animation-elements">
           <p v-if="isSecondElemActive" class="ddb-about-me__element">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией Гумбольдт
             считал материю, наделенную внутренней активностью, несмотря на это интеллект неоднозначен.</p>
       </transition>
-      <transition name="ddb-animation-photo">
+      <transition name="ddb-animation-elements">
           <p v-if="isThirdElemActive" class="ddb-about-me__element">Наряду с этим свобода раскладывает на элементы гравитационный парадокс. Согласно мнению известных
             философов,
             эклектика нетривиальна.</p>
       </transition>
-      <transition name="ddb-animation-photo">
+      <transition name="ddb-animation-elements">
           <p v-if="isFourthElemActive" class="ddb-about-me__element"> Дедуктивный метод, как следует из вышесказанного, индуцирует гедонизм. Априори, отношение к современности
             индуктивно принимает во внимание неоднозначный дуализм. Гравитационный парадокс.</p>
       </transition>
@@ -50,7 +50,7 @@
         <h3 class="ddb-about-me__last__text">Оценить работы</h3>
       </div>
       <div class="ddb-about-me__last-desktop">
-        <transition name="ddb-animation-photo">
+        <transition name="ddb-animation-elements">
           <ddb-button v-if="isLastActive">
             <h4 class="ddb-about-me__last-desktop__text">Оценить работы</h4>
             <img class="ddb-about-me__last-desktop__line" src="images/ui-elements/button-line.png">
@@ -125,14 +125,14 @@
     watch: {
       isActive: function () {
         if(window.innerWidth >= 1200 && this.isActive===true){
-          setTimeout(this.setIsPhotoActive,500);
-          setTimeout(this.setIsHeadingActive,1000);
-          setTimeout(this.setIsFirstElementActive,1500);
-          setTimeout(this.setIsSecondElementActive,2000);
-          setTimeout(this.setIsThirdElementActive,2500);
-          setTimeout(this.setIsFourthElementAndSmileActive,3000);
-          setTimeout(this.setIsLastActive,3500);
-          setTimeout(this.setIsFrameActive,4000);
+          setTimeout(this.setIsPhotoActive,1000);
+          setTimeout(this.setIsHeadingActive,2000);
+          setTimeout(this.setIsFirstElementActive,3000);
+          setTimeout(this.setIsSecondElementActive,4000);
+          setTimeout(this.setIsThirdElementActive,5000);
+          setTimeout(this.setIsFourthElementAndSmileActive,6000);
+          setTimeout(this.setIsLastActive,7000);
+          setTimeout(this.setIsFrameActive,8000);
         }
       }
     }
@@ -155,12 +155,14 @@
         position: absolute;
         left: 17px;
         bottom: -23px;
+        z-index: 1;
       }
 
       &__top-right-frame {
         position: absolute;
         right: 17px;
         top: -23px;
+        z-index: 1;
       }
 
       &__smile {
@@ -169,6 +171,7 @@
         bottom: -2%;
         width: 80px;
         height: 80px;
+        z-index: 3;
       }
 
       &__main {
@@ -176,6 +179,7 @@
         display: block;
         max-width: 472px;
         max-height: 768px;
+        z-index: 2;
       }
     }
 
@@ -331,7 +335,7 @@
 
   @keyframes ddb-animation-photo {
     0% {
-      transform: translateX(-312px);
+      transform: translateX(-1200px);
     }
     100% {
       transform: translateX(0);
@@ -340,7 +344,15 @@
 
   @keyframes ddb-animation-smile {
     0% {
-      transform: translateY(312px);
+      transform: translateY(1200px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes ddb-animation-elements {
+    0% {
+      transform: translateX(-360px);
     }
     100% {
       transform: translateX(0);
@@ -366,35 +378,42 @@
   }
 
   .ddb-animation-photo-enter-active {
-    animation: ddb-animation-photo 3s;
+    animation: ddb-animation-photo 1s;
   }
 
   .ddb-animation-photo-leave-active {
-    animation: ddb-animation-photo 3s reverse;
+    animation: ddb-animation-photo 1s reverse;
   }
 
   .ddb-animation-smile-enter-active {
-    animation: ddb-animation-smile 3s;
+    animation: ddb-animation-smile 1s;
   }
 
   .ddb-animation-smile-leave-active {
-    animation: ddb-animation-smile 3s reverse;
+    animation: ddb-animation-smile 1s reverse;
   }
 
   .ddb-animation-tr-frames-enter-active {
-    animation: ddb-animation-tr-frames 3s;
+    animation: ddb-animation-tr-frames 1s;
   }
 
   .ddb-animation-tr-frames-leave-active {
-    animation: ddb-animation-tr-frames 3s reverse;
+    animation: ddb-animation-tr-frames 1s reverse;
   }
 
   .ddb-animation-lb-frames-enter-active {
-    animation: ddb-animation-lb-frames 3s;
+    animation: ddb-animation-lb-frames 1s;
   }
 
   .ddb-animation-lb-frames-leave-active {
-    animation: ddb-animation-lb-frames 3s reverse;
+    animation: ddb-animation-lb-frames 1s reverse;
+  }
+  .ddb-animation-elements-enter-active {
+    animation: ddb-animation-elements 1s;
+  }
+
+  .ddb-animation-elements-leave-active {
+    animation: ddb-animation-elements 1s reverse;
   }
 
 </style>
