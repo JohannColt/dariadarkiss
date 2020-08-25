@@ -1,33 +1,14 @@
 <template>
   <div class="ddb-about-me">
-    <div class="ddb-about-me__left-side">
-      <div class="ddb-about-me__yellow-line">
-      </div>
-      <div class="ddb-about-me__photo">
-        <transition name="ddb-animation-lb-frames">
-          <img v-if="isFramesActive" src="/images/ui-elements/bottom-left-frame.png" alt="bottom-left-frame"
-               class="ddb-about-me__left-side__bottom-left-frame">
-        </transition>
-        <transition name="ddb-animation-tr-frames">
-          <img v-if="isFramesActive" src="/images/ui-elements/top-right-frame.png" alt="top-right-frame"
-               class="ddb-about-me__left-side__top-right-frame">
-        </transition>
-        <transition name="ddb-animation-smile">
-          <img v-if="isSmileActive" src="/images/ui-elements/smile.svg" alt="smile" class="ddb-about-me__left-side__smile">
-        </transition>
-        <transition name="ddb-animation-photo">
-          <img v-if="isPhotoActive" src="/images/ui-elements/photo.png" alt="photo" class="ddb-about-me__left-side__main">
-        </transition>
-      </div>
-    </div>
     <div class="ddb-about-me__container">
+      <div class="ddb-about-me__left-side">
       <transition name="ddb-animation-elements">
         <div v-if="isHeadingActive" class="ddb-about-me__heading">
           <h3 class="ddb-about-me__heading__text">Всем привет!</h3>
           <img src="/images/ui-elements/smile.png" class="ddb-about-me__heading__smile" alt="smile">
         </div>
       </transition>
-      <div>
+      <div class="ddb-about-me__elements-container">
       <transition name="ddb-animation-elements">
           <p v-if="isFirstElemActive" class="ddb-about-me__element">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и
             материального ци</p>
@@ -56,6 +37,12 @@
             <img class="ddb-about-me__last-desktop__line" src="images/ui-elements/button-line.png">
           </ddb-button>
         </transition>
+      </div>
+      </div>
+      <div class="ddb-about-me__right-side">
+        <img class="ddb-about-me__left-photo" src="images/ui-elements/left-photo.svg">
+        <img class="ddb-about-me__central-photo" src="images/ui-elements/central-photo.svg">
+        <img class="ddb-about-me__right-photo" src="images/ui-elements/right-photo.svg">
       </div>
     </div>
   </div>
@@ -143,64 +130,6 @@
 <style lang="scss" scoped>
   .ddb-about-me {
     display: flex;
-    padding-top: 20px;
-
-    &__left-side {
-      height: 100vh;
-      max-width: 50%;
-      position: relative;
-      display: none;
-
-      &__bottom-left-frame {
-        position: absolute;
-        left: 17px;
-        bottom: -23px;
-        z-index: 1;
-      }
-
-      &__top-right-frame {
-        position: absolute;
-        right: 17px;
-        top: -23px;
-        z-index: 1;
-      }
-
-      &__smile {
-        position: absolute;
-        right: 2%;
-        bottom: -2%;
-        width: 80px;
-        height: 80px;
-        z-index: 3;
-      }
-
-      &__main {
-        object-fit: cover;
-        display: block;
-        max-width: 472px;
-        max-height: 768px;
-        z-index: 2;
-      }
-    }
-
-    &__yellow-line {
-      position: absolute;
-      left: 0;
-      height: 100vh;
-      width: 64px;
-      background-color: $primary-color3;
-    }
-
-    &__photo {
-      margin-top: 40px;
-      position: relative;
-      display: flex;
-      padding-left: 40px;
-      padding-right: 40px;
-      max-height: 768px;
-      height: 90%;
-    }
-
     &__container {
       padding: 8px 20px;
       text-align: left;
@@ -208,7 +137,19 @@
       width: 100%;
       height: 100vh;
       display: flex;
+    }
+
+    &__left-side {
+      height: 100%;
+      display: flex;
       flex-direction: column;
+      width: 40%;
+    }
+
+    &__right-side {
+      width: 60%;
+      display: flex;
+      height: 100%;
     }
 
     &__heading {
@@ -229,13 +170,17 @@
       }
     }
 
-    &__element {
+    &__elements-container{
       display: flex;
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
       align-items: center;
+      flex-direction: column;
+    }
+    &__element {
+
     }
 
     &__last {
@@ -280,25 +225,42 @@
         height: 1px;
       }
     }
+    &__right-side {
+      display: flex;
+      position: relative;
+    }
+    &__left-photo {
+     position: absolute;
+      z-index: 1;
+      left: 0;
+      top: -5%;
+    }
+    &__central-photo {
+      z-index: 2;
+      position: absolute;
+      left: 25%;
+      bottom: 0;
+    }
+    &__right-photo {
+      z-index: 1;
+      position: absolute;
+      top:0;
+      right: -10%;
+    }
   }
 
   @include for-extra-large {
     .ddb-about-me {
       height: 100vh;
-      padding-top: 80px;
-
-      &__photo {
-        margin-left: 60px;
-      }
 
       &__container {
-        padding: 12px 30px;
+        padding: 90px 104px;
+        display: flex;
       }
-
-      &__element {
+      &__elements-container{
         font-weight: normal;
-        font-size: 20px;
-        line-height: 40px;
+        font-size: 16px;
+        line-height: 32px;
       }
 
       &__heading {
@@ -324,10 +286,6 @@
           width: 240px;
           font-size: 25px;
         }
-      }
-
-      &__left-side {
-        display: flex;
       }
     }
   }
