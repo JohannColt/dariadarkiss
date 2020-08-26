@@ -122,7 +122,6 @@
   }
 
   .ddb-header__text {
-    color: $primary-color1;
     font-weight: $font-weight-semi-bold;
   }
 
@@ -151,7 +150,7 @@
   }
 
   .ddb-header__desktop-container {
-    height: 64px;
+    height: $header-height-desktop;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -365,7 +365,7 @@
   }
 
   .ddb-animation-bottom-enter {
-    transform: translateY(64px);
+    transform: translateY($header-height-desktop);
   }
   .ddb-animation-bottom-enter-active {
     transition: all 0.3s ease;
@@ -374,10 +374,10 @@
   @include for-desktop-up {
     .ddb-main-slider {
       &__switcher {
-        height: 64px;
+        height: $header-height-desktop;
       }
       &__progress {
-        top: 64px;
+        top: $header-height-desktop;
       }
     }
     .ddb-main-slider__instagram {

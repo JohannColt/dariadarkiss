@@ -37,7 +37,6 @@
 
   .ddb-header__menu__elem {
     text-align: center;
-    color: $primary-color1;
     line-height: 32px;
     padding: 12px;
     font-weight: $font-weight-semi-bold;

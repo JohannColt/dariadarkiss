@@ -1,9 +1,8 @@
 <template>
-  <section class="container">
+  <section class="main-container">
     <div class="main-page" ref="main">
       <ddb-main-slider/>
-      <ddb-second-block/>
-      <ddb-slider/>
+      <ddb-last-work/>
     </div>
   </section>
 </template>
@@ -11,12 +10,12 @@
 <script>
 import DDBSecondBlock from "../components/DDBSecondBlock";
 import DDBMainSlider from "../components/DDBMainSlider";
-import DDBSlider from "@/components/DDBLastWorks";
+import DDBLastWork from "@/components/DDBLastWorks";
 
   export default {
     data() {
       return {
-        maxItems: 2,
+        maxItems: 1,
         currentItem: 0,
         scrolling: false
       }
@@ -24,32 +23,27 @@ import DDBSlider from "@/components/DDBLastWorks";
     components: {
       'ddb-second-block': DDBSecondBlock,
       'ddb-main-slider': DDBMainSlider,
-      'ddb-slider': DDBSlider
-    },
-    computed: {
+      'ddb-last-work': DDBLastWork
     },
     methods: {
       onWheel(e) {
-        if (this.scrolling) {
-          return
-        }
-        this.scrolling = true;
-        setTimeout(() => {this.scrolling = false}, 500)
         const delta = e.deltaY || e.detail || e.wheelDelta;
         if (delta > 0) {
-          if (this.currentItem === this.maxItems) {
-            return
+          if (this.currentItem !== this.maxItems) {
+            this.currentItem++;
+            scrollTo({
+              top: window.innerHeight,
+              behavior: "smooth"
+            });
+            return false;
           }
-          this.currentItem ++;
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
-        } else {
-          if (this.currentItem === 0) {
-            return
-          }
-          this.currentItem --;
-          const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
+        } else if (window.pageYOffset <= window.innerHeight && this.currentItem > 0) {
+          this.currentItem--;
+          scrollTo({
+            top: 0,
+            behavior: "smooth"
+          })
+          return false;
         }
       }
     },
@@ -70,7 +64,7 @@ import DDBSlider from "@/components/DDBLastWorks";
 </script>
 
 <style lang="scss">
-  .container {
+  .main-container {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
@@ -81,6 +75,7 @@ import DDBSlider from "@/components/DDBLastWorks";
   }
   .main-page {
     height: 100%;
+    width: 100%;
   }
   @include for-desktop-up {
     .main-page {
@@ -92,9 +87,6 @@ import DDBSlider from "@/components/DDBLastWorks";
     }
     .main-page--down {
       transform: translateY(-100vh);
-    }
-    .container {
-      overflow: hidden;
     }
   }
 
