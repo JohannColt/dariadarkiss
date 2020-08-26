@@ -94,7 +94,7 @@
       z-index: 3;
     }
     &__desktop-container {
-      padding-left: 40px;
+      padding: 0 90px;
     }
     &__menu {
       display: flex;
@@ -151,7 +151,7 @@
   }
 
   .ddb-header__desktop-container {
-    height: 80px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -163,6 +163,9 @@
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .ddb-header__desktop-anchor {

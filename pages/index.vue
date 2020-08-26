@@ -3,6 +3,7 @@
     <div class="main-page" ref="main">
       <ddb-main-slider/>
       <ddb-second-block/>
+      <ddb-slider/>
     </div>
   </section>
 </template>
@@ -10,21 +11,30 @@
 <script>
 import DDBSecondBlock from "../components/DDBSecondBlock";
 import DDBMainSlider from "../components/DDBMainSlider";
+import DDBSlider from "@/components/DDBLastWorks";
+
   export default {
     data() {
       return {
-        maxItems: 1,
-        currentItem: 0
+        maxItems: 2,
+        currentItem: 0,
+        scrolling: false
       }
     },
     components: {
       'ddb-second-block': DDBSecondBlock,
-      'ddb-main-slider': DDBMainSlider
+      'ddb-main-slider': DDBMainSlider,
+      'ddb-slider': DDBSlider
     },
     computed: {
     },
     methods: {
       onWheel(e) {
+        if (this.scrolling) {
+          return
+        }
+        this.scrolling = true;
+        setTimeout(() => {this.scrolling = false}, 500)
         const delta = e.deltaY || e.detail || e.wheelDelta;
         if (delta > 0) {
           if (this.currentItem === this.maxItems) {
@@ -39,7 +49,7 @@ import DDBMainSlider from "../components/DDBMainSlider";
           }
           this.currentItem --;
           const y = this.currentItem * 100;
-          this.$refs.main.style.transform = 'translateY(' + y + 'vh)';
+          this.$refs.main.style.transform = 'translateY(' + -y + 'vh)';
         }
       }
     },

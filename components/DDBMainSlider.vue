@@ -327,7 +327,7 @@
       bottom: 0;
       width: 100%;
       height: 48px;
-      padding: 0 40px;
+      padding: 0 90px;
       background: transparentize($primary-color2, 0.6);
       backdrop-filter: blur(10px);
     }
@@ -354,6 +354,7 @@
     &__instagram {
       display: none;
       align-items: center;
+      font-weight: 500;
       img {
         height: 24px;
       }
@@ -364,7 +365,7 @@
   }
 
   .ddb-animation-bottom-enter {
-    transform: translateY(80px);
+    transform: translateY(64px);
   }
   .ddb-animation-bottom-enter-active {
     transition: all 0.3s ease;
@@ -373,10 +374,10 @@
   @include for-desktop-up {
     .ddb-main-slider {
       &__switcher {
-        height: 80px;
+        height: 64px;
       }
       &__progress {
-        top: 80px;
+        top: 64px;
       }
     }
     .ddb-main-slider__instagram {
