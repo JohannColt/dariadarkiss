@@ -42,6 +42,7 @@ export default {
       &__header {
         font-size: 2.5em;
         line-height: 3rem;
+        margin-bottom: 24px;
       }
     }
   }

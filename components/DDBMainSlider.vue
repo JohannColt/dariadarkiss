@@ -15,22 +15,24 @@
       </div>
       <transition name="ddb-animation-bottom">
         <div class="ddb-main-slider__switcher" v-if="showBottom">
-          <div class="ddb-main-slider__buttons">
-            <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
-                 v-for="(banner, key) in banners">
-              <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
-              <div v-else class="ddb-main-slider__button"></div>
+          <div class="ddb-main-slider__switcher-container container">
+            <div class="ddb-main-slider__buttons">
+              <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
+                   v-for="(banner, key) in banners">
+                <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
+                <div v-else class="ddb-main-slider__button"></div>
+              </div>
             </div>
-          </div>
-          <div class="ddb-main-slider__instagram">
-            <div class="ddb-main-slider__instagram-link">
+            <div class="ddb-main-slider__instagram">
+              <div class="ddb-main-slider__instagram-link">
+                <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
+                  @dariadarkiss
+                </a>
+              </div>
               <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-                @dariadarkiss
+                <img src="/images/ui-elements/instagram.svg" alt="instagram">
               </a>
             </div>
-            <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-              <img src="/images/ui-elements/instagram.svg" alt="instagram">
-            </a>
           </div>
         </div>
       </transition>
@@ -320,6 +322,13 @@
         animation: unset;
       }
     }
+    &__container {
+      position: relative;
+    }
+    &__switcher-container {
+      display: flex;
+      justify-content: center;
+    }
     &__switcher {
       display: flex;
       justify-content: center;
@@ -376,15 +385,15 @@
       &__switcher {
         height: $header-height-desktop;
       }
+      &__switcher-container {
+        justify-content: space-between;
+      }
       &__progress {
         top: $header-height-desktop;
       }
     }
     .ddb-main-slider__instagram {
       display: flex;
-    }
-    .ddb-main-slider__switcher {
-      justify-content: space-between;
     }
   }
 </style>

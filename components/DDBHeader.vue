@@ -27,7 +27,7 @@
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>
     <div class="ddb-header__desktop">
-      <div class="ddb-header__desktop-container">
+      <div class="ddb-header__desktop-container container">
         <div class="ddb-header__logo">
           <a href="/" class="default-text">DARIADARKISS</a>
         </div>
@@ -87,14 +87,14 @@
     position: fixed;
     z-index: 2;
     &__desktop {
+      justify-content: center;
+      background-color: transparentize($primary-color2, 0.6);
+      backdrop-filter: blur(10px);
       display: none;
     }
     &__container {
       position: relative;
       z-index: 3;
-    }
-    &__desktop-container {
-      padding: 0 90px;
     }
     &__menu {
       display: flex;
@@ -154,8 +154,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: transparentize($primary-color2, 0.6);
-    backdrop-filter: blur(10px);
   }
 
   .ddb-header__desktop-elem {
@@ -195,7 +193,7 @@
         display: none;
       }
       &__desktop {
-        display: block;
+        display: flex;
       }
     }
   }
