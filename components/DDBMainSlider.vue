@@ -15,22 +15,24 @@
       </div>
       <transition name="ddb-animation-bottom">
         <div class="ddb-main-slider__switcher" v-if="showBottom">
-          <div class="ddb-main-slider__buttons">
-            <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
-                 v-for="(banner, key) in banners">
-              <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
-              <div v-else class="ddb-main-slider__button"></div>
+          <div class="ddb-main-slider__switcher-container container">
+            <div class="ddb-main-slider__buttons">
+              <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
+                   v-for="(banner, key) in banners">
+                <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
+                <div v-else class="ddb-main-slider__button"></div>
+              </div>
             </div>
-          </div>
-          <div class="ddb-main-slider__instagram">
-            <div class="ddb-main-slider__instagram-link">
+            <div class="ddb-main-slider__instagram">
+              <div class="ddb-main-slider__instagram-link">
+                <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
+                  @dariadarkiss
+                </a>
+              </div>
               <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-                @dariadarkiss
+                <img src="/images/ui-elements/instagram.svg" alt="instagram">
               </a>
             </div>
-            <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-              <img src="/images/ui-elements/instagram.svg" alt="instagram">
-            </a>
           </div>
         </div>
       </transition>
@@ -320,6 +322,13 @@
         animation: unset;
       }
     }
+    &__container {
+      position: relative;
+    }
+    &__switcher-container {
+      display: flex;
+      justify-content: center;
+    }
     &__switcher {
       display: flex;
       justify-content: center;
@@ -327,7 +336,7 @@
       bottom: 0;
       width: 100%;
       height: 48px;
-      padding: 0 40px;
+      padding: 0 90px;
       background: transparentize($primary-color2, 0.6);
       backdrop-filter: blur(10px);
     }
@@ -354,6 +363,7 @@
     &__instagram {
       display: none;
       align-items: center;
+      font-weight: 500;
       img {
         height: 24px;
       }
@@ -364,26 +374,26 @@
   }
 
   .ddb-animation-bottom-enter {
-    transform: translateY(80px);
+    transform: translateY($header-height-desktop);
   }
   .ddb-animation-bottom-enter-active {
     transition: all 0.3s ease;
   }
 
-  @include for-extra-large {
+  @include for-big-desktop-up {
     .ddb-main-slider {
       &__switcher {
-        height: 80px;
+        height: $header-height-desktop;
+      }
+      &__switcher-container {
+        justify-content: space-between;
       }
       &__progress {
-        top: 80px;
+        top: $header-height-desktop;
       }
     }
     .ddb-main-slider__instagram {
       display: flex;
-    }
-    .ddb-main-slider__switcher {
-      justify-content: space-between;
     }
   }
 </style>

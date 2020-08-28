@@ -34,7 +34,7 @@ export default {
       display: none;
     }
   }
-  @include for-extra-large {
+  @include for-big-desktop-up {
     .ddb-button {
       &__line {
         display: block;

@@ -31,7 +31,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   webfontloader: {
     google: {
-      families: ['Montserrat:400,600,700:cyrillic&display=swap']
+      families: ['Montserrat:400,500,600,700:cyrillic&display=swap']
     }
   },
   /*

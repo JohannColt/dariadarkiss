@@ -27,7 +27,7 @@
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>
     <div class="ddb-header__desktop">
-      <div class="ddb-header__desktop-container">
+      <div class="ddb-header__desktop-container container">
         <div class="ddb-header__logo">
           <a href="/" class="default-text">DARIADARKISS</a>
         </div>
@@ -87,14 +87,14 @@
     position: fixed;
     z-index: 2;
     &__desktop {
+      justify-content: center;
+      background-color: transparentize($primary-color2, 0.6);
+      backdrop-filter: blur(10px);
       display: none;
     }
     &__container {
       position: relative;
       z-index: 3;
-    }
-    &__desktop-container {
-      padding-left: 40px;
     }
     &__menu {
       display: flex;
@@ -122,7 +122,6 @@
   }
 
   .ddb-header__text {
-    color: $primary-color1;
     font-weight: $font-weight-semi-bold;
   }
 
@@ -151,18 +150,19 @@
   }
 
   .ddb-header__desktop-container {
-    height: 80px;
+    height: $header-height-desktop;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: transparentize($primary-color2, 0.6);
-    backdrop-filter: blur(10px);
   }
 
   .ddb-header__desktop-elem {
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .ddb-header__desktop-anchor {
@@ -186,14 +186,14 @@
     animation: ddb-animation 0.3s reverse;
   }
 
-  @include for-extra-large() {
+  @include for-big-desktop-up {
     .ddb-header {
       z-index: 2;
       &__mobile {
         display: none;
       }
       &__desktop {
-        display: block;
+        display: flex;
       }
     }
   }
