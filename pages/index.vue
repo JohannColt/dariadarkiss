@@ -138,7 +138,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .vertical-magnet {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
@@ -158,7 +158,7 @@ export default {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
-@include for-desktop-up {
+@include for-large {
   .vertical-magnet {
     width: 100vw;
     overflow: hidden;
@@ -168,7 +168,6 @@ export default {
   .slide.scrollable {
     overflow-y: scroll;
   }
-
 }
 
 </style>

@@ -20,19 +20,16 @@ html {
   width: 100%;
 }
 
-@include for-desktop-up {
+@include for-large {
   .container {
     max-width: 960px;
   }
 }
 
-@include for-big-desktop-up {
+@include for-extra-large {
   .container {
     max-width: 1260px;
   }
-}
-
-@include for-extra-large {
   html {
     font-size: 16px;
   }
