@@ -379,7 +379,7 @@
     transition: all 0.3s ease;
   }
 
-  @include for-big-desktop-up {
+  @include for-extra-large {
     .ddb-main-slider {
       &__switcher {
         height: $header-height-desktop;

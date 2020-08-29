@@ -186,7 +186,7 @@
     animation: ddb-animation 0.3s reverse;
   }
 
-  @include for-big-desktop-up {
+  @include for-extra-large {
     .ddb-header {
       z-index: 2;
       &__mobile {

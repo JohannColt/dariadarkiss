@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import DDBSecondBlock from "../components/DDBSecondBlock";
+import DDBSecondBlock from "../components/DDBAboutMe";
 import DDBMainSlider from "../components/DDBMainSlider";
 import DDBSlider from "@/components/DDBLastWorks";
 

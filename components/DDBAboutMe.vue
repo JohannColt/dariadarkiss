@@ -52,7 +52,6 @@
                  src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9">
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -139,10 +138,9 @@
     display: flex;
 
     &__container {
-      padding: 8px 20px;
+      padding: 20px;
       text-align: left;
       align-items: center;
-      width: 100%;
       display: flex;
     }
 
@@ -157,12 +155,11 @@
       display: none;
       position: relative;
       width: 76%;
-      height: 100%;
-
+      min-height: 768px;
+      max-height: 1260px;
       &__element {
         display: flex;
         position: absolute;
-
       }
 
       &__photo {
@@ -239,13 +236,19 @@
 
   }
 
-  @include for-big-desktop-up {
+  @include for-extra-large {
     .ddb-about-me {
-      height: 100vh;
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
       &__container {
+        min-height: 900px;
+        max-height: 1260px;
         display: flex;
-        padding-top: 90px;
+        justify-content: center;
+        align-items: start;
+        padding: 90px 0 0;
       }
 
       &__elements-container {
@@ -286,91 +289,4 @@
       }
     }
   }
-
-
-  @keyframes ddb-animation-photo {
-    0% {
-      transform: translateX(-1200px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes ddb-animation-smile {
-    0% {
-      transform: translateY(1200px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes ddb-animation-elements {
-    0% {
-      transform: translateX(-360px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes ddb-animation-tr-frames {
-    0% {
-      transform: translate(-312px, 312px);
-    }
-    100% {
-      transform: translate(0);
-    }
-  }
-
-  @keyframes ddb-animation-lb-frames {
-    0% {
-      transform: translate(312px, -312px);
-    }
-    100% {
-      transform: translate(0);
-    }
-  }
-
-  .ddb-animation-photo-enter-active {
-    animation: ddb-animation-photo 1s;
-  }
-
-  .ddb-animation-photo-leave-active {
-    animation: ddb-animation-photo 1s reverse;
-  }
-
-  .ddb-animation-smile-enter-active {
-    animation: ddb-animation-smile 1s;
-  }
-
-  .ddb-animation-smile-leave-active {
-    animation: ddb-animation-smile 1s reverse;
-  }
-
-  .ddb-animation-tr-frames-enter-active {
-    animation: ddb-animation-tr-frames 1s;
-  }
-
-  .ddb-animation-tr-frames-leave-active {
-    animation: ddb-animation-tr-frames 1s reverse;
-  }
-
-  .ddb-animation-lb-frames-enter-active {
-    animation: ddb-animation-lb-frames 1s;
-  }
-
-  .ddb-animation-lb-frames-leave-active {
-    animation: ddb-animation-lb-frames 1s reverse;
-  }
-
-  .ddb-animation-elements-enter-active {
-    animation: ddb-animation-elements 1s;
-  }
-
-  .ddb-animation-elements-leave-active {
-    animation: ddb-animation-elements 1s reverse;
-  }
-
 </style>
