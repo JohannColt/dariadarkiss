@@ -4,7 +4,7 @@
       <div class="ddb-about-me__left-side">
         <transition name="ddb-animation-elements">
           <div class="ddb-about-me__heading">
-            <h3 class="ddb-about-me__heading__text">Всем привет!</h3>
+            <h2 class="ddb-about-me__heading__text">Всем привет!</h2>
           </div>
         </transition>
         <div class="ddb-about-me__elements-container">
@@ -28,9 +28,8 @@
         </div>
         <div class="ddb-about-me__last-desktop">
           <transition name="ddb-animation-elements">
-            <ddb-button>
-              <h4 class="ddb-about-me__last-desktop__text">Оценить работы</h4>
-              <img class="ddb-about-me__last-desktop__line" src="images/ui-elements/button-line.png">
+            <ddb-button is-big-button is-active>
+              Оценить работы
             </ddb-button>
           </transition>
         </div>
@@ -39,17 +38,17 @@
         <div class="ddb-about-me__right-side__element ddb-about-me__right-side__first-element">
           <div class="ddb-about-me__right-side__cont">
             <img class="ddb-about-me__right-side__photo"
-                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9">
+                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9" alt="about">
           </div>
         </div>
         <div class="ddb-about-me__right-side__element ddb-about-me__right-side__second-element">
             <img class="ddb-about-me__right-side__photo"
-                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9">
+                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9" alt="about">
         </div>
         <div class="ddb-about-me__right-side__element ddb-about-me__right-side__third-element">
           <div class="ddb-about-me__right-side__cont">
             <img class="ddb-about-me__right-side__photo"
-                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9">
+                 src="https://images.unsplash.com/photo-1555445091-5a8b655e8a4a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9" alt="about">
           </div>
         </div>
       </div>
@@ -186,8 +185,6 @@
     &__heading {
       width: 100%;
       display: flex;
-      font-size: 21px;
-      line-height: 24px;
       justify-content: left;
 
       &__text {
@@ -200,8 +197,6 @@
       display: flex;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
-      line-height: 24px;
       align-items: center;
       flex-direction: column;
     }
@@ -249,14 +244,11 @@
 
       &__elements-container {
         font-weight: normal;
-        font-size: 16px;
         line-height: 32px;
       }
 
       &__heading {
         display: flex;
-        font-size: 42px;
-        line-height: 48px;
 
         &__smile {
           display: none;

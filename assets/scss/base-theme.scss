@@ -3,6 +3,7 @@
 
 html {
   font-size: 16px;
+  line-height: 30px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -16,11 +17,25 @@ html {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h2 {
+  font-size: 1.5em;
+  line-height: 2rem;
+}
+
 .container {
   width: 100%;
 }
 
 @include for-large {
+  html {
+    line-height: 32px;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    line-height: 3rem;
+  }
+
   .container {
     max-width: 960px;
   }
@@ -29,9 +44,6 @@ html {
 @include for-extra-large {
   .container {
     max-width: 1260px;
-  }
-  html {
-    font-size: 16px;
   }
 }
 
