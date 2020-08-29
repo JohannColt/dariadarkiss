@@ -85,7 +85,7 @@
     flex-direction: column;
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 500;
     &__desktop {
       justify-content: center;
       background-color: transparentize($primary-color2, 0.6);
@@ -94,7 +94,7 @@
     }
     &__container {
       position: relative;
-      z-index: 3;
+      z-index: 501;
     }
     &__menu {
       display: flex;
@@ -188,7 +188,7 @@
 
   @include for-extra-large {
     .ddb-header {
-      z-index: 2;
+      z-index: 500;
       &__mobile {
         display: none;
       }

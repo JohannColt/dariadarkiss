@@ -138,7 +138,7 @@
     display: flex;
 
     &__container {
-      padding: 20px;
+      padding: 64px 20px 0;
       text-align: left;
       align-items: center;
       display: flex;
@@ -155,8 +155,6 @@
       display: none;
       position: relative;
       width: 76%;
-      min-height: 768px;
-      max-height: 1260px;
       &__element {
         display: flex;
         position: absolute;
@@ -243,11 +241,9 @@
       justify-content: center;
       align-items: center;
       &__container {
-        min-height: 900px;
-        max-height: 1260px;
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: flex-start;
         padding: 90px 0 0;
       }
 
@@ -282,10 +278,12 @@
 
       &__left-side {
         width: 34%;
+        padding-right: 24px;
       }
 
       &__right-side {
         display: flex;
+        min-height: 667px;
       }
     }
   }

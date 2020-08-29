@@ -147,12 +147,14 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: #E5E5E5;
 }
 
 .magnet-scroll {
   position: absolute;
   transition: top 750ms ease;
   top: 0;
+  width: 100%;
 }
 .slide {
   height: 100vh;
