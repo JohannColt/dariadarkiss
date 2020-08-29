@@ -366,6 +366,9 @@
       img {
         height: 24px;
       }
+      a {
+        display: flex;
+      }
     }
     &__instagram-link {
       margin-right: 16px;
