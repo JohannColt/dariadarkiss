@@ -1,15 +1,15 @@
 @mixin for-extra-small {
-  @media (max-width: 576px) { @content; }
+  @media (max-width: $breakpoint-small) { @content; }
 }
 @mixin for-small {
-  @media (min-width: 576px) { @content; }
+  @media (min-width: $breakpoint-small) { @content; }
 }
 @mixin for-medium {
-  @media (min-width: 768px) { @content; }
+  @media (min-width: $breakpoint-medium) { @content; }
 }
-@mixin for-desktop-up {
-  @media (min-width: 992px) { @content; }
+@mixin for-large {
+  @media (min-width: $breakpoint-desktop) { @content; }
 }
-@mixin for-big-desktop-up {
-  @media (min-width: 1200px) { @content; }
+@mixin for-extra-large {
+  @media (min-width: $breakpoint-big-desktop) { @content; }
 }

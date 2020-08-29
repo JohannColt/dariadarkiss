@@ -34,7 +34,7 @@ export default {
       font-weight: 700;
     }
   }
-  @include for-desktop-up {
+  @include for-large{
     .ddb-last-works {
       &__container {
         padding-top: 104px;

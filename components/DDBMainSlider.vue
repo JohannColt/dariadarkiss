@@ -94,7 +94,7 @@
       window.addEventListener('touchend', this.mouseUp);
       window.addEventListener('resize', this.progress);
 
-      if (window.innerWidth < 1200) {
+      if (window.innerWidth < 960) {
         this.showBottom = true
       }
       setTimeout(this.displayBottom, 550);
@@ -131,7 +131,7 @@
         return data.mobile + ' 320w, ' + data.tablet + ' 480w, ' + data.desktop + ' 800w'
       },
       mouseDown(event) {
-        if (window.innerWidth >= 1200) {
+        if (window.innerWidth >= 960) {
           event.preventDefault()
         }
         this.buttonPressed = true;
@@ -181,7 +181,7 @@
         this.elements[this.currentIndex].style = {};
         this.elements[this.nextIndex].style = {};
         this.elements[this.prevIndex].style = {};
-        const animation = window.innerWidth < 1200;
+        const animation = window.innerWidth < 960;
         if (this.distance < 0 && this.movingOpacity > 0.5) {
           this.next(animation);
         } else if (this.distance > 0 && this.movingOpacity > 0.5) {
@@ -196,7 +196,7 @@
         this.movingOpacity = currentOpacity > 1 ? 1 : currentOpacity;
         let currentScale = startScale * (1 - this.movingOpacity);
         currentScale = currentScale < finishedScale ? finishedScale : currentScale;
-        if (window.innerWidth < 1200) {
+        if (window.innerWidth < 960) {
           return
         }
         this.elements[this.currentIndex].style.opacity = 1 - this.movingOpacity;
@@ -275,7 +275,6 @@
 
 <style lang="scss" scoped>
   .ddb-main-slider {
-    height: 100%;
     &__container {
       height: 100%;
       position: relative;

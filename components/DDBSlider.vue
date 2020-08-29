@@ -70,7 +70,7 @@ export default {
 
 }
 
-@include for-desktop-up {
+@include for-large{
   .ddb-slider {
     height: 565px;
 
