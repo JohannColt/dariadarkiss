@@ -15,22 +15,24 @@
       </div>
       <transition name="ddb-animation-bottom">
         <div class="ddb-main-slider__switcher" v-if="showBottom">
-          <div class="ddb-main-slider__buttons">
-            <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
-                 v-for="(banner, key) in banners">
-              <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
-              <div v-else class="ddb-main-slider__button"></div>
+          <div class="ddb-main-slider__switcher-container container">
+            <div class="ddb-main-slider__buttons">
+              <div class="ddb-main-slider__button-wrapper" @click="setIndex(key)" :key="key"
+                   v-for="(banner, key) in banners">
+                <div v-if="key === currentIndex" class="ddb-main-slider__button ddb-main-slider__button--active"></div>
+                <div v-else class="ddb-main-slider__button"></div>
+              </div>
             </div>
-          </div>
-          <div class="ddb-main-slider__instagram">
-            <div class="ddb-main-slider__instagram-link">
+            <div class="ddb-main-slider__instagram">
+              <div class="ddb-main-slider__instagram-link">
+                <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
+                  @dariadarkiss
+                </a>
+              </div>
               <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-                @dariadarkiss
+                <img src="/images/ui-elements/instagram.svg" alt="instagram">
               </a>
             </div>
-            <a class="default-text" href="https://www.instagram.com/dariadarkiss" target="_blank">
-              <img src="/images/ui-elements/instagram.svg" alt="instagram">
-            </a>
           </div>
         </div>
       </transition>
@@ -92,7 +94,7 @@
       window.addEventListener('touchend', this.mouseUp);
       window.addEventListener('resize', this.progress);
 
-      if (window.innerWidth < 1200) {
+      if (window.innerWidth < 960) {
         this.showBottom = true
       }
       setTimeout(this.displayBottom, 550);
@@ -129,7 +131,7 @@
         return data.mobile + ' 320w, ' + data.tablet + ' 480w, ' + data.desktop + ' 800w'
       },
       mouseDown(event) {
-        if (window.innerWidth >= 1200) {
+        if (window.innerWidth >= 960) {
           event.preventDefault()
         }
         this.buttonPressed = true;
@@ -179,7 +181,7 @@
         this.elements[this.currentIndex].style = {};
         this.elements[this.nextIndex].style = {};
         this.elements[this.prevIndex].style = {};
-        const animation = window.innerWidth < 1200;
+        const animation = window.innerWidth < 960;
         if (this.distance < 0 && this.movingOpacity > 0.5) {
           this.next(animation);
         } else if (this.distance > 0 && this.movingOpacity > 0.5) {
@@ -194,7 +196,7 @@
         this.movingOpacity = currentOpacity > 1 ? 1 : currentOpacity;
         let currentScale = startScale * (1 - this.movingOpacity);
         currentScale = currentScale < finishedScale ? finishedScale : currentScale;
-        if (window.innerWidth < 1200) {
+        if (window.innerWidth < 960) {
           return
         }
         this.elements[this.currentIndex].style.opacity = 1 - this.movingOpacity;
@@ -273,7 +275,6 @@
 
 <style lang="scss" scoped>
   .ddb-main-slider {
-    height: 100%;
     &__container {
       height: 100%;
       position: relative;
@@ -320,6 +321,13 @@
         animation: unset;
       }
     }
+    &__container {
+      position: relative;
+    }
+    &__switcher-container {
+      display: flex;
+      justify-content: center;
+    }
     &__switcher {
       display: flex;
       justify-content: center;
@@ -327,7 +335,7 @@
       bottom: 0;
       width: 100%;
       height: 48px;
-      padding: 0 40px;
+      padding: 0 90px;
       background: transparentize($primary-color2, 0.6);
       backdrop-filter: blur(10px);
     }
@@ -354,6 +362,7 @@
     &__instagram {
       display: none;
       align-items: center;
+      font-weight: 500;
       img {
         height: 24px;
       }
@@ -364,7 +373,7 @@
   }
 
   .ddb-animation-bottom-enter {
-    transform: translateY(80px);
+    transform: translateY($header-height-desktop);
   }
   .ddb-animation-bottom-enter-active {
     transition: all 0.3s ease;
@@ -373,17 +382,17 @@
   @include for-extra-large {
     .ddb-main-slider {
       &__switcher {
-        height: 80px;
+        height: $header-height-desktop;
+      }
+      &__switcher-container {
+        justify-content: space-between;
       }
       &__progress {
-        top: 80px;
+        top: $header-height-desktop;
       }
     }
     .ddb-main-slider__instagram {
       display: flex;
-    }
-    .ddb-main-slider__switcher {
-      justify-content: space-between;
     }
   }
 </style>

@@ -1,8 +1,13 @@
 $primary-color1: rgba(63, 45, 45, 1);
 $primary-color2: rgba(244, 240, 238, 1);
-
+$primary-color3: #DAD1CA;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 
 $header-height-mobile: 48px;
-$header-height-desktop: 80px;
+$header-height-desktop: 64px;
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-desktop: 992px;
+$breakpoint-big-desktop: 1200px;
