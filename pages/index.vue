@@ -147,7 +147,6 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #E5E5E5;
 }
 
 .magnet-scroll {

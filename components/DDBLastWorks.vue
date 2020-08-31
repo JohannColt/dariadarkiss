@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DDBSlider from "@/components/DDBSlider";
+import DDBSlider from "@/components/slider/DDBSlider";
 export default {
   name: "ddb-last-works",
   components: {
@@ -26,23 +26,23 @@ export default {
     overflow: hidden;
     &__container {
       text-align: left;
-      padding-top: 67px;
+      padding: 67px 24px 0;
     }
     &__header {
       font-size: 1.5em;
       line-height: 2rem;
       font-weight: 700;
+      margin-bottom: 24px;
     }
   }
-  @include for-large{
+  @include for-large {
     .ddb-last-works {
       &__container {
-        padding-top: 104px;
+        padding: 104px 0 0;
       }
       &__header {
         font-size: 2.5em;
         line-height: 3rem;
-        margin-bottom: 24px;
       }
     }
   }

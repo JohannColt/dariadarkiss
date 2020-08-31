@@ -137,7 +137,7 @@
     display: flex;
 
     &__container {
-      padding: 64px 20px 0;
+      padding: 64px 24px 0;
       text-align: left;
       align-items: center;
       display: flex;
