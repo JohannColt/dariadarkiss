@@ -8,12 +8,12 @@
       <div class="ddb-price__blocks">
         <div class="ddb-price__element__bronze">
           <div class="ddb-price__element">
-            <div class="ddb-price__bronze-title ddb-price__title">
+            <div class="ddb-price__bronze-title ddb-price__title" v-on:click="setIsActiveBronze">
               <h3> Bronze Pack</h3>
-              <button v-show="!isActiveBronze" v-on:click="isActiveBronze=true" class="ddb-price__button">
+              <button v-show="!isActiveBronze" class="ddb-price__button">
                 <img src="images/ui-elements/vector.jpg">
               </button>
-              <button v-show="isActiveBronze" v-on:click="isActiveBronze=false" class="ddb-price__button">
+              <button v-show="isActiveBronze" class="ddb-price__button">
                 <img src="images/ui-elements/r-vector.jpg">
               </button>
             </div>
@@ -32,12 +32,12 @@
         </div>
         <div class="ddb-price__element__silver">
           <div class="ddb-price__element">
-            <div class="ddb-price__silver-title ddb-price__title">
+            <div class="ddb-price__silver-title ddb-price__title" v-on:click="setIsActiveSilver">
               <h3>Silver Pack </h3>
-              <button v-show="!isActiveSilver" v-on:click="isActiveSilver=true" class="ddb-price__button">
+              <button v-show="!isActiveSilver" class="ddb-price__button">
                 <img src="images/ui-elements/vector.jpg">
               </button>
-              <button v-show="isActiveSilver" v-on:click="isActiveSilver=false" class="ddb-price__button">
+              <button v-show="isActiveSilver" class="ddb-price__button">
                 <img src="images/ui-elements/r-vector.jpg">
               </button>
             </div>
@@ -56,12 +56,12 @@
         </div>
         <div class="ddb-price__element__gold">
           <div class="ddb-price__element">
-            <div class="ddb-price__gold-title ddb-price__title">
+            <div class="ddb-price__gold-title ddb-price__title" v-on:click="setIsActiveGold">
               <h3>Gold Pack</h3>
-              <button v-show="!isActiveGold" v-on:click="isActiveGold= true" class="ddb-price__button">
+              <button v-show="!isActiveGold" class="ddb-price__button">
                 <img src="images/ui-elements/vector.jpg">
               </button>
-              <button v-show="isActiveGold" v-on:click="isActiveGold=false" class="ddb-price__button">
+              <button v-show="isActiveGold" class="ddb-price__button">
                 <img src="images/ui-elements/r-vector.jpg">
               </button>
             </div>
@@ -88,9 +88,33 @@
     name: "DDBPriceBlock",
     data() {
       return {
-        isActiveBronze: false,
+        isActiveBronze: true,
         isActiveSilver: false,
         isActiveGold: false
+      }
+    },
+    methods:{
+      setIsActiveBronze(){
+        if(window.innerWidth<1200){
+          this.isActiveBronze=!isActiveBronze;
+        }
+      },
+      setIsActiveSilver(){
+        if(window.innerWidth<1200){
+          this.isActiveSilver=!isActiveSilver;
+        }
+      },
+      setIsActiveGold(){
+        if(window.innerWidth<1200){
+          this.isActiveGold= !isActiveGold;
+        }
+      }
+    },
+    mounted(){
+      if(window.innerWidth>=1200){
+        this.isActiveBronze = true;
+        this.isActiveSilver = true;
+        this.isActiveGold = true;
       }
     }
   }
@@ -103,7 +127,8 @@
     }
 
     &__heading {
-      padding-left: 5%;
+      z-index: 3;
+      padding-left: 24px;
       font-style: normal;
       font-weight: bold;
       font-size: 24px;
@@ -138,13 +163,17 @@
     }
 
     &__title {
-      padding-left: 5%;
+      padding-left: 24px;
       display: flex;
       justify-content: space-between;
       position: relative;
+      align-items: center;
+      z-index: 2;
+
     }
 
     &__button {
+      padding-right: 24px;
       display: flex;
       border: none;
       background: none;
@@ -152,7 +181,9 @@
 
     &__content {
       display: flex;
+      position: relative;
       justify-content: center;
+      z-index: 1;
 
       &__line {
         width: 90%;
@@ -170,13 +201,59 @@
     }
   }
 
+
   .ddb-animation-enter-active {
-    animation: ddb-animation 0.3s;
+    animation: ddb-animation 0.6s;
   }
 
   .ddb-animation-leave-active {
-    animation: ddb-animation 0.3s reverse;
+    animation: ddb-animation 0.6s reverse;
   }
 
-
+  @include for-extra-large{
+    .ddb-price{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      &__heading{
+        padding-left: 0;
+      }
+      &__blocks{
+        width: 100%;
+        display: flex;
+      }
+      &__button{
+        display: none;
+      }
+      &__element{
+        width: 409px;
+        height: 374px;
+        display: flex;
+        flex-direction: column;
+        &__bronze{
+          margin:  0 8px;
+        }
+        &__silver{
+          margin: 0 8px;
+        }
+        &__gold{
+          margin: 0 8px;
+        }
+      }
+      &__content{
+        padding-left: 27px;
+        &__line{
+          width: 100%;
+          border: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
 </style>
