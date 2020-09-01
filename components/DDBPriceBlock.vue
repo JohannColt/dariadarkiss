@@ -226,23 +226,30 @@
       &__blocks{
         width: 100%;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
       &__button{
         display: none;
       }
       &__element{
-        width: 409px;
         height: 374px;
         display: flex;
         flex-direction: column;
         &__bronze{
           margin:  0 8px;
+          min-width: 350px;
+          max-width: 409px;
         }
         &__silver{
           margin: 0 8px;
+          min-width: 350px;
+          max-width: 409px;
         }
         &__gold{
           margin: 0 8px;
+          min-width: 350px;
+          max-width: 409px;
         }
       }
       &__content{
