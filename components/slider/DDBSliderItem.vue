@@ -1,5 +1,5 @@
 <template>
-  <div :data-index="index" @click="change()" :style="style" class="ddb-slide">
+  <div :data-index="index" @click="change()" :style="style" :class="styleClasses" class="ddb-slide">
     <template v-for="(image, k) in renderedItems">
       <div :key="k" v-if="image.position === 'vertical'" class="ddb-slide__group ddb-slide__group--vertical">
         <ddb-image class="ddb-slide__image" :url="image.src"/>
@@ -23,12 +23,12 @@ export default {
   },
   data() {
     return {
-      positions: {
-        0: '-200%',
-        1: '-100%',
-        2: '0',
-        3: '100%',
-        4: '200%'
+      classes: {
+        0: 'ddb-slide--first',
+        1: 'ddb-slide--prev',
+        2: 'ddb-slide--center',
+        3: 'ddb-slide--next',
+        4: 'ddb-slide--last'
       },
       position: 0
     }
@@ -56,14 +56,10 @@ export default {
   },
   computed: {
     style() {
-      let result = {
-        transform: 'translateX(' + this.positions[this.position] + ')'
-      }
-      if (this.position !== 2) {
-        result.opacity = 0.6;
-        result.filter = 'blur(10px)'
-      }
-      return result;
+      return {};
+    },
+    styleClasses() {
+      return ['ddb-slide', this.classes[this.position]];
     }
   },
   methods: {
@@ -125,8 +121,11 @@ export default {
   .ddb-slide {
     position: absolute;
     min-width: 100%;
-    transition: 1s;
+    transition: transform 1s;
     padding: 0 8.5px;
+    opacity: 0.6;
+    filter: blur(10px);
+    will-change: transform;
 
     &:hover {
       cursor: pointer;
@@ -134,9 +133,22 @@ export default {
       opacity: 1;
     }
 
-    &--active {
-      filter: unset;
+    &--first {
+      transform: translateX(-200%);
+    }
+    &--prev {
+      transform: translateX(-100%);
+    }
+    &--center {
+      transform: translateX(0);
       opacity: 1;
+      filter: unset;
+    }
+    &--next {
+      transform: translateX(100%);
+    }
+    &--last {
+      transform: translateX(200%);
     }
 
     &__group {
