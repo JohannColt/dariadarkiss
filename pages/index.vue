@@ -5,6 +5,7 @@
       <div class="slide slide-2 scrollable">
         <ddb-second-block/>
         <ddb-slider/>
+        <ddb-popular-photosession/>
       </div>
     </div>
   </section>
@@ -14,9 +15,11 @@
 import DDBSecondBlock from "../components/DDBAboutMe";
 import DDBMainSlider from "../components/DDBMainSlider";
 import DDBSlider from "@/components/DDBLastWorks";
+import DDBPopularPhotosession from "../components/DDBPopularPhotosession";
 
 export default {
   components: {
+    'ddb-popular-photosession':DDBPopularPhotosession,
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
     'ddb-slider': DDBSlider
