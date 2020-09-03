@@ -1,9 +1,8 @@
 <template>
   <div class="ddb-price">
     <div class="ddb-price__container container">
-
       <div class="ddb-price__heading">
-        <h4 class="ddb-price__heading__text">Пакет услуг на твой выбор</h4>
+        <h2 class="ddb-price__heading__text">Пакет услуг на твой выбор</h2>
       </div>
       <div class="ddb-price__blocks">
         <div class="ddb-price__element__bronze">
@@ -19,13 +18,12 @@
             </div>
             <transition name="ddb-animation">
               <div v-show="isActiveBronze" class="ddb-price__content">
-                <div class="ddb-price__content__line">
-                  <p class="ddb-price__text">1 час работы.</p>
-                  <p class="ddb-price__text">1-2 образ.</p>
-                  <p class="ddb-price__text">5 фото в ретуши.</p>
-                  <p class="ddb-price__text">Все хорошие фото в цветокоррекции<br/> (~80-100 фото).</p>
-                  <p class="ddb-price__last">1 000 гривен</p>
-                </div>
+                <div class="ddb-price__content__line"></div>
+                <p class="ddb-price__text">1 час работы.</p>
+                <p class="ddb-price__text">1-2 образ.</p>
+                <p class="ddb-price__text">5 фото в ретуши.</p>
+                <p class="ddb-price__text">Все хорошие фото в цветокоррекции<br/> (~80-100 фото).</p>
+                <h3 class="ddb-price__last">1 000 гривен</h3>
               </div>
             </transition>
           </div>
@@ -43,13 +41,12 @@
             </div>
             <transition name="ddb-animation">
               <div v-show="isActiveSilver" class="ddb-price__content">
-                <div class="ddb-price__content__line">
-                  <p class="ddb-price__text">1,5 часа работы.</p>
-                  <p class="ddb-price__text">2-3 образа.</p>
-                  <p class="ddb-price__text">10 фото в ретуши.</p>
-                  <p class="ddb-price__text">Все хорошие фото в цветокоррекции<br/> (~100-150 фото).</p>
-                  <p class="ddb-price__last">1 500 гривен</p>
-                </div>
+                <div class="ddb-price__content__line"></div>
+                <p class="ddb-price__text">1,5 часа работы.</p>
+                <p class="ddb-price__text">2-3 образа.</p>
+                <p class="ddb-price__text">10 фото в ретуши.</p>
+                <p class="ddb-price__text">Все хорошие фото в цветокоррекции<br/> (~100-150 фото).</p>
+                <h3 class="ddb-price__last">1 500 гривен</h3>
               </div>
             </transition>
           </div>
@@ -67,13 +64,12 @@
             </div>
             <transition name="ddb-animation">
               <div v-show="isActiveGold" class="ddb-price__content">
-                <div class="ddb-price__content__line">
-                  <p class="ddb-price__text">2-2,5 часа работы.</p>
-                  <p class="ddb-price__text">3-4 образа.</p>
-                  <p class="ddb-price__text">20 фото в ретуши.</p>
-                  <p class="ddb-price__text">Печать лучших 10 фотографий<br/> (размер 15х21 см).</p>
-                  <p class="ddb-price__last">2 300 гривен</p>
-                </div>
+                <div class="ddb-price__content__line"></div>
+                <p class="ddb-price__text">2-2,5 часа работы.</p>
+                <p class="ddb-price__text">3-4 образа.</p>
+                <p class="ddb-price__text">20 фото в ретуши.</p>
+                <p class="ddb-price__text">Печать лучших 10 фотографий<br/> (размер 15х21 см).</p>
+                <h3 class="ddb-price__last">2 300 гривен</h3>
               </div>
             </transition>
           </div>
@@ -132,11 +128,7 @@
     }
 
     &__heading {
-      padding-left: 24px;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 32px;
+      padding-left: 19px;
       text-align: left;
 
       &__text {
@@ -179,10 +171,8 @@
       justify-content: space-between;
       position: relative;
       align-items: center;
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 24px;
-      &__text{
+
+      &__text {
         margin-top: 23px;
         margin-bottom: 23px;
       }
@@ -197,6 +187,7 @@
 
     &__content {
       display: flex;
+      flex-direction: column;
       position: relative;
       justify-content: center;
       font-weight: normal;
@@ -205,17 +196,21 @@
       z-index: 1;
 
       &__line {
+        position: absolute;
+        top: 0;
+        left: 5%;
         width: 90%;
         border-top: 2px solid rgba(0, 0, 0, 0.1);
       }
     }
-    &__text{
+
+    &__text {
       margin: 10px 0;
+      padding-left: 19px;
     }
-    &__last{
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 24px;
+
+    &__last {
+      padding-left: 19px;
       margin-top: 22px;
       margin-bottom: 35px;
     }
@@ -254,9 +249,6 @@
 
       &__title {
         padding-left: 20px;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 32px;
 
         &__text {
           margin-top: 20px;
@@ -314,14 +306,13 @@
       }
 
       &__text {
+        padding-left: 20px;
         margin-top: 10px;
         margin-bottom: 0;
       }
 
       &__last {
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 32px;
+        padding-left: 20px;
         margin-top: 32px;
         margin-bottom: 28px;
       }
