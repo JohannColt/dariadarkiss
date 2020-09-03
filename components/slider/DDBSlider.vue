@@ -19,6 +19,8 @@
     </div>
 
     <div class="ddb-slider__scroller">
+      <div v-for="(_, key) in items" :key="key" @click="change(key)"
+           :class="['ddb-slider__nav', current === key ? 'ddb-slider__nav--active': '']"/>
     </div>
   </div>
 </template>
@@ -44,60 +46,103 @@ export default {
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1533139143976-30918502365b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=2250&q=80',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1533079047304-3997643590ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1532680678473-a16f2cda8e43?ixlib=rb-1.2.1&auto=format&fit=crop&w=3450&q=80',
             position: 'vertical'
           },
         ],
         [
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1535320404287-416e2c6d2b41?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1537819191377-d3305ffddce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2016&q=80',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1537526045572-fca8beed2a4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=2251&q=80',
             position: 'vertical'
           }
         ],
         [
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
-            position: 'vertical'
-          },
-          {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
-            position: 'vertical'
-          },
-          {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: 'https://images.unsplash.com/photo-1535320404287-416e2c6d2b41?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            position: 'horizontal'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1537819191377-d3305ffddce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2016&q=80',
+            position: 'vertical'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1537526045572-fca8beed2a4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=2251&q=80',
+            position: 'vertical'
+          }
+        ],
+        [
+          {
+            src: 'https://images.unsplash.com/photo-1537346439163-eafb59bdc400?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=1936&q=80',
+            position: 'vertical'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1537526358797-e732f762d6af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2100&q=80',
+            position: 'vertical'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1535459548739-91d8b0a25e3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=2250&q=80',
+            position: 'horizontal'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1537531579368-1af433cf6f06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEwMjc5NH0&auto=format&fit=crop&w=2100&q=80',
             position: 'horizontal'
           },
         ],
+        [
+          {
+            src: 'https://images.unsplash.com/photo-1531278329486-539bf3bd6d5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1825&q=80',
+            position: 'vertical'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1540039452455-b76ea34cf66a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            position: 'horizontal'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1539965328219-31bf451f214d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            position: 'horizontal'
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1539665315126-4cadf53fb20d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            position: 'vertical'
+          }
+        ]
       ],
       elements: [],
       activeElement: null,
       prevElement: null,
       nextElement: null,
       components: []
+    }
+  },
+  created() {
+    if (this.items.length < 5) {
+      this.maxElements = 5;
+    } else {
+      this.maxElements = this.items.length;
     }
   },
   mounted() {
@@ -132,13 +177,14 @@ export default {
       if (this.components.length > this.maxElements) {
         let element = position === 'start' ? this.components.pop() : this.components.shift();
         element.$destroy();
+        element.$el.remove();
       }
     },
     move(direction) {
       this.components.forEach((component) => {
-        if (direction === 'left')
+        if (direction === 'left') {
           component.toLeft();
-        else {
+        } else {
           component.toRight();
         }
       });
@@ -147,12 +193,24 @@ export default {
       if (index === this.current) {
         return
       }
+      const steps = index - this.current;
       if (index === this.getPrev(this.current)) {
         this.renderItem(this.getPrev(this.getPrev(index)),'start')
-      } else {
+        this.current = index;
+      } else if (index === this.getNext(this.current)) {
         this.renderItem(this.getNext(this.getNext(index)), 'end')
+        this.current = index;
+      } else if (steps > 0) {
+        for (let i = 1; i <= Math.abs(steps); i++) {
+          this.renderItem(this.getNext(this.getNext(this.current + 1)), 'end');
+          this.current++;
+        }
+      } else {
+        for (let i = 1; i <= Math.abs(steps); i++) {
+          this.renderItem(this.getPrev(this.getPrev(this.current - 1)), 'start');
+          this.current--;
+        }
       }
-      this.current = index;
     },
     getPrev(index) {
       if (this.items[index - 1]) {
@@ -167,13 +225,6 @@ export default {
       return 0;
     },
   },
-  computed: {
-    style() {
-      return {
-        '--translate-x': ((this.direction + 1) * -100) + '%'
-      }
-    }
-  }
 }
 </script>
 
@@ -228,53 +279,24 @@ export default {
 }
 
 @include for-large {
-  @keyframes left-to-right {
-    0% {
-      animation-timing-function: ease;
-      transform: translateX(-100%);
-    }
-    50% {
-      animation-timing-function: ease;
-      transform: translateX(-200%);
-    }
-    51% {
-      animation-timing-function: step-start;
-      transform: translateX(200%);
-    }
-    52% {
-      animation-timing-function: ease;
-      transform: translateX(200%);
-    }
-    100% {
-      animation-timing-function: linear;
-      transform: translateX(100%);
-    }
-  }
-  @keyframes right-to-left {
-    0% {
-      animation-timing-function: ease;
-      transform: translateX(100%);
-    }
-    50% {
-      animation-timing-function: ease;
-      transform: translateX(200%);
-    }
-    51% {
-      animation-timing-function: step-start;
-      transform: translateX(-200%);
-    }
-    52% {
-      animation-timing-function: ease;
-      transform: translateX(-200%);
-    }
-    100% {
-      animation-timing-function: ease;
-      transform: translateX(-100%);
-    }
-  }
   .ddb-slider {
-    height: 565px;
-
+    height: 585px;
+    &__scroller {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      height: 2px;
+      bottom: 20px;
+    }
+    &__nav {
+      flex: 1 1 0px;
+      background: $primary-color1;
+      opacity: 0.3;
+      cursor: pointer;
+      &--active {
+        opacity: 1;
+      }
+    }
     &__photos {
       height: 540px;
       transform: translateX(var(--translate-x, 0%));
@@ -285,61 +307,6 @@ export default {
       &--mobile {
         display: none;
       }
-    }
-
-    &__item {
-      position: absolute;
-      filter: blur(10px);
-      min-width: 100%;
-      opacity: 0.6;
-      transition: opacity 0s, transform 1s;
-      padding: 0 8.5px;
-      &:hover {
-        cursor: pointer;
-        filter: unset;
-        opacity: 1;
-      }
-      &--active {
-        filter: unset;
-        opacity: 1;
-        padding: 0 8.5px;
-        z-index: 1;
-      }
-      &--prev-to-next {
-        animation-duration: 1s;
-        animation-name: left-to-right;
-        transform: translateX(100%);
-      }
-      &--next-to-prev {
-        animation-duration: 1s;
-        animation-name: right-to-left;
-        transform: translateX(-100%);
-      }
-      &--next {
-        transform: translateX(100%);
-      }
-      &--prev {
-        transform: translateX(-100%);
-      }
-    }
-    &__group {
-      &--vertical {
-        min-width: 30%;
-        height: 100%;
-      }
-      &--horizontal {
-        min-width: 40%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        .ddb-image {
-          margin-bottom: 16px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
-
     }
   }
 }

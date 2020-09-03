@@ -229,7 +229,7 @@
 
   }
 
-  @include for-extra-large {
+  @include for-large {
     .ddb-about-me {
 
       display: flex;
