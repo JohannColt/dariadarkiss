@@ -19,7 +19,7 @@
     </div>
 
     <div class="ddb-slider__scroller">
-      <div v-for="(_, key) in items" :key="key" @click="change(key)"
+      <div v-for="(_, key) in items" :key="key" @click="move(key)"
            :class="['ddb-slider__nav', current === key ? 'ddb-slider__nav--active': '']"/>
     </div>
   </div>
@@ -28,7 +28,7 @@
 <script>
 import DDBImage from "@/components/slider/DDBImage";
 import Vue from 'vue';
-import DDBSliderItem from "@/components/slider/DDBSliderItem";
+import DDBSliderLine from "@/components/slider/DDBSliderLine";
 
 export default {
   name: "DDBSlider",
@@ -38,179 +38,161 @@ export default {
   data() {
     return {
       current: 0,
-      maxElements: 5,
+
       items: [
         [
           {
-            src: 'https://images.unsplash.com/flagged/photo-1551301622-6fa51afe75a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80',
+            src: '/images/last-works-slider/5.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1533139143976-30918502365b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/3.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1533079047304-3997643590ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80',
+            src: '/images/last-works-slider/4.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1532680678473-a16f2cda8e43?ixlib=rb-1.2.1&auto=format&fit=crop&w=3450&q=80',
+            src: '/images/last-works-slider/6.jpg',
             position: 'vertical'
           },
         ],
         [
           {
-            src: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/21.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1535320404287-416e2c6d2b41?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/1.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537819191377-d3305ffddce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2016&q=80',
+            src: '/images/last-works-slider/2.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537526045572-fca8beed2a4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=2251&q=80',
+            src: '/images/last-works-slider/14.jpg',
             position: 'vertical'
           }
         ],
         [
           {
-            src: 'https://images.unsplash.com/photo-1535732820275-9ffd998cac22?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/7.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1535320404287-416e2c6d2b41?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/8.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537819191377-d3305ffddce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2016&q=80',
+            src: '/images/last-works-slider/15.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537526045572-fca8beed2a4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMDk0fQ&auto=format&fit=crop&w=2251&q=80',
+            src: '/images/last-works-slider/16.jpg',
             position: 'vertical'
           }
         ],
         [
           {
-            src: 'https://images.unsplash.com/photo-1537346439163-eafb59bdc400?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=1936&q=80',
+            src: '/images/last-works-slider/17.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537526358797-e732f762d6af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=2100&q=80',
+            src: '/images/last-works-slider/18.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1535459548739-91d8b0a25e3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/9.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1537531579368-1af433cf6f06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEwMjc5NH0&auto=format&fit=crop&w=2100&q=80',
+            src: '/images/last-works-slider/10.jpg',
             position: 'horizontal'
           },
         ],
         [
           {
-            src: 'https://images.unsplash.com/photo-1531278329486-539bf3bd6d5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1825&q=80',
+            src: '/images/last-works-slider/19.jpg',
             position: 'vertical'
           },
           {
-            src: 'https://images.unsplash.com/photo-1540039452455-b76ea34cf66a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/11.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1539965328219-31bf451f214d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/12.jpg',
             position: 'horizontal'
           },
           {
-            src: 'https://images.unsplash.com/photo-1539665315126-4cadf53fb20d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
+            src: '/images/last-works-slider/20.jpg',
             position: 'vertical'
           }
         ]
       ],
-      elements: [],
-      activeElement: null,
-      prevElement: null,
-      nextElement: null,
-      components: []
-    }
-  },
-  created() {
-    if (this.items.length < 5) {
-      this.maxElements = 5;
-    } else {
-      this.maxElements = this.items.length;
+      elements: {
+        prev: null,
+        main: null,
+        next: null,
+      },
+      components: [],
     }
   },
   mounted() {
-    this.renderItem(this.getNext(this.getNext(this.current)), 'start');
-    this.renderItem(this.getNext(this.current), 'start');
-    this.renderItem(this.current, 'start');
-    this.renderItem(this.getPrev(this.current), 'start');
-    this.renderItem(this.getPrev(this.getPrev(this.current)), 'start');
+    this.renderLine();
+    this.renderLine('prev');
+    this.renderLine('next');
   },
   methods: {
-    renderItem(index, position) {
-      const ComponentClass = Vue.extend(DDBSliderItem);
+    renderLine(position = 'main') {
+      const ComponentClass = Vue.extend(DDBSliderLine);
 
-      const instance = new ComponentClass({
-        propsData: { index: index, renderedItems: this.items[index], stringPosition: position }
+      this.components[position] = new ComponentClass({
+        propsData: {items: this.items}
       });
-      instance.$mount();
-      instance.$on('change-index', this.change)
-      this.move(position === 'start' ? 'right' : 'left');
-      const tab = document.querySelector('.ddb-slider__photos--desktop');
-      if (position === 'start') {
-        this.components.unshift(instance);
-        tab.prepend(instance.$el);
-      } else {
-        this.components.push(instance);
-        tab.appendChild(instance.$el);
-      }
-      this.destroy(position)
 
-    },
-    destroy(position) {
-      if (this.components.length > this.maxElements) {
-        let element = position === 'start' ? this.components.pop() : this.components.shift();
-        element.$destroy();
-        element.$el.remove();
-      }
+      this.components[position].$mount();
+      this.components[position].changePosition(position);
+      this.components[position].$on('move', this.move)
+      const tab = document.querySelector('.ddb-slider__photos--desktop');
+      tab.appendChild(this.components[position].$el);
     },
     move(direction) {
-      this.components.forEach((component) => {
-        if (direction === 'left') {
-          component.toLeft();
-        } else {
-          component.toRight();
+      if (Number.isInteger(direction)) {
+        this.current = direction;
+        for (let key in this.components) {
+          if (this.components.hasOwnProperty(key) && this.components[key]) {
+            this.components[key].setCurrent(this.current);
+          }
         }
-      });
-    },
-    change(index) {
-      if (index === this.current) {
-        return
-      }
-      const steps = index - this.current;
-      if (index === this.getPrev(this.current)) {
-        this.renderItem(this.getPrev(this.getPrev(index)),'start')
-        this.current = index;
-      } else if (index === this.getNext(this.current)) {
-        this.renderItem(this.getNext(this.getNext(index)), 'end')
-        this.current = index;
-      } else if (steps > 0) {
-        for (let i = 1; i <= Math.abs(steps); i++) {
-          this.renderItem(this.getNext(this.getNext(this.current + 1)), 'end');
-          this.current++;
+      }else if (direction.line === 'main') {
+        this.current = direction.position;
+        for (let key in this.components) {
+          if (this.components.hasOwnProperty(key) && this.components[key]) {
+            this.components[key].setCurrent(this.current);
+          }
         }
       } else {
-        for (let i = 1; i <= Math.abs(steps); i++) {
-          this.renderItem(this.getPrev(this.getPrev(this.current - 1)), 'start');
-          this.current--;
+        const backDirection = this.getBackDirection(direction.line);
+        this.current = direction.position;
+        this.components[backDirection].$el.remove();
+        this.components[backDirection].$destroy();
+
+        this.components[direction.line].changePosition('main');
+        this.components.main.changePosition(backDirection);
+        this.components[backDirection] = this.components.main;
+        this.components.main = this.components[direction.line];
+        this.renderLine(direction.line);
+        for (let key in this.components) {
+          if (this.components.hasOwnProperty(key) && this.components[key]) {
+            this.components[key].setCurrent(this.current);
+          }
         }
       }
+    },
+    getBackDirection(direction) {
+      return direction === 'prev' ? 'next' : 'prev';
     },
     getPrev(index) {
       if (this.items[index - 1]) {
@@ -299,8 +281,6 @@ export default {
     }
     &__photos {
       height: 540px;
-      transform: translateX(var(--translate-x, 0%));
-      transition: 1s;
       &--desktop {
         display: flex;
       }

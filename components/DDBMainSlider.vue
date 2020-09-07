@@ -308,14 +308,9 @@
         width: 100%;
       }
       &--active {
-        animation: fadein 0.7s;
         opacity: 1;
-        transition: transform 0.7s;
+        transition: transform 0.7s, opacity 0.7s;
         transform: scale(1);
-        @keyframes fadein {
-          from { opacity: 0.4; }
-          to   { opacity: 1; }
-        }
       }
       &--boring {
         animation: unset;
@@ -337,7 +332,7 @@
       height: 48px;
       padding: 0 90px;
       background: transparentize($primary-color2, 0.6);
-      backdrop-filter: blur(10px);
+      //backdrop-filter: blur(10px);
     }
     &__buttons {
       display: flex;

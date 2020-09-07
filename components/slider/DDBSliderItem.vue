@@ -1,5 +1,5 @@
 <template>
-  <div :data-index="index" @click="change()" :style="style" :class="styleClasses" class="ddb-slide">
+  <div :data-index="index" @click="change" :style="style" :class="styleClasses" class="ddb-slide">
     <template v-if="isVisible">
       <template v-for="(image, k) in renderedItems">
         <div :key="k" v-if="image.position === 'vertical'" class="ddb-slide__group ddb-slide__group--vertical">
@@ -26,13 +26,12 @@ export default {
   data() {
     return {
       positions: {
-        0: -200,
-        1: -100,
-        2: 0,
-        3: 100,
-        4: 200
+        0: 0,
+        1: 100,
+        2: 200,
+        3: 300,
+        4: 400
       },
-      currentPosition: 0,
       classes: {
         0: 'ddb-slide--first',
         1: 'ddb-slide--prev',
@@ -42,11 +41,15 @@ export default {
       },
       position: 0,
       pastPosition: 0,
-      visiblePositions: [1, 2, 3],
-      interval: null
+      interval: null,
+      animation: false,
     }
   },
   props: {
+    currentPosition: {
+      type: Number,
+      default: 0
+    },
     renderedItems: {
       type: Array,
       default() {
@@ -61,52 +64,66 @@ export default {
       type: Number,
       default: 0
     },
-    stringPosition: {
+    linePosition: {
       type: String,
       default() {
-        return 'start';
+        return 'main'
       }
     }
-  },
-  created() {
-    this.position = this.stringPosition === 'start' ? 0 : 4;
-    this.currentPosition = this.positions[this.position];
-    this.pastPosition = this.position;
   },
   computed: {
     style() {
       return {
-        transform: 'translate(' + this.positions[this.position] + '%)'
+        transform: 'translate(' + this.positions[this.index] + '%)'
       };
     },
     styleClasses() {
-      return ['ddb-slide', this.classes[this.position]];
+      let resultClass = ['ddb-slide'];
+      if (this.currentPosition === this.index) {
+        if (this.linePosition === 'next') {
+          console.log({
+            cp: this.currentPosition,
+            i: this.index
+          })
+        }
+        resultClass.push('ddb-slide--center');
+      }
+      let distance = Math.abs(this.index - this.currentPosition);
+      if ((this.linePosition === 'next' && this.currentPosition === this.maxElements - 1 && this.index === 0) ||
+        (this.linePosition === 'prev' && this.currentPosition === 0 && this.index === this.maxElements - 1) ||
+          distance === 1) {
+        resultClass.push('ddb-slide--blur')
+      }
+      return resultClass.join(' ');
     },
     isVisible() {
-      return this.visiblePositions.includes(this.position);
-    }
+      if (this.linePosition === 'prev') {
+        console.log('here')
+        console.log({
+          currentPosition: this.currentPosition,
+          index: this.index,
+          maxElements: this.maxElements
+        })
+      }
+      if (this.currentPosition === 0 && this.linePosition === 'prev' && this.index === this.maxElements - 1) {
+         return true;
+      }
+      if (this.currentPosition === this.maxElements - 1 && this.linePosition === 'next' && this.index === 0) {
+        return true;
+      }
+      const r = Math.abs(this.index - this.currentPosition);
+      return r <= 2
+    },
   },
   methods: {
     change() {
       return this.$emit('change-index', this.index);
     },
-    move() {
-      let position = this.positions[this.position];
-      const distance = 10;
-      if (position < this.currentPosition) {
-        this.currentPosition -= distance;
-      } else if (position > this.currentPosition) {
-        this.currentPosition += distance;
-      } else {
-        clearInterval(this.interval)
-      }
-    },
-    toLeft() {
-      this.position--;
-      setInterval(this.move, 100)
-    },
-    toRight() {
-      this.position++;
+  },
+  watch: {
+    currentPosition() {
+      // this.animation = true;
+      // setTimeout(() => {this.animation = false}, 1000);
     }
   }
 }
@@ -118,10 +135,6 @@ export default {
   height: 100%;
   display: flex;
   padding: 0 16px;
-
-  &--active, &:first-child {
-    padding: 0;
-  }
 
   &__group {
     padding-right: 16px;
@@ -141,7 +154,6 @@ export default {
       height: 100%;
       display: flex;
       flex-direction: column;
-
       .ddb-image {
         margin-bottom: 16px;
 
@@ -157,23 +169,30 @@ export default {
   .ddb-slide {
     position: absolute;
     min-width: 100%;
-    transition: transform 1s;
-    padding: 0 8.5px;
-    opacity: 0.6;
-    filter: blur(10px);
-    will-change: transform;
+    transition: transform 1s ease;
+    will-change: transform, opacity, filter;
 
-    &:hover {
-      cursor: pointer;
-      filter: unset;
-      opacity: 1;
-    }
 
     &--center {
       transform: translateX(0);
       opacity: 1;
       padding: 0;
       filter: unset;
+    }
+    &--blur {
+      opacity: 0.6;
+      transition: filter 0s ease 1s;
+      filter: blur(5px);
+    }
+    &--animation {
+      opacity: 1;
+      filter: unset;
+    }
+    &:hover {
+      transition: 0s;
+      cursor: pointer;
+      filter: blur(0);
+      opacity: 1;
     }
 
     &__group {

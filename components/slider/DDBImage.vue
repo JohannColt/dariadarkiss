@@ -1,8 +1,7 @@
 <template>
   <div class="ddb-image">
     <div class="ddb-image__wrapper">
-      <div class="ddb-image__img" v-if="url !== ''">
-        <img :src="url" alt="image">
+      <div class="ddb-image__img" v-if="url !== ''" :style="style">
       </div>
     </div>
   </div>
@@ -17,6 +16,13 @@ export default {
       default: ''
     }
   },
+  computed: {
+    style() {
+      return {
+        backgroundImage: 'url(' + this.url + ')'
+      }
+    }
+  }
 }
 </script>
 
@@ -35,6 +41,8 @@ export default {
       width: 100%;
       height: 100%;
       position: relative;
+      background: transparent no-repeat center center;
+      background-size: cover;
       img {
         position: absolute;
         width: 100%;

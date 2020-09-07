@@ -117,8 +117,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: transparentize($primary-color2, 0.6);
-    backdrop-filter: blur(10px);
-
+    backdrop-filter: blur(8px);
   }
 
   .ddb-header__text {
