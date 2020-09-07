@@ -265,14 +265,14 @@
         padding: 0;
       }
       &__square {
-        width: 335px;
-        height: 335px;
+        width: 309px;
+        height: 309px;
       }
       &__picture {
         width: 100%;
         height: 100%;
-        max-width: 335px;
-        max-height: 335px;
+        max-width: 309px;
+        max-height: 309px;
       }
 
     }
