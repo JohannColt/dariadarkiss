@@ -5,6 +5,7 @@
       <div class="slide slide-2 scrollable">
         <ddb-second-block/>
         <ddb-slider/>
+        <ddb-send-to-me/>
       </div>
     </div>
   </section>
@@ -14,9 +15,11 @@
 import DDBSecondBlock from "../components/DDBAboutMe";
 import DDBMainSlider from "../components/DDBMainSlider";
 import DDBSlider from "@/components/DDBLastWorks";
+import DDBSendToMe from "../components/DDBSendToMe";
 
 export default {
   components: {
+    'ddb-send-to-me': DDBSendToMe,
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
     'ddb-slider': DDBSlider
