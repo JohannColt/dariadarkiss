@@ -5,6 +5,7 @@
       <div class="slide slide-2 scrollable">
         <ddb-second-block/>
         <ddb-slider/>
+        <ddb-footer/>
       </div>
     </div>
   </section>
@@ -14,12 +15,14 @@
 import DDBSecondBlock from "../components/DDBAboutMe";
 import DDBMainSlider from "../components/DDBMainSlider";
 import DDBSlider from "@/components/DDBLastWorks";
+import DDBFooter from "../components/DDBFooter";
 
 export default {
   components: {
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
-    'ddb-slider': DDBSlider
+    'ddb-slider': DDBSlider,
+    'ddb-footer': DDBFooter
   },
   data() {
     return {
