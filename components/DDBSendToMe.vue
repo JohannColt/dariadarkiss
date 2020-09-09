@@ -2,7 +2,7 @@
     <div class="ddb-send-to-me">
       <div class="ddb-send-to-me__container container">
         <div class="ddb-send-to-me__heading">
-          <h2>
+          <h2 style="margin: 0">
             Хочешь фотосессию?
           </h2>
           <p class="ddb-send-to-me__heading__text">
@@ -17,19 +17,23 @@
             <input class="ddb-send-to-me__element__form" v-model="secondForm" placeholder="Как я могу с тобой связаться?">
           </div>
           <div class="ddb-send-to-me__element ddb-send-to-me__element__big">
-            <textarea class="ddb-send-to-me__element__form" v-model="thirdForm" placeholder="Опиши в двух словах какую фотосессию ты хочешь? "></textarea>
+            <textarea class="ddb-send-to-me__element__form ddb-send-to-me__element__textarea" v-model="thirdForm" placeholder="Опиши в двух словах какую фотосессию ты хочешь? "></textarea>
           </div>
         </div>
-        <div class="ddb-send-to-me__bottom">
+        <ddb-button class="ddb-send-to-me__bottom">
           <p class="ddb-send-to-me__bottom__text">Отправить форму</p>
           <img class="ddb-send-to-me__bottom__line" src="images/ui-elements/button-line.png">
-        </div>
+        </ddb-button>
       </div>
     </div>
 </template>
 
 <script>
+  import DDBButton from "./DDBButton";
     export default {
+      components: {
+        'ddb-button':DDBButton
+      },
         name: "DDBSendToMe",
       data() {
           return{
@@ -86,14 +90,24 @@
       font-weight: normal;
       font-size: 16px;
       line-height: 32px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
+      color: #3F2D2D;
+      opacity: 0.8;
+    }
+    &__textarea{
+      padding-top: 8px;
     }
   }
   &__bottom{
+    margin-top: 8px;
+    margin-bottom: 51px;
     display: flex;
     position: relative;
     &__text{
-      margin-top: 8px;
-      margin-bottom: 51px;
+      margin: 0;
       font-weight: bold;
       font-size: 14px;
       line-height: 32px;
@@ -105,8 +119,8 @@
       position: absolute;
       width: 88px;
       height: 1px;
-      bottom: 51px;
-      left: 38px;
+      bottom: 1px;
+      left: 0;
     }
   }
 }
