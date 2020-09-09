@@ -25,7 +25,7 @@
                 сохранив
                 воспоминания. Съёмка может проходить как в студии, так и на улице.</p>
               <div class="ddb-popular__description__button">
-                <p class="ddb-popular__description__more">Подробнее</p>
+                <ddb-button class="ddb-popular__description__more">Подробнее</ddb-button>
                 <img class="ddb-popular__description__line" src="images/ui-elements/button-line.png">
               </div>
             </div>
@@ -43,7 +43,7 @@
               <p class="ddb-popular__description__des">Идеальное решение для личного профайла или сайта. Это хороший
                 способ для девушек и мужчин, подчеркнуть свою индивидуальность.</p>
               <div class="ddb-popular__description__button">
-                <p class="ddb-popular__description__more">Подробнее</p>
+                <ddb-button class="ddb-popular__description__more">Подробнее</ddb-button>
                 <img class="ddb-popular__description__line" src="images/ui-elements/button-line.png">
               </div>
             </div>
@@ -63,7 +63,7 @@
               <p class="ddb-popular__description__des"> Идеальное решение для семьи сохранить светлые воспоминания в
                 виде фотографий, провести время вместе и оставить яркие моменты в памяти.</p>
               <div class="ddb-popular__description__button">
-                <p class="ddb-popular__description__more">Подробнее</p>
+                <ddb-button class="ddb-popular__description__more">Подробнее</ddb-button>
                 <img class="ddb-popular__description__line" src="images/ui-elements/button-line.png">
               </div>
             </div>
@@ -81,7 +81,7 @@
               <p class="ddb-popular__description__des">Отличный способ для беременной девушки сохранить память о самом
                 сильном и азартном ожидании, которое когда-либо приходилось испытывать.</p>
               <div class="ddb-popular__description__button">
-                <p class="ddb-popular__description__more">Подробнее</p>
+                <ddb-button class="ddb-popular__description__more">Подробнее</ddb-button>
                 <img class="ddb-popular__description__line" src="images/ui-elements/button-line.png">
               </div>
             </div>
@@ -93,7 +93,11 @@
 </template>
 
 <script>
+  import DDBButton from "./DDBButton";
   export default {
+    components:{
+      'ddb-button': DDBButton
+    },
     name: "DDBPopularPhotosession"
   }
 </script>
@@ -102,7 +106,7 @@
   .ddb-popular {
     display: flex;
     justify-content: center;
-
+    align-items: center;
     &__container {
       display: flex;
       flex-direction: column;
@@ -124,6 +128,7 @@
     }
 
     &__blocks {
+      justify-content: center;
       display: flex;
       flex-direction: column;
     }
@@ -186,12 +191,15 @@
       }
 
       &__button {
+        justify-content: left;
+        text-align: left;
         display: flex;
         flex-direction: column;
         position: relative;
       }
 
       &__more {
+        width: 102px;
         margin-top: 24px;
         margin-bottom: 43px;
         font-weight: bold;
@@ -204,7 +212,7 @@
       &__line {
         display: block;
         position: absolute;
-        bottom: 43px;
+        bottom: 44px;
         left: 0;
         width: 102px;
         height: 1px;
@@ -233,7 +241,8 @@
       }
 
       &__blocks {
-
+        justify-content: center;
+        align-items: center;
       }
 
       &__double {
@@ -242,6 +251,10 @@
       }
 
       &__element {
+        max-width: 622px;
+        max-height: 350px;
+        display: flex;
+        flex-direction: row;
         &__left {
           margin-right: 8px;
         }
@@ -257,11 +270,6 @@
         &__lower {
           margin-top: 8px;
         }
-
-        max-width: 622px;
-        max-height: 350px;
-        display: flex;
-        flex-direction: row;
       }
 
       &__photo {
@@ -275,6 +283,9 @@
       }
 
       &__description {
+        width: 414px;
+        padding-left: 16px;
+        padding-right: 32px;
         &__ps {
           margin-top: 32px;
           font-weight: normal;
@@ -301,7 +312,7 @@
         }
 
         &__line {
-          bottom: 54px;
+          bottom: 55px;
         }
       }
 
