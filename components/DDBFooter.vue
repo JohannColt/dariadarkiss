@@ -46,7 +46,7 @@
         z-index: 2;
         color: white;
         font-style: normal;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 14px;
         line-height: 32px;
         text-align: center;
