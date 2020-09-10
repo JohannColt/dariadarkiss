@@ -231,13 +231,17 @@
   }
   @include for-extra-large {
     .ddb-instagram {
+      &__container{
+        padding-top: 80px;
+      }
       display: flex;
       align-items: center;
       justify-content: center;
       &__heading {
         display: flex;
         justify-content: space-between;
-        margin-top: 104px;
+        margin-top: 24px;
+        margin-bottom: 24px;
         padding-left: 0;
         text-align: left;
 

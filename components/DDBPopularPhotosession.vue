@@ -118,8 +118,8 @@
       padding-left: 24px;
 
       &__text {
-        margin-top: 64px;
-        margin-bottom: 24px;
+        margin-top: 24px;
+        margin-bottom: 6px;
 
         &__desktop {
           display: none;
@@ -223,6 +223,7 @@
   @include for-extra-large {
     .ddb-popular {
       &__container {
+        padding-top: 80px;
 
       }
 
@@ -283,7 +284,8 @@
       }
 
       &__description {
-        width: 414px;
+        min-width: 410px;
+        max-width: 414px;
         padding-left: 16px;
         padding-right: 32px;
         &__ps {

@@ -9,7 +9,8 @@
         <ddb-popular-photosession/>
         <ddb-instagram/>
         <ddb-send-to-me/>
-        <ddb-footer/>
+        <ddb-footer></ddb-footer>
+
       </div>
     </div>
   </section>
@@ -25,16 +26,18 @@ import DDBInstagramBlock from "../components/DDBInstagramBlock";
 import DDBSendToMe from "../components/DDBSendToMe";
 import DDBFooter from "../components/DDBFooter";
 
+
 export default {
   components: {
-    'ddb-popular-photosession':DDBPopularPhotosession,
-    'ddb-send-to-me': DDBSendToMe,
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
-    'ddb-price-block': DDBPriceBlock,
     'ddb-slider': DDBSlider,
+    'ddb-price-block': DDBPriceBlock,
+    'ddb-popular-photosession': DDBPopularPhotosession,
     'ddb-instagram': DDBInstagramBlock,
+    'ddb-send-to-me': DDBSendToMe,
     'ddb-footer': DDBFooter
+
   },
   data() {
     return {
