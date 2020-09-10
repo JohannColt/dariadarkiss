@@ -8,6 +8,7 @@
         <ddb-price-block/>
         <ddb-popular-photosession/>
         <ddb-instagram/>
+        <ddb-send-to-me/>
       </div>
     </div>
   </section>
@@ -20,13 +21,15 @@ import DDBSlider from "@/components/DDBLastWorks";
 import DDBPriceBlock from "../components/DDBPriceBlock";
 import DDBPopularPhotosession from "../components/DDBPopularPhotosession";
 import DDBInstagramBlock from "../components/DDBInstagramBlock";
+import DDBSendToMe from "../components/DDBSendToMe";
 
 export default {
   components: {
     'ddb-popular-photosession':DDBPopularPhotosession,
+    'ddb-send-to-me': DDBSendToMe,
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
-    'ddb-price-block': DDBPriceBlock
+    'ddb-price-block': DDBPriceBlock,
     'ddb-slider': DDBSlider,
     'ddb-instagram': DDBInstagramBlock
   },
