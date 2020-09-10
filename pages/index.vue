@@ -7,6 +7,7 @@
         <ddb-slider/>
         <ddb-price-block/>
         <ddb-popular-photosession/>
+        <ddb-instagram/>
       </div>
     </div>
   </section>
@@ -18,14 +19,16 @@ import DDBMainSlider from "../components/DDBMainSlider";
 import DDBSlider from "@/components/DDBLastWorks";
 import DDBPriceBlock from "../components/DDBPriceBlock";
 import DDBPopularPhotosession from "../components/DDBPopularPhotosession";
+import DDBInstagramBlock from "../components/DDBInstagramBlock";
 
 export default {
   components: {
     'ddb-popular-photosession':DDBPopularPhotosession,
     'ddb-second-block': DDBSecondBlock,
     'ddb-main-slider': DDBMainSlider,
-    'ddb-slider': DDBSlider,
     'ddb-price-block': DDBPriceBlock
+    'ddb-slider': DDBSlider,
+    'ddb-instagram': DDBInstagramBlock
   },
   data() {
     return {
