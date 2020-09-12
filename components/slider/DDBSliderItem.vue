@@ -4,11 +4,14 @@
       <template v-for="(image, k) in renderedItems">
         <div :key="k" v-if="image.position === 'vertical'" class="ddb-slide__group ddb-slide__group--vertical">
           <ddb-image class="ddb-slide__image" :url="image.src"/>
+          <ddb-image class="ddb-slide__image--blur" :url="image.srcBlur"/>
         </div>
         <div :key="k" v-else-if="k === 0 || renderedItems[k - 1].position !== 'horizontal'"
              class="ddb-slide__group ddb-slide__group--horizontal">
           <ddb-image class="ddb-slide__image" :url="image.src"/>
+          <ddb-image class="ddb-slide__image--blur" :url="image.srcBlur"/>
           <ddb-image class="ddb-slide__image" :url="renderedItems[k + 1].src"/>
+          <ddb-image class="ddb-slide__image--blur" :url="renderedItems[k + 1].srcBlur"/>
         </div>
       </template>
     </template>
@@ -43,6 +46,7 @@ export default {
       pastPosition: 0,
       interval: null,
       animation: false,
+      hover: false
     }
   },
   props: {
@@ -80,21 +84,18 @@ export default {
     styleClasses() {
       let resultClass = ['ddb-slide'];
       if (this.currentPosition === this.index) {
-        if (this.linePosition === 'next') {
-          console.log({
-            cp: this.currentPosition,
-            i: this.index
-          })
-        }
         resultClass.push('ddb-slide--center');
       }
-      let distance = Math.abs(this.index - this.currentPosition);
-      if ((this.linePosition === 'next' && this.currentPosition === this.maxElements - 1 && this.index === 0) ||
-        (this.linePosition === 'prev' && this.currentPosition === 0 && this.index === this.maxElements - 1) ||
-          distance === 1) {
+      if (this.isBlur) {
         resultClass.push('ddb-slide--blur')
       }
       return resultClass.join(' ');
+    },
+    isBlur() {
+      if (this.hover) {
+        return true;
+      }
+      return this.index !== this.currentPosition;
     },
     isVisible() {
       if (this.linePosition === 'prev') {
@@ -179,10 +180,17 @@ export default {
       padding: 0;
       filter: unset;
     }
+    .ddb-slide__image--blur {
+      display: none;
+    }
     &--blur {
       opacity: 0.6;
-      transition: filter 0s ease 1s;
-      filter: blur(5px);
+      .ddb-slide__image {
+        display: none;
+      }
+      .ddb-slide__image--blur {
+        display: block;
+      }
     }
     &--animation {
       opacity: 1;
@@ -193,6 +201,12 @@ export default {
       cursor: pointer;
       filter: blur(0);
       opacity: 1;
+      .ddb-slide__image {
+        display: block;
+      }
+      .ddb-slide__image--blur {
+        display: none;
+      }
     }
 
     &__group {
@@ -209,7 +223,6 @@ export default {
 
         .ddb-image {
           margin-bottom: 16px;
-
           &:last-child {
             margin-bottom: 0;
           }

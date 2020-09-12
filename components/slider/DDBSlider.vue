@@ -43,90 +43,110 @@ export default {
         [
           {
             src: '/images/last-works-slider/5.jpg',
+            srcBlur: '/images/last-works-slider/5-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/3.jpg',
+            srcBlur: '/images/last-works-slider/3-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/4.jpg',
+            srcBlur: '/images/last-works-slider/4-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/6.jpg',
+            srcBlur: '/images/last-works-slider/6-blur.jpg',
             position: 'vertical'
           },
         ],
         [
           {
             src: '/images/last-works-slider/21.jpg',
+            srcBlur: '/images/last-works-slider/21-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/1.jpg',
+            srcBlur: '/images/last-works-slider/1-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/2.jpg',
+            srcBlur: '/images/last-works-slider/2-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/14.jpg',
+            srcBlur: '/images/last-works-slider/14-blur.jpg',
             position: 'vertical'
           }
         ],
         [
           {
             src: '/images/last-works-slider/7.jpg',
+            srcBlur: '/images/last-works-slider/7-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/8.jpg',
+            srcBlur: '/images/last-works-slider/8-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/15.jpg',
+            srcBlur: '/images/last-works-slider/15-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/16.jpg',
+            srcBlur: '/images/last-works-slider/16-blur.jpg',
             position: 'vertical'
           }
         ],
         [
           {
             src: '/images/last-works-slider/17.jpg',
+            srcBlur: '/images/last-works-slider/17-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/18.jpg',
+            srcBlur: '/images/last-works-slider/18-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/9.jpg',
+            srcBlur: '/images/last-works-slider/9-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/10.jpg',
+            srcBlur: '/images/last-works-slider/10-blur.jpg',
             position: 'horizontal'
           },
         ],
         [
           {
             src: '/images/last-works-slider/19.jpg',
+            srcBlur: '/images/last-works-slider/19-blur.jpg',
             position: 'vertical'
           },
           {
             src: '/images/last-works-slider/11.jpg',
+            srcBlur: '/images/last-works-slider/11-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/12.jpg',
+            srcBlur: '/images/last-works-slider/12-blur.jpg',
             position: 'horizontal'
           },
           {
             src: '/images/last-works-slider/20.jpg',
+            srcBlur: '/images/last-works-slider/20-blur.jpg',
             position: 'vertical'
           }
         ]
@@ -271,7 +291,7 @@ export default {
       bottom: 20px;
     }
     &__nav {
-      flex: 1 1 0px;
+      flex: 1 1 0;
       background: $primary-color1;
       opacity: 0.3;
       cursor: pointer;
