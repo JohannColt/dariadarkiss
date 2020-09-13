@@ -3,15 +3,12 @@
     <template v-if="isVisible">
       <template v-for="(image, k) in renderedItems">
         <div :key="k" v-if="image.position === 'vertical'" class="ddb-slide__group ddb-slide__group--vertical">
-          <ddb-image class="ddb-slide__image" :url="image.src"/>
-          <ddb-image class="ddb-slide__image--blur" :url="image.srcBlur"/>
+          <ddb-image class="ddb-slide__image" :url="image.src" :blur-url="image.srcBlur" :blur="isBlur"/>
         </div>
         <div :key="k" v-else-if="k === 0 || renderedItems[k - 1].position !== 'horizontal'"
              class="ddb-slide__group ddb-slide__group--horizontal">
-          <ddb-image class="ddb-slide__image" :url="image.src"/>
-          <ddb-image class="ddb-slide__image--blur" :url="image.srcBlur"/>
-          <ddb-image class="ddb-slide__image" :url="renderedItems[k + 1].src"/>
-          <ddb-image class="ddb-slide__image--blur" :url="renderedItems[k + 1].srcBlur"/>
+          <ddb-image class="ddb-slide__image" :url="image.src" :blur-url="image.srcBlur" :blur="isBlur"/>
+          <ddb-image class="ddb-slide__image" :url="renderedItems[k + 1].src" :blur-url="renderedItems[k + 1].srcBlur" :blur="isBlur"/>
         </div>
       </template>
     </template>
@@ -135,7 +132,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .ddb-slide {
   height: 100%;
@@ -185,16 +182,19 @@ export default {
       padding: 0;
       filter: unset;
     }
-    .ddb-slide__image--blur {
+    .ddb-slide__image .ddb-image__img--blur {
       display: none;
+      //opacity: 0;
     }
     &--blur {
       opacity: 0.6;
-      .ddb-slide__image {
+      .ddb-slide__image .ddb-image__img {
         display: none;
+        //opacity: 0;
       }
-      .ddb-slide__image--blur {
+      .ddb-slide__image .ddb-image__img--blur {
         display: block;
+        //opacity: 0.6;
       }
     }
     &--animation {
@@ -207,10 +207,16 @@ export default {
       filter: blur(0);
       opacity: 1;
       .ddb-slide__image {
-        display: block;
+        .ddb-image__img {
+          display: block;
+          //opacity: 1;
+        }
       }
-      .ddb-slide__image--blur {
-        display: none;
+      .ddb-slide__image {
+        .ddb-image__img--blur {
+          display: none;
+          //opacity: 0;
+        }
       }
     }
 

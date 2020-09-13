@@ -1,7 +1,11 @@
 <template>
   <div class="ddb-image">
     <div class="ddb-image__wrapper">
-      <div class="ddb-image__img" v-if="url !== ''" :style="style">
+      <div class="ddb-image__img" v-if="url !== ''">
+        <img :src="url" alt="image">
+      </div>
+      <div class="ddb-image__img ddb-image__img--blur" v-if="blurUrl !== ''">
+        <img :src="blurUrl" alt="blur-image">
       </div>
     </div>
   </div>
@@ -14,13 +18,26 @@ export default {
     url: {
       type: String,
       default: ''
+    },
+    blurUrl: {
+      type: String,
+      default: ''
+    },
+    blur: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     style() {
       return {
         backgroundImage: 'url(' + this.url + ')'
-      }
+      };
+    },
+    blurStyle() {
+      return {
+        backgroundImage: 'url(' + this.blurUrl + ')'
+      };
     }
   }
 }
@@ -30,17 +47,16 @@ export default {
   .ddb-image {
     height: 100%;
     width: 100%;
+    padding: 6px;
     &__wrapper {
-      padding: 6px;
       position: relative;
       height: 100%;
       width: 100%;
-      background: #fff;
     }
     &__img {
       width: 100%;
       height: 100%;
-      position: relative;
+      position: absolute;
       background: transparent no-repeat center center;
       background-size: cover;
       img {
@@ -54,9 +70,8 @@ export default {
   }
   @include for-large {
     .ddb-image {
-      &__wrapper {
-        padding: 12px;
-      }
+      padding: 12px;
+      background: #fff;
     }
   }
 </style>
