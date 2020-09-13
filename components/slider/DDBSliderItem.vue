@@ -98,18 +98,14 @@ export default {
       return this.index !== this.currentPosition;
     },
     isVisible() {
-      if (this.linePosition === 'prev') {
-        console.log('here')
-        console.log({
-          currentPosition: this.currentPosition,
-          index: this.index,
-          maxElements: this.maxElements
-        })
-      }
-      if (this.currentPosition === 0 && this.linePosition === 'prev' && this.index === this.maxElements - 1) {
+      if ((this.currentPosition === 0 || this.currentPosition === 1)
+        && this.linePosition === 'prev'
+        && (this.index === this.maxElements - 1 || this.index === this.maxElements - 2)) {
          return true;
       }
-      if (this.currentPosition === this.maxElements - 1 && this.linePosition === 'next' && this.index === 0) {
+      if ((this.currentPosition === this.maxElements - 1 || this.currentPosition === this.maxElements - 2)
+        && this.linePosition === 'next'
+        && (this.index === 0 || this.index === 1)) {
         return true;
       }
       const r = Math.abs(this.index - this.currentPosition);

@@ -122,7 +122,7 @@ export default {
           const scroll = this.getPercentageOfScroll(el);
           if (
             elementSlide === this.currentSlide &&
-            ((scroll === 0 && ev.deltaY < 0) || (scroll === 100 && ev.deltaY > 0))
+            ((scroll === 0 && ev.deltaY < -50))
           ) {
             this.exitingScrollable = true;
           }
