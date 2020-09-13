@@ -43,6 +43,7 @@ export default {
       current: 0,
       scrolling: false,
       startPosition: 0,
+      startPositionY: 0,
       endPosition: 0,
       offset: 0,
       oldOffset: 0,
@@ -236,11 +237,18 @@ export default {
     },
     touchStart(e) {
       this.startPosition = e.touches[0].pageX;
+      this.startPositionY = e.touches[0].pageY;
       this.oldOffset = this.offset;
       document.addEventListener('touchmove', this.touchMove)
     },
     touchMove(e) {
       const distance = e.touches[0].pageX - this.startPosition;
+      const distanceY = e.touches[0].pageY - this.startPositionY;
+      if (Math.abs(distance) < Math.abs(distanceY)) {
+        window.scrollTo({
+          top: window.pageYOffset - distanceY,
+        })
+      }
       let newOffset = this.offset;
       newOffset = distance + this.oldOffset;
       if (newOffset >= 0) {
@@ -428,10 +436,11 @@ export default {
     }
     &--horizontal {
       min-width: 384px;
-      height: calc(50% - 8px);
+      height: 100%;
       display: flex;
       flex-direction: column;
       .ddb-slider__image {
+        height: calc(50% - 8px);
         margin-bottom: 16px;
         &:last-child {
           margin-bottom: 0;
