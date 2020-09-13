@@ -428,10 +428,10 @@ export default {
     }
     &--horizontal {
       min-width: 384px;
-      height: 100%;
+      height: calc(50% - 8px);
       display: flex;
       flex-direction: column;
-      .ddb-image {
+      .ddb-slider__image {
         margin-bottom: 16px;
         &:last-child {
           margin-bottom: 0;

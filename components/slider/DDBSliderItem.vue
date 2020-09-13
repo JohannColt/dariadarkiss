@@ -184,17 +184,14 @@ export default {
     }
     .ddb-slide__image .ddb-image__img--blur {
       display: none;
-      //opacity: 0;
     }
     &--blur {
       opacity: 0.6;
       .ddb-slide__image .ddb-image__img {
         display: none;
-        //opacity: 0;
       }
       .ddb-slide__image .ddb-image__img--blur {
         display: block;
-        //opacity: 0.6;
       }
     }
     &--animation {
@@ -215,7 +212,6 @@ export default {
       .ddb-slide__image {
         .ddb-image__img--blur {
           display: none;
-          //opacity: 0;
         }
       }
     }
@@ -228,7 +224,7 @@ export default {
 
       &--horizontal {
         min-width: 40%;
-        height: 100%;
+        height: calc(50% - 8px);
         display: flex;
         flex-direction: column;
 
