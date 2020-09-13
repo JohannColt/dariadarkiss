@@ -4,8 +4,9 @@
     <div class="ddb-slider__photos ddb-slider__photos--desktop" ref="slider" @mousedown.prevent="mouseDown">
     </div>
 
-    <div class="ddb-slider__photos ddb-slider__photos--mobile">
-      <div v-for="(images, key) in items" :key="key" class="ddb-slider__item ddb-slider__item--active">
+    <div class="ddb-slider__photos ddb-slider__photos--mobile" :style="style"
+         @touchstart.prevent="touchStart">
+      <div v-for="(images, key) in items" :key="key" class="ddb-slider__item">
         <template v-for="(image, k) in images">
           <div :key="k" v-if="image.position === 'vertical'" class="ddb-slider__group ddb-slider__group--vertical">
             <ddb-image class="ddb-slider__image" :url="image.src"/>
@@ -20,7 +21,9 @@
 
     <div class="ddb-slider__scroller">
       <div v-for="(_, key) in items" :key="key" @click="move(key)"
-           :class="['ddb-slider__nav', current === key ? 'ddb-slider__nav--active': '']"/>
+           :class="['ddb-slider__nav', 'ddb-slider__nav--desktop', current === key ? 'ddb-slider__nav--active': '']"/>
+      <div class="ddb-slider__line" ref="line" @click="moveMobile"/>
+      <div :style="mobileNavStyle" class="ddb-slider__nav ddb-slider__nav--mobile"/>
     </div>
   </div>
 </template>
@@ -38,10 +41,13 @@ export default {
   data() {
     return {
       current: 0,
-      scrolling: 0,
+      scrolling: false,
       startPosition: 0,
       endPosition: 0,
       offset: 0,
+      oldOffset: 0,
+      maxOffset: 0,
+      line: null,
       items: [
         [
           {
@@ -165,23 +171,99 @@ export default {
   computed: {
     maxElements() {
       return this.items.length - 1;
+    },
+    style() {
+      return {
+        transform: 'translate3d(' + this.offset + 'px, 0, 0)'
+      }
+    },
+    mobileNavStyle() {
+      const percents = 100 / this.items.length;
+      let result = {
+        width: percents + '%'
+      }
+      if (!this.$refs.line) {
+        const offset = this.offset / this.maxOffset * 100;
+        result.transform = 'translate3d(' + offset + 'px, 0,0)';
+        return result;
+      } else {
+        const width = this.$refs.line.clientWidth;
+        const piece = width * (percents / 100);
+        const offset = (width - piece) * (this.offset / this.maxOffset);
+        result.transform = 'translate3d(calc(' + offset + 'px), 0,0)';
+        return result;
+      }
+
     }
   },
   mounted() {
-    this.renderLine();
-    this.renderLine('prev');
-    this.renderLine('next');
-    document.addEventListener('mouseup', this.mouseUp);
+    this.initComponents();
+    window.addEventListener('resize', () => {
+      this.dropComponents();
+      this.initComponents();
+    })
   },
   methods: {
+    moveMobile(e) {
+      const width = this.$refs.line.clientWidth;
+      const offsetX = e.offsetX;
+      this.offset = this.maxOffset * (offsetX / width);
+    },
+    dropComponents() {
+      for (let key in this.components) {
+        if (this.components.hasOwnProperty(key) && this.components[key]) {
+          this.components[key].$el.remove();
+          this.components[key].$destroy();
+          this.components[key] = null;
+        }
+      }
+      document.removeEventListener('mouseup', this.mouseUp);
+      document.removeEventListener('touchend', this.touchEnd);
+      this.maxOffset = 0;
+    },
+    initComponents() {
+      if (window.innerWidth >= 992) {
+        this.renderLine();
+        this.renderLine('prev');
+        this.renderLine('next');
+        document.addEventListener('mouseup', this.mouseUp);
+      } else {
+        document.addEventListener('touchend', this.touchEnd);
+        let photos = document.querySelector('.ddb-slider__photos--mobile');
+        let container = document.querySelector('.ddb-last-works__body');
+        this.maxOffset = (photos.clientWidth - container.clientWidth) * -1;
+      }
+    },
+    touchStart(e) {
+      this.startPosition = e.touches[0].pageX;
+      this.oldOffset = this.offset;
+      document.addEventListener('touchmove', this.touchMove)
+    },
+    touchMove(e) {
+      const distance = e.touches[0].pageX - this.startPosition;
+      let newOffset = this.offset;
+      newOffset = distance + this.oldOffset;
+      if (newOffset >= 0) {
+        this.offset = 0;
+        return false;
+      } else if (newOffset <= this.maxOffset) {
+        this.offset = this.maxOffset;
+        return false;
+      }
+      this.offset = newOffset;
+      return false;
+    },
+    touchEnd() {
+      document.removeEventListener('touchmove', this.touchMove)
+    },
     mouseDown(e) {
       this.startPosition = e.pageX;
+      this.scrolling = true;
       document.addEventListener('mousemove', this.moving);
     },
     mouseUp(e) {
-      this.scrolling = true;
-      this.endPosition = e.pageX;
       document.removeEventListener('mousemove', this.moving);
+      this.endPosition = e.pageX;
       this.offset = e.clientX - this.startPosition;
       if (this.offset < 0 && this.offset <= -60) {
         const position = this.getNext(this.current);
@@ -195,6 +277,9 @@ export default {
           this.components[key].setOffset(0);
         }
       }
+      this.startPosition = 0;
+      this.endPosition = 0;
+      this.scrolling = false;
     },
     moving(e) {
       this.offset = e.clientX - this.startPosition;
@@ -218,6 +303,9 @@ export default {
       tab.appendChild(this.components[position].$el);
     },
     move(direction) {
+      if (window.innerWidth < 992) {
+        return;
+      }
       let line;
       let position;
       if (Number.isInteger(direction)) {
@@ -287,8 +375,33 @@ export default {
   &__photos {
     position: absolute;
     height: 423px;
-    width: 100%;
+    width: max-content;
     display: flex;
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__scroller {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 2px;
+    bottom: 3px;
+  }
+
+  &__line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $primary-color1;
+    opacity: 0.3;
+  }
+
+  &__nav {
+    height: 100%;
+    background: $primary-color1;
+    position: absolute;
     &--desktop {
       display: none;
     }
@@ -297,9 +410,9 @@ export default {
   &__item {
     height: 100%;
     display: flex;
-    padding: 0 16px;
+    margin-left: 16px;
     &--active, &:first-child {
-      padding: 0;
+      margin: 0;
     }
   }
 
@@ -338,18 +451,31 @@ export default {
       width: 100%;
       height: 2px;
       bottom: 20px;
+      background: none;
+      opacity: 1;
     }
     &__nav {
       flex: 1 1 0;
       background: $primary-color1;
       opacity: 0.3;
       cursor: pointer;
+      position: relative;
       &--active {
         opacity: 1;
       }
+      &--desktop {
+        display: block;
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+    &__line {
+      display: none;
     }
     &__photos {
       height: 540px;
+      width: 100%;
       &--desktop {
         display: flex;
       }

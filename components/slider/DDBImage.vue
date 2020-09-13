@@ -48,6 +48,7 @@ export default {
     height: 100%;
     width: 100%;
     padding: 6px;
+    background: #fff;
     &__wrapper {
       position: relative;
       height: 100%;
@@ -71,7 +72,6 @@ export default {
   @include for-large {
     .ddb-image {
       padding: 12px;
-      background: #fff;
     }
   }
 </style>
