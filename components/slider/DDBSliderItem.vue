@@ -1,5 +1,5 @@
 <template>
-  <div :data-index="index" @click="change" :style="style" :class="styleClasses" class="ddb-slide">
+  <div :data-index="index" @mousedown="mouseDown" @mouseup="mouseUp" :style="style" :class="styleClasses" class="ddb-slide">
     <template v-if="isVisible">
       <template v-for="(image, k) in renderedItems">
         <div :key="k" v-if="image.position === 'vertical'" class="ddb-slide__group ddb-slide__group--vertical">
@@ -46,7 +46,8 @@ export default {
       pastPosition: 0,
       interval: null,
       animation: false,
-      hover: false
+      hover: false,
+      willBeTrigerred: false
     }
   },
   props: {
@@ -116,6 +117,14 @@ export default {
     change() {
       return this.$emit('change-index', this.index);
     },
+    mouseDown() {
+      this.willBeTrigerred = this.currentPosition !== this.index;
+    },
+    mouseUp() {
+      if (this.willBeTrigerred) {
+        return this.$emit('change-index', this.index);
+      }
+    }
   },
   watch: {
     currentPosition() {

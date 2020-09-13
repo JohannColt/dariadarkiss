@@ -55,6 +55,8 @@ export default {
     return {
       ownPosition: 'main',
       currentElement: 0,
+      offset: 0,
+      width: 0
     }
   },
   props: {
@@ -69,18 +71,27 @@ export default {
     style() {
       let styles = {};
       if (this.ownPosition === 'prev') {
-        if (this.currentElement > 1) {
+        if (this.currentElement > 1 || this.offset !== 0) {
           styles.transition = 'unset';
         }
-        styles.transform = 'translate3d(-'+ this.prevX * 100 + '%, 0, 0)';
+        const percents = this.prevX * 100 + "%";
+        const pixels = this.offset + 'px';
+        styles.transform = 'translate3d(calc(' + pixels + ' - ' + percents + '), 0, 0)';
       } else if (this.ownPosition === 'next') {
-        if (this.currentElement <= this.items.length - 2) {
+        if (this.currentElement <= this.items.length - 2 || this.offset !== 0) {
           styles.transition = 'unset';
         }
-        styles.transform = 'translate3d(' + this.nextX * 100 + '%, 0, 0)';
+        const percents = this.nextX * 100 + "%";
+        const pixels = this.offset + 'px';
+        styles.transform = 'translate3d(calc(' + pixels + ' + ' + percents + '), 0, 0)';
 
       } else {
-        styles.transform = 'translate3d(-' + this.currentElement * 100 + '%, 0, 0)';
+        if (this.offset !== 0) {
+          styles.transition = 'unset';
+        }
+        const percents = this.currentElement * 100 + "%";
+        const pixels = this.offset + 'px';
+        styles.transform = 'translate3d(calc(' + pixels + ' - ' + percents + '), 0, 0)';
       }
       return styles;
     },
@@ -114,6 +125,9 @@ export default {
   methods: {
     changePosition(newPosition) {
       this.ownPosition = newPosition;
+    },
+    setOffset(offset) {
+      this.offset = offset;
     },
     move(index) {
       this.$emit('move', {

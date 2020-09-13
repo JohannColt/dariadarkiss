@@ -1,7 +1,7 @@
 <template>
   <div class="ddb-slider">
 
-    <div class="ddb-slider__photos ddb-slider__photos--desktop">
+    <div class="ddb-slider__photos ddb-slider__photos--desktop" ref="slider" @mousedown.prevent="mouseDown">
     </div>
 
     <div class="ddb-slider__photos ddb-slider__photos--mobile">
@@ -38,7 +38,10 @@ export default {
   data() {
     return {
       current: 0,
-
+      scrolling: 0,
+      startPosition: 0,
+      endPosition: 0,
+      offset: 0,
       items: [
         [
           {
@@ -159,12 +162,48 @@ export default {
       components: [],
     }
   },
+  computed: {
+    maxElements() {
+      return this.items.length - 1;
+    }
+  },
   mounted() {
     this.renderLine();
     this.renderLine('prev');
     this.renderLine('next');
+    document.addEventListener('mouseup', this.mouseUp);
   },
   methods: {
+    mouseDown(e) {
+      this.startPosition = e.pageX;
+      document.addEventListener('mousemove', this.moving);
+    },
+    mouseUp(e) {
+      this.scrolling = true;
+      this.endPosition = e.pageX;
+      document.removeEventListener('mousemove', this.moving);
+      this.offset = e.clientX - this.startPosition;
+      if (this.offset < 0 && this.offset <= -60) {
+        const position = this.getNext(this.current);
+        this.move(position);
+      } else if (this.offset > 0 && this.offset >= 60) {
+        const position = this.getPrev(this.current);
+        this.move(position);
+      }
+      for (let key in this.components) {
+        if (this.components.hasOwnProperty(key) && this.components[key]) {
+          this.components[key].setOffset(0);
+        }
+      }
+    },
+    moving(e) {
+      this.offset = e.clientX - this.startPosition;
+      for (let key in this.components) {
+        if (this.components.hasOwnProperty(key) && this.components[key]) {
+          this.components[key].setOffset(this.offset);
+        }
+      }
+    },
     renderLine(position = 'main') {
       const ComponentClass = Vue.extend(DDBSliderLine);
 
@@ -179,31 +218,41 @@ export default {
       tab.appendChild(this.components[position].$el);
     },
     move(direction) {
+      let line;
+      let position;
       if (Number.isInteger(direction)) {
-        this.current = direction;
-        for (let key in this.components) {
-          if (this.components.hasOwnProperty(key) && this.components[key]) {
-            this.components[key].setCurrent(this.current);
-          }
+        if (this.current === 0 && direction === this.maxElements) {
+          line = 'prev';
+          position = direction;
+        } else if (this.current === this.maxElements && direction === 0) {
+          line = 'next';
+          position = direction;
+        } else {
+          line = 'main';
+          position = direction;
         }
-      }else if (direction.line === 'main') {
-        this.current = direction.position;
+      } else {
+        line = direction.line;
+        position = direction.position;
+      }
+      if (line === 'main') {
+        this.current = position;
         for (let key in this.components) {
           if (this.components.hasOwnProperty(key) && this.components[key]) {
             this.components[key].setCurrent(this.current);
           }
         }
       } else {
-        const backDirection = this.getBackDirection(direction.line);
-        this.current = direction.position;
+        const backDirection = this.getBackDirection(line);
+        this.current = position;
         this.components[backDirection].$el.remove();
         this.components[backDirection].$destroy();
 
-        this.components[direction.line].changePosition('main');
+        this.components[line].changePosition('main');
         this.components.main.changePosition(backDirection);
         this.components[backDirection] = this.components.main;
-        this.components.main = this.components[direction.line];
-        this.renderLine(direction.line);
+        this.components.main = this.components[line];
+        this.renderLine(line);
         for (let key in this.components) {
           if (this.components.hasOwnProperty(key) && this.components[key]) {
             this.components[key].setCurrent(this.current);
@@ -218,7 +267,7 @@ export default {
       if (this.items[index - 1]) {
         return index - 1;
       }
-      return this.items.length - 1;
+      return this.maxElements;
     },
     getNext(index) {
       if (this.items[index + 1]) {
