@@ -224,11 +224,12 @@ export default {
 
       &--horizontal {
         min-width: 40%;
-        height: calc(50% - 8px);
+        height: 100%;
         display: flex;
         flex-direction: column;
 
         .ddb-image {
+          height: calc(50% - 8px);
           margin-bottom: 16px;
           &:last-child {
             margin-bottom: 0;
