@@ -221,18 +221,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       &__container {
-        padding-top: 80px;
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
       }
 
       &__heading {
-        width: 100%;
-        text-align: left;
         font-style: normal;
         font-weight: bold;
         font-size: 40px;
@@ -240,8 +236,7 @@
         padding-left: 0;
 
         &__text {
-          margin-top: 24px;
-          margin-bottom: 24px;
+          margin: 24px 0;
         }
       }
 
@@ -270,9 +265,7 @@
         flex-direction: column;
 
         &__bronze {
-          padding: 10px;
-          margin-top: 0;
-          margin-bottom: 0;
+          padding: 12px;
           margin-right: 8px;
           width: 100%;
           min-width: 350px;
@@ -280,7 +273,7 @@
         }
 
         &__silver {
-          padding: 10px;
+          padding: 12px;
           margin: 0 8px;
           width: 100%;
           min-width: 350px;
@@ -288,10 +281,8 @@
         }
 
         &__gold {
-          padding: 10px;
+          padding: 12px;
           margin-left: 8px;
-          margin-top: 0;
-          margin-bottom: 0;
           width: 100%;
           min-width: 350px;
           max-width: 409px;
@@ -309,19 +300,19 @@
           padding-top: 10px;
           width: 100%;
           border: 0;
-          display: none;
+          display: flex;
           flex-direction: column;
         }
       }
 
       &__text {
-        padding-left: 0;
+        padding-left: 20px;
         margin-top: 10px;
         margin-bottom: 0;
       }
 
       &__last {
-        padding-left: 0px;
+        padding-left: 20px;
         margin-top: 32px;
         margin-bottom: 28px;
       }
