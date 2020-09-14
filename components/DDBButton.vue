@@ -1,7 +1,11 @@
 <template>
   <div :class="mainClass">
     <slot/>
-    <img v-if="isActive" class="ddb-button__line" src="/images/ui-elements/button-line.svg" alt="button-line">
+    <svg v-if="isActive" class="ddb-button__line"  width="48" height="1" viewBox="0 0 48 1" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="48" y="1" width="4" height="1" transform="rotate(180 48 1)" fill="#3F2D2D"/>
+      <rect x="40" y="1" width="4" height="1" transform="rotate(180 40 1)" fill="#3F2D2D"/>
+      <rect x="32" y="1" width="32" height="1" transform="rotate(180 32 1)" fill="#3F2D2D"/>
+    </svg>
   </div>
 </template>
 
@@ -12,11 +16,17 @@ export default {
     isActive: {
       type: Boolean,
       default: false,
+    },
+    isBigButton: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     mainClass() {
-      return this.isActive ? 'ddb-button ddb-button--active' : 'ddb-button';
+      let resultClasses = this.isActive ? 'ddb-button ddb-button--active' : 'ddb-button';
+      resultClasses = this.isBigButton ? resultClasses + ' ddb-button--big' : resultClasses;
+      return resultClasses;
     }
   }
 }
@@ -32,9 +42,17 @@ export default {
     line-height: 1.6rem;
     &__line {
       display: none;
+      width: 60%;
+    }
+    &--big {
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 32px;
+      letter-spacing: 0.04em;
+      font-weight: $font-weight-bold;
     }
   }
-  @include for-extra-large {
+  @include for-large {
     .ddb-button {
       &__line {
         display: block;

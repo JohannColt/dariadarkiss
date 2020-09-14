@@ -117,8 +117,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: transparentize($primary-color2, 0.6);
-    backdrop-filter: blur(10px);
-
+    backdrop-filter: blur(8px);
   }
 
   .ddb-header__text {
@@ -186,7 +185,7 @@
     animation: ddb-animation 0.3s reverse;
   }
 
-  @include for-extra-large {
+  @include for-large {
     .ddb-header {
       z-index: 500;
       &__mobile {
