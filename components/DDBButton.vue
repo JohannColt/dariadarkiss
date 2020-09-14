@@ -52,7 +52,7 @@ export default {
       font-weight: $font-weight-bold;
     }
   }
-  @include for-extra-large {
+  @include for-large {
     .ddb-button {
       &__line {
         display: block;
