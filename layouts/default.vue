@@ -20,7 +20,7 @@
       'ddb-header': DDBHeader,
     },
     mounted() {
-      if (window.innerWidth < 1200) {
+      if (window.innerWidth < 960) {
         this.showHeader = true;
       }
       setTimeout(this.displayHeader, 850);

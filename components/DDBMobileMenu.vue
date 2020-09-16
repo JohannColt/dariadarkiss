@@ -30,15 +30,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $primary-color2;
+    background-color: transparentize($primary-color2, 0.6);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba($primary-color1, 0.2);
   }
 
   .ddb-header__menu__elem {
     text-align: center;
-    color: $primary-color1;
     line-height: 32px;
     padding: 12px;
     font-weight: $font-weight-semi-bold;
+    text-transform: uppercase;
     &:first-child {
       padding-top: 24px;
     }
@@ -47,6 +49,4 @@
     }
   }
 
-  .ddb-header__menu__text {
-  }
 </style>

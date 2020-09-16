@@ -3,10 +3,10 @@
     <div class="ddb-header__mobile">
       <div class="ddb-header__container">
         <div class="ddb-header__burger">
-          <button v-if="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
+          <button v-show="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
             <img src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
           </button>
-          <button v-if="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
+          <button v-show="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
             <img src="/images/ui-elements/arrow.svg" alt="burger-icon">
           </button>
         </div>
@@ -22,41 +22,40 @@
         </div>
       </div>
       <transition name="ddb-animation">
-        <header-menu v-if="isActive"></header-menu>
+        <ddb-mobile-menu v-if="isActive"></ddb-mobile-menu>
       </transition>
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>
     <div class="ddb-header__desktop">
-      <div class="ddb-header__desktop-container">
+      <div class="ddb-header__desktop-container container">
         <div class="ddb-header__logo">
           <a href="/" class="default-text">DARIADARKISS</a>
         </div>
         <div class="ddb-header__menu">
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button :is-active="true">
               <a href="/" class="default-text">Главная</a>
-            </button>
-            <img src="/images/ui-elements/anchor.png" class="ddb-header__desktop__anchor" alt="anchor-icon">
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Портфолио
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Цены
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Услуги
-            </button>
+            </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <button class="ddb-header__menu-button">
+            <ddb-button>
               Контакты
-            </button>
+            </ddb-button>
           </div>
         </div>
       </div>
@@ -65,11 +64,13 @@
 </template>
 
 <script>
-  import HeaderMenu from "./DDBMobileMenu";
-
+  import DDBMobileMenu from "./DDBMobileMenu";
+  import DDBButton from "@/components/DDBButton";
   export default {
     name: "ddb-header",
-    components: {HeaderMenu},
+    components: {
+      'ddb-mobile-menu': DDBMobileMenu,
+      'ddb-button': DDBButton},
     data() {
       return {
         isActive: false
@@ -84,17 +85,16 @@
     flex-direction: column;
     width: 100%;
     position: fixed;
-    z-index: 2;
-    opacity: 0.9;
+    z-index: 500;
     &__desktop {
+      justify-content: center;
+      background-color: transparentize($primary-color2, 0.6);
+      backdrop-filter: blur(10px);
       display: none;
     }
     &__container {
       position: relative;
-      z-index: 3;
-    }
-    &__desktop-container {
-      padding-left: 40px;
+      z-index: 501;
     }
     &__menu {
       display: flex;
@@ -116,12 +116,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary-color2;
-
+    background-color: transparentize($primary-color2, 0.6);
+    backdrop-filter: blur(8px);
   }
 
   .ddb-header__text {
-    color: $primary-color1;
     font-weight: $font-weight-semi-bold;
   }
 
@@ -150,30 +149,28 @@
   }
 
   .ddb-header__desktop-container {
-    height: 80px;
+    height: $header-height-desktop;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $primary-color2;
   }
 
   .ddb-header__desktop-elem {
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
-  .ddb-header__desktop__anchor {
+  .ddb-header__desktop-anchor {
     width: 60%;
-  }
-
-  .ddb-header__desktop__text {
-    margin: 0;
   }
 
   @keyframes ddb-animation {
     0% {
-      transform: translateY(-312px);
+      transform: translateY(-264px);
     }
     100% {
       transform: translateY(0);
@@ -188,14 +185,14 @@
     animation: ddb-animation 0.3s reverse;
   }
 
-  @include for-desktop-up() {
+  @include for-large {
     .ddb-header {
-      z-index: 2;
+      z-index: 500;
       &__mobile {
         display: none;
       }
       &__desktop {
-        display: block;
+        display: flex;
       }
     }
   }
