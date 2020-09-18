@@ -13,60 +13,60 @@
       <div class="ddb-instagram__blocks">
         <div class="ddb-instagram__element">
           <div class="ddb-instagram__square ddb-instagram__square__left">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst1.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image6.png">
           </div>
           <div class="ddb-instagram__square ddb-instagram__square__right">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst2.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
 
           </div>
         </div>
         <div class="ddb-instagram__element">
           <div class="ddb-instagram__square ddb-instagram__square__left ddb-instagram__square__central">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst3.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
 
           </div>
           <div class="ddb-instagram__square ddb-instagram__square__right ddb-instagram__square__central">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst4.jpeg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
           </div>
         </div>
         <div class="ddb-instagram__element">
           <div class="ddb-instagram__square ddb-instagram__square__left">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst5.jpeg">
           </div>
           <div class="ddb-instagram__square ddb-instagram__square__right">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst6.jpg">
           </div>
         </div>
       </div>
       <div class="ddb-instagram__blocks-desktop">
         <div class="ddb-instagram__element">
           <div class="ddb-instagram__square  ddb-instagram__square__top">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst1.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image6.png">
           </div>
           <div class="ddb-instagram__square ddb-instagram__square__central ddb-instagram__square__top">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst2.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
           </div>
           <div class="ddb-instagram__square  ddb-instagram__square__top">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst3.jpg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
           </div>
         </div>
         <div class="ddb-instagram__element">
           <div class="ddb-instagram__square  ddb-instagram__square__bottom">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst4.jpeg">
             <img class="ddb-instagram__image" src="images/ui-elements/image7.png">
           </div>
           <div class="ddb-instagram__square ddb-instagram__square__central ddb-instagram__square__bottom">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst5.jpeg">
           </div>
           <div class="ddb-instagram__square  ddb-instagram__square__bottom">
-            <img class="ddb-instagram__picture" src="images/ui-elements/insta.jpg">
+            <img class="ddb-instagram__picture" src="images/instagram/inst6.jpg">
           </div>
         </div>
       </div>
@@ -127,6 +127,7 @@
       }
     }
     &__picture {
+      object-fit: cover;
       height: 100%;
       width: 100%;
     }

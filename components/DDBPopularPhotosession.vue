@@ -134,6 +134,8 @@
     }
 
     &__element {
+      box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
+
       display: flex;
       flex-direction: column;
       margin-top: 16px;

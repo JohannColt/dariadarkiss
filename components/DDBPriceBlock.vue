@@ -138,6 +138,7 @@
     }
 
     &__element {
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       text-align: left;
@@ -147,18 +148,21 @@
       line-height: 30px;
 
       &__bronze {
+        box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
         margin: 8px 0;
         padding: 5px;
         background: linear-gradient(180deg, rgba(173, 138, 86, 0.24) 0%, rgba(106, 56, 5, 0.24) 100%);
       }
 
       &__silver {
+        box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
         margin: 8px 0;
         padding: 5px;
         background: linear-gradient(180deg, rgba(215, 215, 215, 0.24) 0%, rgba(180, 180, 180, 0.24) 100%);
       }
 
       &__gold {
+        box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
         margin: 8px 0;
         padding: 5px;
         background: linear-gradient(180deg, rgba(201, 176, 55, 0.24) 0%, rgba(175, 149, 0, 0.24) 100%);
@@ -166,12 +170,13 @@
     }
 
     &__title {
+      background: white;
       padding-left: 19px;
       display: flex;
       justify-content: space-between;
       position: relative;
       align-items: center;
-
+      z-index: 2;
       &__text {
         margin-top: 23px;
         margin-bottom: 23px;
@@ -186,6 +191,7 @@
     }
 
     &__content {
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -321,10 +327,12 @@
 
   @keyframes ddb-animation {
     0% {
-      transform: translateY(-64px);
+      transform: translateY(-256px);
+      height: 0;
     }
     100% {
       transform: translateY(0);
+      height: 321px;
     }
   }
 
