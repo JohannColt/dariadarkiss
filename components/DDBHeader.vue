@@ -43,17 +43,17 @@
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button>
+            <ddb-button @click="isClickedPrice">
               Цены
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button>
+            <ddb-button @click="isClickedPop">
               Услуги
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button>
+            <ddb-button @click="isClickedSend">
               Контакты
             </ddb-button>
           </div>
@@ -74,6 +74,20 @@
     data() {
       return {
         isActive: false
+      }
+    },
+    methods:{
+      isClickedPrice(){
+        const a = document.getElementById('ddb-price')
+        a.scrollIntoView({behavior: "smooth"});
+      },
+      isClickedPop(){
+        const b = document.getElementById('ddb-popular')
+        b.scrollIntoView({behavior: "smooth"});
+      },
+      isClickedSend(){
+        const c = document.getElementById('ddb-send-to-me')
+        c.scrollIntoView({behavior: "smooth"});
       }
     }
   }

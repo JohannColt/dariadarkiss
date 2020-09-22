@@ -1,5 +1,5 @@
 <template>
-  <div class="ddb-popular">
+  <div class="ddb-popular" id="ddb-popular">
     <div class="ddb-popular__container container">
       <div class="ddb-popular__heading">
         <h2 class="ddb-popular__heading__text ddb-popular__heading__text__mobile">
@@ -216,7 +216,7 @@
         position: absolute;
         bottom: 44px;
         left: 0;
-        width: 102px;
+        width: 60px;
         height: 1px;
       }
     }

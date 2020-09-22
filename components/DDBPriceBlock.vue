@@ -1,5 +1,5 @@
 <template>
-  <div class="ddb-price">
+  <div class="ddb-price" id="ddb-price">
     <div class="ddb-price__container container">
       <div class="ddb-price__heading">
         <h2 class="ddb-price__heading__text">Пакет услуг на твой выбор</h2>
@@ -232,6 +232,8 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        padding-top: 104px;
+        padding-bottom: 0;
       }
 
       &__heading {
@@ -242,7 +244,7 @@
         padding-left: 0;
 
         &__text {
-          margin: 24px 0;
+          margin: 0 0 24px;
         }
       }
 

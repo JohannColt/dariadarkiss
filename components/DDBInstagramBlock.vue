@@ -6,7 +6,7 @@
           Следи за актуальными <br> фотосессиями <br class="ddb-instagram__heading__br"> в Instagram
         </h2>
         <div class="ddb-instagram__logo">
-          <p class="ddb-instagram__logo__text">@dariadarkiss</p>
+          <a href="https://www.instagram.com/dariadarkiss/" class="ddb-instagram__logo__text">@dariadarkiss</a>
           <img src="images/ui-elements/instagram.svg">
         </div>
       </div>
@@ -93,6 +93,10 @@
     }
     &__logo{
       display: none;
+      &__text{
+        text-decoration: none;
+        color: $primary-color1;
+      }
     }
 
     &__blocks {
