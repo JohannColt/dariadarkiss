@@ -212,11 +212,9 @@
 
     &__text {
       margin: 10px 0;
-      padding-left: 19px;
     }
 
     &__last {
-      padding-left: 19px;
       margin-top: 22px;
       margin-bottom: 35px;
     }
@@ -274,6 +272,7 @@
 
         &__bronze {
           padding: 12px;
+          margin-top: 0;
           margin-right: 8px;
           width: 100%;
           min-width: 350px;
@@ -290,6 +289,7 @@
 
         &__gold {
           padding: 12px;
+          margin-top: 0;
           margin-left: 8px;
           width: 100%;
           min-width: 350px;
@@ -314,13 +314,11 @@
       }
 
       &__text {
-        padding-left: 20px;
         margin-top: 10px;
         margin-bottom: 0;
       }
 
       &__last {
-        padding-left: 20px;
         margin-top: 32px;
         margin-bottom: 28px;
       }

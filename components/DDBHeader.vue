@@ -22,7 +22,7 @@
         </div>
       </div>
       <transition name="ddb-animation">
-        <ddb-mobile-menu v-if="isActive"></ddb-mobile-menu>
+        <ddb-mobile-menu @click="isActive= false" v-if="isActive"></ddb-mobile-menu>
       </transition>
       <div v-if="isActive" v-on:click="isActive=false" class="ddb-header__fade"></div>
     </div>

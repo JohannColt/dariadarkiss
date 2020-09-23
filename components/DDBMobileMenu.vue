@@ -1,5 +1,5 @@
 <template>
-  <div class="ddb-header__menu">
+  <div  class="ddb-header__menu">
     <div class="ddb-header__menu__elem">
       Портфолио
     </div>
@@ -20,16 +20,22 @@
     name: "ddb-mobile-menu",
     methods:{
       isClickedPrice(){
+        this.clicked()
         const a = document.getElementById('ddb-price')
         a.scrollIntoView({behavior: "smooth"});
       },
       isClickedPop(){
+        this.clicked()
         const b = document.getElementById('ddb-popular')
         b.scrollIntoView({behavior: "smooth"});
       },
       isClickedSend(){
+        this.clicked()
         const c = document.getElementById('ddb-send-to-me')
         c.scrollIntoView({behavior: "smooth"});
+      },
+      clicked(){
+        this.$emit('click')
       }
     }
   }
