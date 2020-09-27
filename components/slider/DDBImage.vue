@@ -49,6 +49,8 @@ export default {
     width: 100%;
     padding: 6px;
     background: #fff;
+    box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
+
     &__wrapper {
       position: relative;
       height: 100%;

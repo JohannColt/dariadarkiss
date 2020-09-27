@@ -1,5 +1,5 @@
 <template>
-  <div :class="mainClass">
+  <div v-on:click="Clicked" :class="mainClass">
     <slot/>
     <svg v-if="isActive" class="ddb-button__line"  width="48" height="1" viewBox="0 0 48 1" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="48" y="1" width="4" height="1" transform="rotate(180 48 1)" fill="#3F2D2D"/>
@@ -27,6 +27,11 @@ export default {
       let resultClasses = this.isActive ? 'ddb-button ddb-button--active' : 'ddb-button';
       resultClasses = this.isBigButton ? resultClasses + ' ddb-button--big' : resultClasses;
       return resultClasses;
+    }
+  },
+  methods:{
+    Clicked(){
+      this.$emit('click')
     }
   }
 }

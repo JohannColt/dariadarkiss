@@ -19,8 +19,15 @@ html {
 }
 
 h2 {
+  font-weight: bold;
   font-size: 1.5em;
   line-height: 2rem;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .container {
@@ -28,24 +35,30 @@ h2 {
 }
 
 @include for-large {
-  html {
-    line-height: 32px;
-  }
-
-  h2 {
-    font-size: 2.5em;
-    line-height: 3rem;
-  }
-
   .container {
     max-width: 960px;
   }
 }
 
 @include for-extra-large {
+  h2 {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+  }
   .container {
     max-width: 1260px;
   }
+  html {
+    font-size: 16px;
+  }
+
+
 }
 
 .default-text {

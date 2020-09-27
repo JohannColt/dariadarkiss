@@ -1,15 +1,15 @@
 <template>
-  <div class="ddb-header__menu">
+  <div  class="ddb-header__menu">
     <div class="ddb-header__menu__elem">
       Портфолио
     </div>
-    <div class="ddb-header__menu__elem">
+    <div v-on:click="isClickedPrice" class="ddb-header__menu__elem">
       Цены
     </div>
-    <div class="ddb-header__menu__elem">
+    <div v-on:click="isClickedPop" class="ddb-header__menu__elem">
       Услуги
     </div>
-    <div class="ddb-header__menu__elem">
+    <div v-on:click="isClickedSend" class="ddb-header__menu__elem">
       Контакты
     </div>
   </div>
@@ -17,7 +17,27 @@
 
 <script>
   export default {
-    name: "ddb-mobile-menu"
+    name: "ddb-mobile-menu",
+    methods:{
+      isClickedPrice(){
+        this.clicked()
+        const a = document.getElementById('ddb-price')
+        a.scrollIntoView({behavior: "smooth"});
+      },
+      isClickedPop(){
+        this.clicked()
+        const b = document.getElementById('ddb-popular')
+        b.scrollIntoView({behavior: "smooth"});
+      },
+      isClickedSend(){
+        this.clicked()
+        const c = document.getElementById('ddb-send-to-me')
+        c.scrollIntoView({behavior: "smooth"});
+      },
+      clicked(){
+        this.$emit('click')
+      }
+    }
   }
 </script>
 
