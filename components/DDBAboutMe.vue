@@ -239,7 +239,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 90px 0 0;
+        padding: 104px 0 0;
       }
 
       &__elements-container {
