@@ -39,7 +39,7 @@
           </div>
           <div class="ddb-header__desktop-elem">
             <ddb-button>
-              Портфолио
+              <NuxtLink class="default-text" to="/portfolio">Портфолио</NuxtLink>
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">

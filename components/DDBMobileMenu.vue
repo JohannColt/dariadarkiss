@@ -1,7 +1,9 @@
 <template>
-  <div  class="ddb-header__menu">
+  <div class="ddb-header__menu">
     <div class="ddb-header__menu__elem">
-      Портфолио
+      <NuxtLink class="default-text" to="/portfolio">
+          Портфолио
+      </NuxtLink>
     </div>
     <div v-on:click="isClickedPrice" class="ddb-header__menu__elem">
       Цены
@@ -18,23 +20,23 @@
 <script>
   export default {
     name: "ddb-mobile-menu",
-    methods:{
-      isClickedPrice(){
+    methods: {
+      isClickedPrice() {
         this.clicked()
         const a = document.getElementById('ddb-price')
         a.scrollIntoView({behavior: "smooth"});
       },
-      isClickedPop(){
+      isClickedPop() {
         this.clicked()
         const b = document.getElementById('ddb-popular')
         b.scrollIntoView({behavior: "smooth"});
       },
-      isClickedSend(){
+      isClickedSend() {
         this.clicked()
         const c = document.getElementById('ddb-send-to-me')
         c.scrollIntoView({behavior: "smooth"});
       },
-      clicked(){
+      clicked() {
         this.$emit('click')
       }
     }
@@ -61,9 +63,11 @@
     padding: 12px;
     font-weight: $font-weight-semi-bold;
     text-transform: uppercase;
+
     &:first-child {
       padding-top: 24px;
     }
+
     &:last-child {
       padding-bottom: 32px;
     }

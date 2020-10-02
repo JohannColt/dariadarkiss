@@ -65,10 +65,12 @@
       </div>
       <div class="ddb-portfolio__footer">
         <div class="ddb-portfolio__footer__container">
+          <ddb-button class="ddb-portfolio__footer__button">
           <p class="ddb-portfolio__footer__text">
             ПОКАЗАТЬ БОЛЬШЕ РАБОТ
           </p>
-          <img class="ddb-portfolio__footer__line" src="images/ui-elements/button-line.png">
+            <img class="ddb-portfolio__footer__line" src="images/ui-elements/button-line.png">
+          </ddb-button>
         </div>
       </div>
     </div>
@@ -76,7 +78,12 @@
 </template>
 
 <script>
+  import DDBButton from "./DDBButton";
+
   export default {
+    components: {
+      'ddb-button': DDBButton
+    },
     name: "DDBPortfolio"
   }
 </script>
@@ -95,7 +102,7 @@
     }
 
     &__header {
-      padding-bottom: 12px;
+      padding-bottom: 48px;
 
       &__text {
         text-align: left;
@@ -119,10 +126,12 @@
       display: flex;
       flex-direction: column;
       width: inherit;
+
       &__first {
         &__first {
           width: 312px;
-          height: 213px;        }
+          height: 213px;
+        }
 
         &__second, &__third {
           width: 312px;
@@ -197,6 +206,7 @@
 
     &__footer {
       &__container {
+
         align-items: center;
         padding-top: 24px;
         padding-bottom: 64px;
@@ -213,24 +223,34 @@
       }
 
       &__line {
+        position: absolute;
         height: 1px;
         width: 96px;
+        bottom: 1px;
+      }
+      &__button{
+        position: relative;
       }
     }
   }
-  @include for-extra-large{
-    .ddb-portfolio{
-      &__container{
+
+  @include for-extra-large {
+    .ddb-portfolio {
+      &__container {
         padding: 0;
       }
+
       &__header {
+        padding-top: 64px;
         padding-bottom: 6px;
       }
+
       &__element {
         border: 12px solid #FFFFFF;
         height: 100%;
 
       }
+
       &__line {
         padding-top: 16px;
         display: flex;
