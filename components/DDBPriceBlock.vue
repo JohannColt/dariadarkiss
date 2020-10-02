@@ -191,6 +191,7 @@
     }
 
     &__content {
+      padding-left: 20px;
       background: #ffffff;
       display: flex;
       flex-direction: column;
