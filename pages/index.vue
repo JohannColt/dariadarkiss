@@ -9,7 +9,6 @@
         <ddb-popular-photosession/>
         <ddb-instagram/>
         <ddb-send-to-me/>
-        <ddb-portfolio/>
         <ddb-footer></ddb-footer>
       </div>
     </div>
@@ -17,7 +16,6 @@
 </template>
 
 <script>
-  import DDBPortfolio from "../components/DDBPortfolio";
   import DDBSecondBlock from "../components/DDBAboutMe";
   import DDBMainSlider from "../components/DDBMainSlider";
   import DDBSlider from "@/components/DDBLastWorks";
@@ -38,8 +36,6 @@
       'ddb-instagram': DDBInstagramBlock,
       'ddb-send-to-me': DDBSendToMe,
       'ddb-footer': DDBFooter,
-      'ddb-portfolio': DDBPortfolio
-
     },
     data() {
       return {
