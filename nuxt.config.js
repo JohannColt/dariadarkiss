@@ -19,12 +19,16 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/style-resources',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/axios',
   ],
+  axios: {
+    baseURL: process.env.BASE_URL + process.env.API_VERSION, // Used as fallback if no runtime config is provided
+  },
   styleResources: {
     scss: ['./assets/scss/*.scss']
   },
-  plugins: ['./plugins/vue-awesome-swiper.js'],
+  plugins: ['./plugins/chunks.js'],
   /*
   ** Customize the progress bar color
   */

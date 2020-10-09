@@ -1,31 +1,39 @@
 <template>
   <div class="ddb-send-to-me" id="ddb-send-to-me">
-    <div class="ddb-send-to-me__container container">
+    <form class="ddb-send-to-me__container container" @submit.prevent="sendForm">
       <div class="ddb-send-to-me__heading">
         <h2 style="margin: 0">
           Хочешь фотосессию?
         </h2>
         <p class="ddb-send-to-me__heading__text">
-          Напиши мне в <span class="ddb-send-to-me__heading__line">Direct</span> или заполни форму
+          Напиши мне в
+          <span class="ddb-send-to-me__heading__line"><a href="https://www.instagram.com/dariadarkiss/" target="_blank">Direct</a></span>
+          или заполни форму
         </p>
       </div>
       <div class="ddb-send-to-me__forms">
         <div class="ddb-send-to-me__element ddb-send-to-me__element__low">
-          <input class="ddb-send-to-me__element__form" v-model="firstForm" placeholder="Как я могу к тебе обращаться?">
+          <label>
+            <input class="ddb-send-to-me__element__form" v-model="formData.name" placeholder="Как я могу к тебе обращаться?">
+          </label>
         </div>
         <div class="ddb-send-to-me__element ddb-send-to-me__element__low">
-          <input class="ddb-send-to-me__element__form" v-model="secondForm" placeholder="Как я могу с тобой связаться?">
+          <label>
+            <input class="ddb-send-to-me__element__form" v-model="formData.contact" placeholder="Как я могу с тобой связаться?">
+          </label>
         </div>
         <div class="ddb-send-to-me__element ddb-send-to-me__element__big">
-          <textarea class="ddb-send-to-me__element__form ddb-send-to-me__element__textarea" v-model="thirdForm"
+          <label>
+          <textarea class="ddb-send-to-me__element__form ddb-send-to-me__element__textarea" v-model="formData.info"
                     placeholder="Опиши в двух словах какую фотосессию ты хочешь? "></textarea>
+          </label>
         </div>
       </div>
-      <ddb-button class="ddb-send-to-me__bottom">
+      <ddb-button class="ddb-send-to-me__bottom" type="submit">
         <p class="ddb-send-to-me__bottom__text">Отправить форму</p>
-        <img class="ddb-send-to-me__bottom__line" src="images/ui-elements/button-line.png">
+        <img class="ddb-send-to-me__bottom__line" src="/images/ui-elements/button-line.png" alt="button-line">
       </ddb-button>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -39,9 +47,19 @@
     name: "DDBSendToMe",
     data() {
       return {
-        firstForm: '',
-        secondForm: '',
-        thirdForm: ''
+        formData: {
+          name: '',
+          contact: '',
+          info: ''
+        }
+      }
+    },
+    methods: {
+      async sendForm() {
+        await this.$axios.$post('/contact', {...this.formData})
+          .catch(error => {
+            console.log({error})
+        });
       }
     }
   }
@@ -102,6 +120,10 @@
         box-shadow: 0 0 31.7802px rgba(63, 45, 45, 0.08);
         color: #3F2D2D;
         opacity: 0.8;
+        outline: none;
+        &:active, &:focus, &:hover {
+          box-shadow: 0 0 35px rgba(0, 0, 0, .1) inset;
+        }
       }
 
       &__textarea {

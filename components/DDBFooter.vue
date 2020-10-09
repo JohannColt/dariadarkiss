@@ -2,16 +2,16 @@
   <div class="ddb-footer">
     <div class="ddb-footer__container container">
       <div class="ddb-footer__element ddb-footer__element__first">
-        <p class="ddb-footer__element__text">+38 (095) 884-37-00</p>
-        <img class="ddb-footer__element__picture" src="images/ui-elements/phone.png">
+        <p class="ddb-footer__element__text"><a href="tel:+38 (095) 884-37-00" target="_blank">+38 (095) 884-37-00</a></p>
+        <img class="ddb-footer__element__picture" src="/images/ui-elements/phone.png" alt="Phone image">
       </div>
       <div class="ddb-footer__element ddb-footer__element__second">
-        <p class="ddb-footer__element__text">@dariadarkiss</p>
-        <img class="ddb-footer__element__picture" src="images/ui-elements/instagram-white.png">
+        <p class="ddb-footer__element__text"><a href="https://www.instagram.com/dariadarkiss/" target="_blank">@dariadarkiss</a></p>
+        <img class="ddb-footer__element__picture" src="/images/ui-elements/instagram-white.png" alt="Instagram image">
       </div>
       <div class="ddb-footer__element ddb-footer__element__third">
-        <p class="ddb-footer__element__text">dariadarkiss@gmail.com</p>
-        <img class="ddb-footer__element__picture" src="images/ui-elements/mail.png">
+        <p class="ddb-footer__element__text"><a href="mailto:dariadarkiss@gmail.com">dariadarkiss@gmail.com</a></p>
+        <img class="ddb-footer__element__picture" src="/images/ui-elements/mail.png" alt="Mail image">
       </div>
     </div>
   </div>
@@ -44,14 +44,19 @@
 
       &__text {
         z-index: 2;
-        color: white;
         font-style: normal;
-        font-weight: 600;
         font-size: 14px;
         line-height: 32px;
         text-align: center;
         letter-spacing: 0.04em;
         margin: 0;
+        a {
+          font-weight: $font-weight-semi-bold;
+          color: white;
+        }
+        a:hover {
+          font-weight: $font-weight-bold;
+        }
       }
 
       &__first {

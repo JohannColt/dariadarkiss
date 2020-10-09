@@ -34,6 +34,14 @@ h3 {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: $primary-color1;
+}
+a:hover {
+  font-weight: $font-weight-semi-bold;
+}
+
 @include for-large {
   .container {
     max-width: 960px;

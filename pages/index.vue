@@ -7,7 +7,7 @@
         <ddb-slider/>
         <ddb-price-block/>
         <ddb-popular-photosession/>
-        <ddb-instagram/>
+        <ddb-instagram :media="instagramMedia"/>
         <ddb-send-to-me/>
         <ddb-footer></ddb-footer>
 
@@ -54,8 +54,13 @@ export default {
       exitingScrollable: false,
       touchStart: false,
       topOnTouchStart: false,
-      parsed: 0
+      parsed: 0,
+      instagramMedia: []
     }
+  },
+  async asyncData({ $axios }) {
+    let instagramMedia = await $axios.$get('/instagram/media')
+    return { instagramMedia }
   },
   computed: {
     numberOfSlides() {
@@ -140,7 +145,7 @@ export default {
           const scroll = this.getPercentageOfScroll(el);
           if (
             elementSlide === this.currentSlide &&
-            ((scroll === 0 && ev.deltaY < 0) || (scroll === 100 && ev.deltaY > 0))
+            ((scroll === 0 && ev.deltaY < 0))
           ) {
             this.exitingScrollable = true;
           }
@@ -152,7 +157,7 @@ export default {
     if (window.innerWidth > 992) {
       this.initScrolling();
     }
-  }
+  },
 }
 </script>
 
