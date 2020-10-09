@@ -23,7 +23,7 @@ module.exports = {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL: process.env.BASE_URL + process.env.API_VERSION, // Used as fallback if no runtime config is provided
+    baseURL: process.env.BASE_URL + process.env.API_VERSION || 'https://dev.admin.dariadarkiss.com/api/v1/', // Used as fallback if no runtime config is provided
   },
   styleResources: {
     scss: ['./assets/scss/*.scss']
