@@ -5,7 +5,7 @@
   "author": "Dante de Braso <sergey.king96@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && nuxt --env.NODE_TLS_REJECT_UNAUTHORIZED=0 --port=3000",
+    "dev": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && nuxt --env.NODE_TLS_REJECT_UNAUTHORIZED=0 --port=3001",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
