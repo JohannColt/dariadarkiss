@@ -34,7 +34,7 @@
         <div class="ddb-header__menu">
           <div class="ddb-header__desktop-elem">
             <ddb-button :is-active="true">
-              <a href="/" class="default-text">Главная</a>
+              <NuxtLink class="default-text" to="/">Главная</NuxtLink>
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
@@ -66,29 +66,43 @@
 <script>
   import DDBMobileMenu from "./DDBMobileMenu";
   import DDBButton from "@/components/DDBButton";
+
   export default {
     name: "ddb-header",
     components: {
       'ddb-mobile-menu': DDBMobileMenu,
-      'ddb-button': DDBButton},
+      'ddb-button': DDBButton
+    },
     data() {
       return {
         isActive: false
       }
     },
-    methods:{
-      isClickedPrice(){
-        const a = document.getElementById('ddb-price')
-        a.scrollIntoView({behavior: "smooth"});
+    methods: {
+      isClickedPrice() {
+        this.$store.commit('changeToOneBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const a = document.getElementById('ddb-price')
+          a.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
       },
-      isClickedPop(){
-        const b = document.getElementById('ddb-popular')
-        b.scrollIntoView({behavior: "smooth"});
+      isClickedPop() {
+        this.$store.commit('changeToTwoBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const b = document.getElementById('ddb-popular')
+          b.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
       },
-      isClickedSend(){
-        const c = document.getElementById('ddb-send-to-me')
-        c.scrollIntoView({behavior: "smooth"});
-      }
+      isClickedSend() {
+        this.$store.commit('changeToThreeBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const c = document.getElementById('ddb-send-to-me')
+          c.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
+      },
     }
   }
 </script>
@@ -100,19 +114,23 @@
     width: 100%;
     position: fixed;
     z-index: 500;
+
     &__desktop {
       justify-content: center;
       background-color: transparentize($primary-color2, 0.6);
       backdrop-filter: blur(10px);
       display: none;
     }
+
     &__container {
       position: relative;
       z-index: 501;
     }
+
     &__menu {
       display: flex;
     }
+
     &__logo {
       font-weight: $font-weight-bold;
       font-size: 1.3em;
@@ -125,6 +143,7 @@
         height: 24px;
       }
     }
+
     padding: 0 22px;
     height: 48px;
     display: flex;
@@ -144,6 +163,7 @@
     border: none;
     background: none;
     cursor: pointer;
+
     &:focus {
       outline: none;
     }
@@ -173,6 +193,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+
     &:last-child {
       margin-right: 0;
     }
@@ -202,9 +223,11 @@
   @include for-large {
     .ddb-header {
       z-index: 500;
+
       &__mobile {
         display: none;
       }
+
       &__desktop {
         display: flex;
       }

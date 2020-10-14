@@ -122,6 +122,8 @@
 <style scoped lang="scss">
   .ddb-instagram {
     display: flex;
+    align-items: center;
+    justify-content: center;
     &__heading {
       padding-left: 24px;
       text-align: left;
@@ -130,6 +132,7 @@
         margin: 0;
       }
     }
+
     &__logo{
       display: none;
       &__text{
@@ -152,6 +155,7 @@
     }
 
     &__square {
+      border: 6px solid white;
       position: relative;
       height: 153px;
       width: 153px;
@@ -164,7 +168,6 @@
       }
 
       &__central {
-
         margin-top: 6px;
         margin-bottom: 6px;
       }
@@ -180,6 +183,12 @@
       right: 6px;
       height: 32px;
       width: 32px;
+    }
+  }
+  @media (max-width: 330px) {
+    .ddb-instagram__square{
+      width: 141px;
+      height: 141px;
     }
   }
 

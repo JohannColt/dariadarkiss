@@ -16,7 +16,10 @@
       'ddb-portfolio': DDBPortfolio,
       'ddb-footer' : DDBFooter
     },
-    name: "portfolio"
+    name: "portfolio",
+    mounted(){
+      this.$store.commit('changeToOnePage')
+    }
   }
 </script>
 

@@ -22,19 +22,28 @@
     name: "ddb-mobile-menu",
     methods: {
       isClickedPrice() {
-        this.clicked()
-        const a = document.getElementById('ddb-price')
-        a.scrollIntoView({behavior: "smooth"});
+        this.$store.commit('changeToOneBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const a = document.getElementById('ddb-price')
+          a.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
       },
       isClickedPop() {
-        this.clicked()
-        const b = document.getElementById('ddb-popular')
-        b.scrollIntoView({behavior: "smooth"});
+        this.$store.commit('changeToTwoBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const b = document.getElementById('ddb-popular')
+          b.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
       },
       isClickedSend() {
-        this.clicked()
-        const c = document.getElementById('ddb-send-to-me')
-        c.scrollIntoView({behavior: "smooth"});
+        this.$store.commit('changeToThreeBlock')
+        if (this.$store.state.pageCounter === 0) {
+          const c = document.getElementById('ddb-send-to-me')
+          c.scrollIntoView({behavior: "smooth"});
+        }
+        else this.$router.push('/');
       },
       clicked() {
         this.$emit('click')

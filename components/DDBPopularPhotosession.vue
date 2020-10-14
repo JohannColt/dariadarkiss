@@ -222,8 +222,10 @@
     }
   }
 
-  @include for-extra-large {
+  @include for-large {
     .ddb-popular {
+      display: flex;
+      justify-content: center;
       &__container {
         padding-top: 80px;
 
@@ -249,6 +251,110 @@
       }
 
       &__double {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+
+      &__element {
+        max-width: 622px;
+        display: flex;
+        flex-direction: row;
+        &__left {
+          margin-right: 8px;
+        }
+
+        &__right {
+          margin-left: 8px;
+        }
+
+        &__upper {
+          margin-bottom: 8px;
+        }
+
+        &__lower {
+          margin-top: 8px;
+        }
+      }
+
+      &__photo {
+        &__mobile {
+          display: none;
+        }
+
+        &__desktop {
+          display: flex;
+        }
+      }
+
+      &__description {
+        position: relative;
+        min-height: 442px;
+        max-width: 414px;
+        padding-left: 16px;
+        padding-right: 32px;
+        &__ps {
+          margin-top: 32px;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 32px;
+        }
+
+        &_name {
+
+        }
+
+        &__des {
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 32px;
+        }
+
+        &__button {
+          position: absolute;
+          bottom: 16px;
+        }
+
+        &__more {
+
+        }
+
+        &__line {
+        }
+      }
+
+    }
+  }
+  @include for-extra-large {
+    .ddb-popular {
+      display: flex;
+      justify-content: center;
+      &__container {
+        padding-top: 80px;
+
+      }
+
+      &__heading {
+        padding: 0;
+
+        &__text {
+          &__mobile {
+            display: none;
+          }
+
+          &__desktop {
+            display: block;
+          }
+        }
+      }
+
+      &__blocks {
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__double {
+        width: 100%;
         display: flex;
         flex-direction: row;
       }
@@ -286,6 +392,7 @@
       }
 
       &__description {
+        min-height: 0;
         min-width: 410px;
         max-width: 414px;
         padding-left: 16px;
@@ -308,7 +415,7 @@
         }
 
         &__button {
-
+          position: relative;
         }
 
         &__more {
