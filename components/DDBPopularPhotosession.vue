@@ -16,7 +16,9 @@
               <img class="ddb-popular__image" src="images/ui-elements/big-smile.jpg">
             </div>
             <div class="ddb-popular__photo ddb-popular__photo__desktop">
-              <img src="images/ui-elements/pop-photo-h.png">
+              <ddb-picture>
+                <img src="images/ui-elements/pop-photo-h.png">
+              </ddb-picture>
             </div>
             <div class="ddb-popular__description">
               <p class="ddb-popular__description__ps">Фотосессия</p>
@@ -94,9 +96,11 @@
 
 <script>
   import DDBButton from "./DDBButton";
+  import DDBPicture from "./DDBPicture";
   export default {
     components:{
-      'ddb-button': DDBButton
+      'ddb-button': DDBButton,
+      'ddb-picture': DDBPicture
     },
     name: "DDBPopularPhotosession"
   }
