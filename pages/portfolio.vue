@@ -1,9 +1,7 @@
 <template>
   <section>
     <div>
-<!--      <ddb-portfolio/>-->
-<!--      <ddb-portfolio-main/>-->
-      <ddb-portfolio-lovestory/>
+      <ddb-portfolio-main/>
 <!--      <ddb-portfolio-florence-love/>-->
       <ddb-footer/>
     </div>
@@ -11,18 +9,14 @@
 </template>
 
 <script>
-  import DDBPortfolio from "../components/DDBPortfolio";
   import DDBFooter from "../components/DDBFooter";
   import DDBPortfolioMain from "@/components/DDBPortfolioMain";
-  import DDBPortfolioLoveStory from "@/components/DDBPortfolioLoveStory";
   import DDBFlorenceLove from "@/components/DDBFlorenceLove";
 
   export default {
     components: {
-      'ddb-portfolio': DDBPortfolio,
       'ddb-footer' : DDBFooter,
       'ddb-portfolio-main' : DDBPortfolioMain,
-      'ddb-portfolio-lovestory': DDBPortfolioLoveStory,
       'ddb-portfolio-florence-love': DDBFlorenceLove
     },
     name: "portfolio",

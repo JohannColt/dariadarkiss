@@ -2,12 +2,15 @@
   <div class="ddb-portfolio-florence-love">
     <div class="ddb-portfolio-florence-love__container container">
       <div class="ddb-portfolio-florence-love__bread-crumb">
-        <p>
-          Главная/Портфолио/Love Story/Florence Love
-        </p>
+        <a class="ddb-portfolio-florence-love__bread-crumb__text">
+          Главная / Портфолио / Love Story
+        </a>
+        <a class="ddb-portfolio-florence-love__bread-crumb__text__last">
+          / Florence Love
+        </a>
       </div>
       <div class="ddb-portfolio-florence-love__description">
-        <h2>
+        <h2 class="ddb-portfolio-florence-love__description__text">
           Florence Love
         </h2>
       </div>
@@ -97,6 +100,21 @@ name: "DDBFlorenceLove"
     display: flex;
     flex-direction: column;
   }
+  &__bread-crumb{
+    &__text{
+      margin-top: 40px;
+      margin-bottom: 0;
+      &__last{
+        color: #afa6a6;
+      }
+    }
+  }
+  &__description{
+    &__text{
+      margin-top: 24px;
+      margin-bottom: 16px;
+    }
+  }
   &__line{
     height: 100%;
     width: 100%;
@@ -136,7 +154,6 @@ name: "DDBFlorenceLove"
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     &__button{
       position: relative;
       display: flex;
@@ -157,13 +174,18 @@ name: "DDBFlorenceLove"
       text-transform: uppercase;
     }
     &__image{
+      position: absolute;
+      bottom: 1px;
+      height: 1px;
       width: 96px;
     }
     &__arrow{
-      position: absolute;
+      object-fit: none;
+      position: fixed;
       width: 64px;
       height: 64px;
-      right: 0;
+      right: calc((100vw - 1260px) / 2);
+      bottom: 1%;
     }
   }
 }

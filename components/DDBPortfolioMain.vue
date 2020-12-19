@@ -2,20 +2,25 @@
 <div class="ddb-portfolio-main">
   <div class="ddb-portfolio-main__container container">
     <div class="ddb-portfolio-main__bread-crumb">
-  <p>
-  Главная/Портфолио
-  </p>
+  <a class="ddb-portfolio-main__bread-crumb__text">
+  Главная
+  </a>
+      <a class="ddb-portfolio-main__bread-crumb__text ddb-portfolio-main__bread-crumb__last">
+        / Портфолио
+      </a>
     </div>
     <div class="ddb-portfolio-main__heading">
-      <h2>Портфолио</h2>
+      <h2 class="ddb-portfolio-main__heading__text">Портфолио</h2>
     </div>
     <div class="ddb-portfolio-main__first-block">
-      <div class="ddb-portfolio-main__first-block__element">
-        <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
+      <a href="http://localhost:3001/portfolio-love">
+      <div  class="ddb-portfolio-main__first-block__element">
+        <img  class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
         <h3 class="ddb-portfolio-main__first-block__element__title">
           Love Story
         </h3>
       </div>
+      </a>
       <div class="ddb-portfolio-main__first-block__element">
         <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/1.jpg">
         <h3 class="ddb-portfolio-main__first-block__element__title">
@@ -30,7 +35,7 @@
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Семейная
             </h3>
           </div>
@@ -41,7 +46,7 @@
 
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Беременности
             </h3>
           </div>
@@ -54,7 +59,7 @@
 
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Love story 2
             </h3>
           </div>
@@ -65,7 +70,7 @@
 
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Fashion 2
             </h3>
           </div>
@@ -78,7 +83,7 @@
 
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Семейная 2
             </h3>
           </div>
@@ -88,11 +93,18 @@
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
           </div>
           <div class="ddb-portfolio-main__second-block__title">
-            <h3>
+            <h3 class="ddb-portfolio-main__second-block__title__text">
               Беременности 2
             </h3>
           </div>
         </div>
+      </div>
+      <div class="ddb-portfolio-main__more">
+        <ddb-button class="ddb-portfolio-main__more__button">
+          <p class="ddb-portfolio-main__more__text">показать больше работ</p>
+          <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
+        </ddb-button>
+        <img class="ddb-portfolio-main__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
       </div>
     </div>
   </div>
@@ -119,10 +131,27 @@ name: "DDBPortfolioMain"
     display: flex;
     flex-direction: column;
    }
+  &__bread-crumb{
+    &__text{
+      margin-top: 40px;
+      margin-bottom: 0;
+    }
+    &__last{
+      color: #afa6a6;
+    }
+  }
+  &__heading{
+    &__text{
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+  }
   &__first-block{
     display: flex;
     flex-direction: column;
     &__element{
+      padding-top: 12px;
+      padding-bottom: 12px;
       width: 100%;
       position: relative;
 
@@ -143,6 +172,7 @@ name: "DDBPortfolioMain"
         position: absolute;
         left: 20%;
         top:20%;
+
       }
     }
   }
@@ -166,7 +196,52 @@ name: "DDBPortfolioMain"
       width: 100%;
       height: 350px;
     }
+    &__title{
+      &__text{
+        margin-top: 8px;
+        margin-bottom: 16px;
+      }
+    }
   }
+  &__more{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    &__button{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 32px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding: 0;
+    }
+    &__text{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 32px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    &__image{
+      position: absolute;
+      bottom: 1px;
+      height: 1px;
+      width: 96px;
+    }
+    &__arrow{
+      object-fit: none;
+      position: fixed;
+      width: 64px;
+      height: 64px;
+      right: calc((100vw - 1260px) / 2 + 48px);
+      bottom: 1%;
+    }
+  }
 }
 </style>
