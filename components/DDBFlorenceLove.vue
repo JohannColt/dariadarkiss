@@ -21,7 +21,7 @@
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
         </div>
-        <div class="ddb-portfolio-florence-love__first-line__third ddb-portfolio-florence-love__right">
+        <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/3.jpg">
         </div>
       </div>
@@ -96,7 +96,7 @@ name: "DDBFlorenceLove"
   justify-content: center;
   align-items: center;
   &__container{
-    padding-top: 64px;
+    padding-top: 48px;
     display: flex;
     flex-direction: column;
   }
@@ -119,35 +119,28 @@ name: "DDBFlorenceLove"
     height: 100%;
     width: 100%;
     display: flex;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    flex-direction: column;
+
   }
   &__element{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
-  &__left{
-    padding-right: 8px;
-  }
-  &__central{
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-  &__right{
-    padding-left: 8px;
-  }
+
   &__small-picture{
-    width: 303px;
-    height: 445px;
+    width: 312px;
+    height: 458px;
     object-fit: cover;
-    border: 12px white solid;
+    border: 6px white solid;
   }
   &__big-picture{
-    width: 622px;
-    height: 445px;
+    width: 312px;
+    height: 213px;
     object-fit: cover;
-    border: 12px white solid;
+    border: 6px white solid;
   }
   &__more{
     width: 100%;
@@ -186,6 +179,41 @@ name: "DDBFlorenceLove"
       height: 64px;
       right: calc((100vw - 1260px) / 2);
       bottom: 1%;
+    }
+  }
+}
+@include for-large{
+  .ddb-portfolio-florence-love{
+    &__container{
+      padding-top: 64px;
+    }
+    &__line{
+      flex-direction: row;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    &__small-picture{
+      width: 303px;
+      height: 445px;
+      border: 12px white solid;
+    }
+    &__big-picture{
+      width: 622px;
+      height: 445px;
+      border: 12px white solid;
+    }
+    &__left{
+      padding-right: 8px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    &__central{
+      padding: 0 8px;
+    }
+    &__right{
+      padding-left: 8px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

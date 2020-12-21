@@ -127,7 +127,7 @@ name: "DDBPortfolioMain"
   justify-content: center;
   align-items: center;
   &__container{
-    padding: 64px 24px 0;
+    padding-top: 48px;
     display: flex;
     flex-direction: column;
    }
@@ -157,7 +157,7 @@ name: "DDBPortfolioMain"
 
       &__picture{
         width: 100%;
-        height: 339px;
+        height: 267px;
         object-fit: cover;
         object-position: 50% 0;
         border-top: 12px;
@@ -182,11 +182,11 @@ name: "DDBPortfolioMain"
     flex-direction: column;
     &__line{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
     }
     &__element{
       padding: 8px;
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: column;
 
@@ -194,7 +194,7 @@ name: "DDBPortfolioMain"
     &__picture{
       border: 12px white solid;
       width: 100%;
-      height: 350px;
+      height: 213px;
     }
     &__title{
       &__text{
@@ -241,6 +241,34 @@ name: "DDBPortfolioMain"
       height: 64px;
       right: calc((100vw - 1260px) / 2 + 48px);
       bottom: 1%;
+    }
+  }
+  @include for-large{
+    .ddb-portfolio-main{
+      &__container{
+        padding: 64px 24px 0;
+
+      }
+      &__first-block{
+        &__element{
+          &__picture{
+            height: 339px;
+          }
+          &__title{
+          }
+        }
+      }
+      &__second-block{
+        &__line{
+          flex-direction: row;
+        }
+        &__element{
+          width: 50%;
+        }
+        &__picture{
+          height: 350px;
+        }
+      }
     }
   }
 }

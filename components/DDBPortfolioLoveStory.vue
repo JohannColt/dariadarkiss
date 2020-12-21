@@ -13,7 +13,7 @@
     <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
       <h2 class="ddb-portfolio-love-story__element__description">Love story</h2>
       <p class="ddb-portfolio-love-story__element__description">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и материального ци</p>
-      <p class="ddb-portfolio-love-story__element__description">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией</p>
+      <p class="ddb-portfolio-love-story__element__description ddb-portfolio-love-story__element__second-des">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией</p>
       <ddb-button v-on:click="isActive=!isActive" class="ddb-portfolio-love-story__element__description__button">
         <p class="ddb-portfolio-love-story__element__description__text">заказать фотосессию</p>
         <img class="ddb-portfolio-love-story__element__description__anchor" src="/images/ui-elements/anchor.png">
@@ -101,7 +101,7 @@ name: "DDBPortfolioLoveStory"
   align-items: center;
   &__container{
     z-index: 3;
-    padding-top: 64px;
+    padding-top: 48px;
     display: flex;
     flex-direction: column;
 
@@ -117,20 +117,15 @@ name: "DDBPortfolioLoveStory"
   }
   &__line{
     display: flex;
+    flex-direction: column;
   }
   &__element{
-    &__left{
-      padding-right: 12px;
-    }
-    &__central{
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-    &__right{
-      padding-left: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    &__second-des{
+      display: none;
     }
     &__description{
-      width: 404px;
       &__button{
         position: relative;
         height: 32px;
@@ -160,8 +155,8 @@ name: "DDBPortfolioLoveStory"
     }
   }
   &__picture{
-    width: 404px;
-    height: 404px;
+    width: 312px;
+    height: 312px;
     object-fit: cover;
     border: 12px white solid;
   }
@@ -239,6 +234,38 @@ name: "DDBPortfolioLoveStory"
       top: 32px;
       right: -80px;
       cursor: pointer;
+    }
+  }
+}
+@include for-large{
+  .ddb-portfolio-love-story{
+    &__container{
+      padding-top: 64px;
+    }
+    &__element{
+      &__description{
+        width: 404px;
+      }
+      &__left{
+        padding-right: 12px;
+        padding-left: 0;
+      }
+      &__central{
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      &__right{
+        padding-left: 12px;
+        padding-right: 0;
+      }
+    }
+    &__picture{
+      width: 404px;
+      height: 404px;
+
+    }
+    &__line{
+      flex-direction: row;
     }
   }
 }
