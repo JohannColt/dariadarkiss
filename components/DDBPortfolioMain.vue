@@ -13,17 +13,23 @@
       <h2 class="ddb-portfolio-main__heading__text">Портфолио</h2>
     </div>
     <div class="ddb-portfolio-main__first-block">
-      <a href="http://localhost:3001/portfolio-love">
+
       <div  class="ddb-portfolio-main__first-block__element">
+        <ddb-picture>
         <img  class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
+        </ddb-picture>
+        <a href="http://localhost:3001/portfolio-love">
         <h3 class="ddb-portfolio-main__first-block__element__title">
           Love Story
         </h3>
+        </a>
       </div>
-      </a>
+
       <div class="ddb-portfolio-main__first-block__element">
+        <ddb-picture>
         <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/1.jpg">
-        <h3 class="ddb-portfolio-main__first-block__element__title">
+        </ddb-picture>
+          <h3 class="ddb-portfolio-main__first-block__element__title">
           Fashion
         </h3>
       </div>
@@ -32,7 +38,9 @@
       <div class="ddb-portfolio-main__second-block__line">
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -42,8 +50,9 @@
         </div>
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
-
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -55,8 +64,9 @@
       <div class="ddb-portfolio-main__second-block__line">
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
-
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -66,8 +76,9 @@
         </div>
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/4.jpg">
-
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -79,8 +90,9 @@
       <div class="ddb-portfolio-main__second-block__line">
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
-
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -90,7 +102,9 @@
         </div>
         <div class="ddb-portfolio-main__second-block__element">
           <div >
+            <ddb-picture>
             <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
+            </ddb-picture>
           </div>
           <div class="ddb-portfolio-main__second-block__title">
             <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -112,10 +126,12 @@
 </template>
 
 <script>
+import DDBPicture from "@/components/DDBPicture";
 import DDBButton from "@/components/DDBButton";
 export default {
   components: {
-    'ddb-button': DDBButton
+    'ddb-button': DDBButton,
+    'ddb-picture': DDBPicture
   },
 name: "DDBPortfolioMain"
 }
@@ -160,8 +176,8 @@ name: "DDBPortfolioMain"
         height: 267px;
         object-fit: cover;
         object-position: 50% 0;
-        border-top: 12px;
-        border-bottom: 12px;
+        border-top: 6px;
+        border-bottom: 6px;
         border-left: 0;
         border-right: 0;
         border-color: white;
@@ -170,8 +186,8 @@ name: "DDBPortfolioMain"
       }
       &__title{
         position: absolute;
-        left: 20%;
-        top:20%;
+        left: 24px;
+        top:24px;
 
       }
     }
@@ -192,7 +208,7 @@ name: "DDBPortfolioMain"
 
     }
     &__picture{
-      border: 12px white solid;
+      border: 6px white solid;
       width: 100%;
       height: 213px;
     }
@@ -253,8 +269,16 @@ name: "DDBPortfolioMain"
         &__element{
           &__picture{
             height: 339px;
+            border-top: 12px;
+            border-bottom: 12px;
+            border-left: 0;
+            border-right: 0;
+            border-color: white;
+            border-style: solid;
           }
           &__title{
+            left: 90px;
+            top: 64px;
           }
         }
       }
@@ -266,6 +290,8 @@ name: "DDBPortfolioMain"
           width: 50%;
         }
         &__picture{
+          border: 12px white solid;
+          width: 100%;
           height: 350px;
         }
       }

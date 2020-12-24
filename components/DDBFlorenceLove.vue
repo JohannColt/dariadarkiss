@@ -16,57 +16,87 @@
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__first-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/3.jpg">
+          </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__second-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/5.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
+          <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+          </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__third-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
+         <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+         </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+        </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/3.jpg">
+        </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__four-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+        </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
+         <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/5.jpg">
+         </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+        </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
+         <ddb-picture>
           <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+         </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__five-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
+        </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
+        <ddb-picture>
           <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/2.jpg">
+        </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__more">
@@ -82,9 +112,11 @@
 
 <script>
 import DDBButton from "@/components/DDBButton";
+import DDBPicture from "@/components/DDBPicture";
 export default {
   components: {
-    'ddb-button': DDBButton
+    'ddb-button': DDBButton,
+    'ddb-picture': DDBPicture
   },
 name: "DDBFlorenceLove"
 }

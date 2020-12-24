@@ -20,41 +20,57 @@
       </ddb-button>
     </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">11 Mirrors</h3>
       </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Cinderella story</h3>
       </div>
     </div>
     <div class="ddb-portfolio-love-story__line">
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/3.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Тимур+Катерина</h3>
       </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/4.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Zinchenko Wedding</h3>
       </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
         <a href="http://localhost:3001/portfolio-florence">
+          <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/5.jpg">
+          </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Florence Love</h3>
         </a>
       </div>
     </div>
     <div class="ddb-portfolio-love-story__line">
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/6.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Côte d’Azur</h3>
       </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Light me up!</h3>
       </div>
       <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
+        <ddb-picture>
         <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
+        </ddb-picture>
         <h3 class="ddb-portfolio-love-story__element__name">Paris Mon Amour</h3>
       </div>
     </div>
@@ -80,10 +96,12 @@
 <script>
 import DDBButton from "@/components/DDBButton";
 import DDBSendToMe from "@/components/DDBSendToMe";
+import DDBPicture from "@/components/DDBPicture";
 export default {
   components: {
     'ddb-button': DDBButton,
-    'ddb-send-to-me': DDBSendToMe
+    'ddb-send-to-me': DDBSendToMe,
+    'ddb-picture': DDBPicture
   },
   data() {
     return {
@@ -158,7 +176,7 @@ name: "DDBPortfolioLoveStory"
     width: 312px;
     height: 312px;
     object-fit: cover;
-    border: 12px white solid;
+    border: 6px white solid;
   }
   &__more{
     width: 100%;
@@ -213,6 +231,7 @@ name: "DDBPortfolioLoveStory"
       position: relative;
     }
     &__background{
+      top: -56px;
       z-index: 4;
       position: absolute;
       width: 100vw;
@@ -224,15 +243,17 @@ name: "DDBPortfolioLoveStory"
       position: relative;
       z-index: 5;
       opacity: 1;
-      width: 853px;
+      width: 100vw;
       background: #F0ECEC;
     }
     &__cross{
+      width: 16px;
+      height: 16px;
       z-index: 5;
       opacity: 1;
       position: absolute;
-      top: 32px;
-      right: -80px;
+      top: -50px;
+      right: 10px;
       cursor: pointer;
     }
   }
@@ -262,10 +283,49 @@ name: "DDBPortfolioLoveStory"
     &__picture{
       width: 404px;
       height: 404px;
+      border: 12px white solid;
 
     }
     &__line{
       flex-direction: row;
+    }
+    &__form{
+      top: 64px;
+      z-index: 4;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &__user-interface{
+        position: relative;
+      }
+      &__background{
+        z-index: 4;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #3F2D2D;
+        opacity: 0.9;
+      }
+      &__send-to-me{
+        position: relative;
+        z-index: 5;
+        opacity: 1;
+        width: 853px;
+        background: #F0ECEC;
+      }
+      &__cross{
+        width: 64px;
+        height: 64px;
+        z-index: 5;
+        opacity: 1;
+        position: absolute;
+        top: 32px;
+        right: -80px;
+        cursor: pointer;
+      }
     }
   }
 }
