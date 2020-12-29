@@ -1,128 +1,127 @@
-<template>
-<div class="ddb-portfolio-main">
-  <div class="ddb-portfolio-main__container container">
-    <div class="ddb-portfolio-main__bread-crumb">
-  <a class="ddb-portfolio-main__bread-crumb__text">
-  Главная
-  </a>
-      <a class="ddb-portfolio-main__bread-crumb__text ddb-portfolio-main__bread-crumb__last">
-        / Портфолио
-      </a>
-    </div>
-    <div class="ddb-portfolio-main__heading">
-      <h2 class="ddb-portfolio-main__heading__text">Портфолио</h2>
-    </div>
-    <div class="ddb-portfolio-main__first-block">
-
-      <div  class="ddb-portfolio-main__first-block__element">
-        <ddb-picture>
-        <img  class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
-        </ddb-picture>
-        <a href="http://localhost:3001/portfolio-love">
-        <h3 class="ddb-portfolio-main__first-block__element__title">
-          Love Story
-        </h3>
+<template v-on:scroll="isScrolled">
+  <div  class="ddb-portfolio-main">
+    <div class="ddb-portfolio-main__container container">
+      <div  class="ddb-portfolio-main__bread-crumb">
+        <a class="ddb-portfolio-main__bread-crumb__text">
+          Главная
+        </a>
+        <a class="ddb-portfolio-main__bread-crumb__text ddb-portfolio-main__bread-crumb__last">
+          / Портфолио
         </a>
       </div>
+      <div class="ddb-portfolio-main__heading">
+        <h2 class="ddb-portfolio-main__heading__text">Портфолио</h2>
+      </div>
+      <div class="ddb-portfolio-main__first-block">
+        <div    class="ddb-portfolio-main__first-block__element">
+          <ddb-picture>
+            <img  class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
+          <a href="http://localhost:3001/portfolio-love">
+            <h3 class="ddb-portfolio-main__first-block__element__title">
+              Love Story
+            </h3>
+          </a>
+        </div>
 
-      <div class="ddb-portfolio-main__first-block__element">
-        <ddb-picture>
-        <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/1.jpg">
-        </ddb-picture>
+        <div class="ddb-portfolio-main__first-block__element">
+          <ddb-picture>
+            <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
           <h3 class="ddb-portfolio-main__first-block__element__title">
-          Fashion
-        </h3>
-      </div>
-    </div>
-    <div class="ddb-portfolio-main__second-block">
-      <div class="ddb-portfolio-main__second-block__line">
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
-            </ddb-picture>
-          </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Семейная
-            </h3>
-          </div>
-        </div>
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
-            </ddb-picture>
-          </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Беременности
-            </h3>
-          </div>
+            Fashion
+          </h3>
         </div>
       </div>
-      <div class="ddb-portfolio-main__second-block__line">
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
-            </ddb-picture>
+      <div class="ddb-portfolio-main__second-block">
+        <div class="ddb-portfolio-main__second-block__line">
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Семейная
+              </h3>
+            </div>
           </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Love story 2
-            </h3>
-          </div>
-        </div>
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/4.jpg">
-            </ddb-picture>
-          </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Fashion 2
-            </h3>
-          </div>
-        </div>
-      </div>
-      <div class="ddb-portfolio-main__second-block__line">
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
-            </ddb-picture>
-          </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Семейная 2
-            </h3>
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Беременности
+              </h3>
+            </div>
           </div>
         </div>
-        <div class="ddb-portfolio-main__second-block__element">
-          <div >
-            <ddb-picture>
-            <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
-            </ddb-picture>
+        <div class="ddb-portfolio-main__second-block__line">
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Love story 2
+              </h3>
+            </div>
           </div>
-          <div class="ddb-portfolio-main__second-block__title">
-            <h3 class="ddb-portfolio-main__second-block__title__text">
-              Беременности 2
-            </h3>
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/4.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Fashion 2
+              </h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ddb-portfolio-main__more">
-        <ddb-button class="ddb-portfolio-main__more__button">
-          <p class="ddb-portfolio-main__more__text">показать больше работ</p>
-          <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
-        </ddb-button>
-        <img class="ddb-portfolio-main__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
+        <div class="ddb-portfolio-main__second-block__line">
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Семейная 2
+              </h3>
+            </div>
+          </div>
+          <div class="ddb-portfolio-main__second-block__element">
+            <div >
+              <ddb-picture>
+                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
+              </ddb-picture>
+            </div>
+            <div class="ddb-portfolio-main__second-block__title">
+              <h3 class="ddb-portfolio-main__second-block__title__text">
+                Беременности 2
+              </h3>
+            </div>
+          </div>
+        </div>
+        <div class="ddb-portfolio-main__more">
+          <ddb-button class="ddb-portfolio-main__more__button">
+            <p class="ddb-portfolio-main__more__text">показать больше работ</p>
+            <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
+          </ddb-button>
+          <img id="arrow" v-on:click="clicked" class="ddb-portfolio-main__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -133,7 +132,37 @@ export default {
     'ddb-button': DDBButton,
     'ddb-picture': DDBPicture
   },
-name: "DDBPortfolioMain"
+  mounted () {
+    window.addEventListener('scroll', this.isScrolled);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.isScrolled);
+  },
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  methods:{
+    clicked(){
+      let arrow = document.getElementById("arrow")
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      arrow.style.display = "none"
+    },
+    isScrolled(){
+      let arrow = document.getElementById("arrow")
+      if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+        arrow.style.display = "block"
+      }
+      else {
+        arrow.style.display = "none"
+      }
+    }
+  },
+  name: "DDBPortfolioMain",
 }
 </script>
 
@@ -146,7 +175,7 @@ name: "DDBPortfolioMain"
     padding-top: 48px;
     display: flex;
     flex-direction: column;
-   }
+  }
   &__bread-crumb{
     &__text{
       margin-top: 40px;
@@ -251,6 +280,7 @@ name: "DDBPortfolioMain"
       width: 96px;
     }
     &__arrow{
+      display: none;
       object-fit: none;
       position: fixed;
       width: 64px;

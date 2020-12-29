@@ -1,96 +1,96 @@
-<template>
-<div class="ddb-portfolio-love-story">
-  <div class="ddb-portfolio-love-story__container container">
-    <div class="ddb-portfolio-love-story__bread-crumb">
-      <a class="ddb-portfolio-love-story__bread-crumb__text">
-        Главная / Портфолио
-      </a>
-      <a class="ddb-portfolio-love-story__bread-crumb__text ddb-portfolio-love-story__bread-crumb__text__last">
-        / Love Story
-      </a>
-    </div>
-    <div class="ddb-portfolio-love-story__line">
-    <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
-      <h2 class="ddb-portfolio-love-story__element__description">Love story</h2>
-      <p class="ddb-portfolio-love-story__element__description">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и материального ци</p>
-      <p class="ddb-portfolio-love-story__element__description ddb-portfolio-love-story__element__second-des">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией</p>
-      <ddb-button v-on:click="isActive=!isActive" class="ddb-portfolio-love-story__element__description__button">
-        <p class="ddb-portfolio-love-story__element__description__text">заказать фотосессию</p>
-        <img class="ddb-portfolio-love-story__element__description__anchor" src="/images/ui-elements/anchor.png">
-      </ddb-button>
-    </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">11 Mirrors</h3>
-      </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Cinderella story</h3>
-      </div>
-    </div>
-    <div class="ddb-portfolio-love-story__line">
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/3.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Тимур+Катерина</h3>
-      </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/4.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Zinchenko Wedding</h3>
-      </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
-        <a href="http://localhost:3001/portfolio-florence">
-          <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/5.jpg">
-          </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Florence Love</h3>
+<template v-on:scroll="isScrolled">
+  <div class="ddb-portfolio-love-story">
+    <div class="ddb-portfolio-love-story__container container">
+      <div class="ddb-portfolio-love-story__bread-crumb">
+        <a class="ddb-portfolio-love-story__bread-crumb__text">
+          Главная / Портфолио
+        </a>
+        <a class="ddb-portfolio-love-story__bread-crumb__text ddb-portfolio-love-story__bread-crumb__text__last">
+          / Love Story
         </a>
       </div>
+      <div class="ddb-portfolio-love-story__line">
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
+          <h2 class="ddb-portfolio-love-story__element__description">Love story</h2>
+          <p class="ddb-portfolio-love-story__element__description">Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и материального ци</p>
+          <p class="ddb-portfolio-love-story__element__description ddb-portfolio-love-story__element__second-des">Дай Чжень заявлял, что суждение выводит сенсибельный гений. Единственной космической субстанцией</p>
+          <ddb-button v-on:click="isActive= true; changeToOneHeader()"  class="ddb-portfolio-love-story__element__description__button">
+            <p class="ddb-portfolio-love-story__element__description__text">заказать фотосессию</p>
+            <img class="ddb-portfolio-love-story__element__description__anchor" src="/images/ui-elements/anchor.png">
+          </ddb-button>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">11 Mirrors</h3>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Cinderella story</h3>
+        </div>
+      </div>
+      <div class="ddb-portfolio-love-story__line">
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/3.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Тимур+Катерина</h3>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/4.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Zinchenko Wedding</h3>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
+          <a href="http://localhost:3001/portfolio-florence">
+            <ddb-picture>
+              <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/5.jpg">
+            </ddb-picture>
+            <h3 class="ddb-portfolio-love-story__element__name">Florence Love</h3>
+          </a>
+        </div>
+      </div>
+      <div class="ddb-portfolio-love-story__line">
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/6.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Côte d’Azur</h3>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Light me up!</h3>
+        </div>
+        <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
+          <ddb-picture>
+            <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
+          <h3 class="ddb-portfolio-love-story__element__name">Paris Mon Amour</h3>
+        </div>
+      </div>
+      <div class="ddb-portfolio-love-story__more">
+        <ddb-button class="ddb-portfolio-love-story__more__button">
+          <p class="ddb-portfolio-love-story__more__text">показать больше работ</p>
+          <img class="ddb-portfolio-love-story__more__image" src="/images/ui-elements/anchor.png">
+        </ddb-button>
+        <img id="arrow-ls" class="ddb-portfolio-love-story__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
+      </div>
     </div>
-    <div class="ddb-portfolio-love-story__line">
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/6.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Côte d’Azur</h3>
+    <div v-show="isActive" class="ddb-portfolio-love-story__form">
+      <div v-on:click="isActive=false; changeToZeroHeader()" class="ddb-portfolio-love-story__form__background">
       </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Light me up!</h3>
+      <div class="ddb-portfolio-love-story__form__user-interface">
+        <ddb-send-to-me class="ddb-portfolio-love-story__form__send-to-me"/>
+        <img v-on:click="isActive=false; changeToZeroHeader()" class="ddb-portfolio-love-story__form__cross" src="/images/ui-elements/cross.png">
       </div>
-      <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
-        <ddb-picture>
-        <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
-        </ddb-picture>
-        <h3 class="ddb-portfolio-love-story__element__name">Paris Mon Amour</h3>
-      </div>
-    </div>
-    <div class="ddb-portfolio-love-story__more">
-      <ddb-button class="ddb-portfolio-love-story__more__button">
-      <p class="ddb-portfolio-love-story__more__text">показать больше работ</p>
-        <img class="ddb-portfolio-love-story__more__image" src="/images/ui-elements/anchor.png">
-      </ddb-button>
-      <img class="ddb-portfolio-love-story__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
     </div>
   </div>
-      <div v-show="isActive" class="ddb-portfolio-love-story__form">
-        <div class="ddb-portfolio-love-story__form__background">
-        </div>
-          <div class="ddb-portfolio-love-story__form__user-interface">
-        <ddb-send-to-me class="ddb-portfolio-love-story__form__send-to-me"/>
-        <img v-on:click="isActive=!isActive" class="ddb-portfolio-love-story__form__cross" src="/images/ui-elements/cross.png">
-          </div>
-      </div>
-</div>
 </template>
 
 <script>
@@ -108,7 +108,44 @@ export default {
       isActive: false
     }
   },
-name: "DDBPortfolioLoveStory"
+  mounted () {
+    window.addEventListener('scroll', this.isScrolled);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.isScrolled);
+  },
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  methods:{
+    changeToOneHeader(){
+      this.$store.commit('changeToOneHeader')
+      console.log(this.$store.state.headerState)
+    },
+    changeToZeroHeader(){
+      this.$store.commit('changeToZeroHeader')
+    },
+    clicked(){
+      let arrow = document.getElementById("arrow-ls")
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      arrow.style.display = "none"
+    },
+    isScrolled(){
+      let arrow = document.getElementById("arrow-ls")
+      if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+        arrow.style.display = "block"
+      }
+      else {
+        arrow.style.display = "none"
+      }
+    }
+  },
+  name: "DDBPortfolioLoveStory"
 }
 </script>
 

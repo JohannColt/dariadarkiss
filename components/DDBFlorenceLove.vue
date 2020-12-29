@@ -1,4 +1,4 @@
-<template>
+<template v-on:scroll="isScrolled">
   <div class="ddb-portfolio-florence-love">
     <div class="ddb-portfolio-florence-love__container container">
       <div class="ddb-portfolio-florence-love__bread-crumb">
@@ -17,86 +17,86 @@
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__first-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
+            <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/3.jpg">
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/3.jpg">
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__second-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/5.jpg">
+            <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/5.jpg">
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__third-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
-         <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
-         </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/3.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/3.jpg">
+          </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__four-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
-         <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/5.jpg">
-         </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/5.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
-         <ddb-picture>
-          <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
-         </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__five-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
+          </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
-        <ddb-picture>
-          <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/2.jpg">
-        </ddb-picture>
+          <ddb-picture>
+            <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/2.jpg">
+          </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__more">
@@ -104,7 +104,7 @@
           <p class="ddb-portfolio-florence-love__more__text">показать больше работ</p>
           <img class="ddb-portfolio-florence-love__more__image" src="/images/ui-elements/anchor.png">
         </ddb-button>
-        <img class="ddb-portfolio-florence-love__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
+        <img id="arrow-fl" v-on:click="clicked" class="ddb-portfolio-florence-love__more__arrow" src="/images/ui-elements/ArrowOnBrown.png">
       </div>
     </div>
   </div>
@@ -118,7 +118,36 @@ export default {
     'ddb-button': DDBButton,
     'ddb-picture': DDBPicture
   },
-name: "DDBFlorenceLove"
+  mounted () {
+    window.addEventListener('scroll', this.isScrolled);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.isScrolled);
+  },
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  methods: {
+    clicked() {
+      let arrow = document.getElementById("arrow-fl")
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      arrow.style.display = "none"
+    },
+    isScrolled() {
+      let arrow = document.getElementById("arrow-fl")
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        arrow.style.display = "block"
+      } else {
+        arrow.style.display = "none"
+      }
+    }
+  },
+  name: "DDBFlorenceLove"
 }
 </script>
 
@@ -205,6 +234,7 @@ name: "DDBFlorenceLove"
       width: 96px;
     }
     &__arrow{
+      display: none;
       object-fit: none;
       position: fixed;
       width: 64px;
