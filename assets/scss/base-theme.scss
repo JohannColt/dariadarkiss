@@ -73,6 +73,11 @@ a:hover {
   text-decoration: none;
   color: $primary-color1;
 }
+.default-text-on-black{
+  background-color: $primary-color1;
+  text-decoration: none;
+  color: #F0ECEC;
+}
 
 * {
   box-sizing: border-box;

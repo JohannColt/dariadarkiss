@@ -7,7 +7,8 @@ const store = () =>
   new Vuex.Store({
     state: {
       blockCounter: 0,
-      pageCounter: 0
+      pageCounter: 0,
+      headerState: 0
     },
     mutations: {
       changeToZeroBlock(state) {
@@ -28,6 +29,12 @@ const store = () =>
       changeToOnePage(state) {
         state.pageCounter = 1;
       },
+      changeToOneHeader(state){
+        state.headerState = 1;
+      },
+      changeToZeroHeader(state){
+        state.headerState = 0;
+      }
     },
     getters: {
       blockNumber: state => {
@@ -35,6 +42,9 @@ const store = () =>
       },
       pageNumber: state =>{
         return state.pageCounter;
+      },
+      headerNumber: state =>{
+        return state.headerState;
       }
     }
   })

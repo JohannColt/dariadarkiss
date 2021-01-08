@@ -124,10 +124,11 @@ export default {
   methods:{
     changeToOneHeader(){
       this.$store.commit('changeToOneHeader')
-      console.log(this.$store.state.headerState)
+      // console.log(this.$store.state.headerState)
     },
     changeToZeroHeader(){
       this.$store.commit('changeToZeroHeader')
+      // console.log(this.$store.state.headerState)
     },
     clicked(){
       let arrow = document.getElementById("arrow-ls")

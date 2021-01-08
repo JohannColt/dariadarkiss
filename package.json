@@ -19,6 +19,7 @@
     "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.13.3",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.19.1",
