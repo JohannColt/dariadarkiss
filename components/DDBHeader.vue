@@ -1,5 +1,5 @@
 <template>
-  <header class="ddb-header">
+  <header  class="ddb-header">
     <div class="ddb-header__mobile" v-bind:class=themeClassMobile>
       <div class="ddb-header__container">
         <div class="ddb-header__burger">
@@ -33,27 +33,27 @@
         </div>
         <div class="ddb-header__menu">
           <div class="ddb-header__desktop-elem">
-            <ddb-button :is-active="true">
+            <ddb-button v-on:click="isClickedInBlack" :is-active="true">
               <NuxtLink v-bind:class=themeClassText to="/">Главная</NuxtLink>
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button>
+            <ddb-button v-on:click="isClickedInBlack">
               <NuxtLink v-bind:class=themeClassText to="/portfolio">Портфолио</NuxtLink>
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button v-bind:class=themeClassText @click="isClickedPrice">
+            <ddb-button v-on:click="isClickedInBlack" v-bind:class=themeClassText @click="isClickedPrice">
               Цены
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button v-bind:class=themeClassText @click="isClickedPop">
+            <ddb-button v-on:click="isClickedInBlack" v-bind:class=themeClassText @click="isClickedPop">
               Услуги
             </ddb-button>
           </div>
           <div class="ddb-header__desktop-elem">
-            <ddb-button v-bind:class=themeClassText @click="isClickedSend">
+            <ddb-button v-on:click="isClickedInBlack" v-bind:class=themeClassText @click="isClickedSend">
               Контакты
             </ddb-button>
           </div>
@@ -132,6 +132,9 @@ export default {
       }
       else this.$router.push('/');
     },
+    isClickedInBlack(){
+        this.$store.commit('changeToZeroHeader')
+    }
   }
 }
 </script>

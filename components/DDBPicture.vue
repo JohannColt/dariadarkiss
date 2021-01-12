@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="clicked" class="ddb-picture">
+  <div v-on:click="clicked(); changeTheHeader()" class="ddb-picture">
     <slot></slot>
     <div v-if="isActivePic" class="ddb-picture__slot">
       <slot  class="ddb-picture__slot__elem"></slot>
@@ -18,6 +18,25 @@
     methods:{
       clicked() {
       this.isActivePic= !this.isActivePic
+      },
+      changeTheHeader(){
+        if(this.themeNumber === 0){
+          this.changeToOneHeader();
+        }
+        else if(this.themeNumber === 1){
+         this.changeToZeroHeader();
+        }
+      },
+      changeToOneHeader(){
+        this.$store.commit('changeToOneHeader')
+      },
+      changeToZeroHeader(){
+        this.$store.commit('changeToZeroHeader')
+      },
+    },
+    computed: {
+      themeNumber() {
+        return this.$store.state.headerState
       }
     }
   }

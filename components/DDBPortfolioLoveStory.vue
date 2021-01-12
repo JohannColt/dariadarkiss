@@ -124,11 +124,9 @@ export default {
   methods:{
     changeToOneHeader(){
       this.$store.commit('changeToOneHeader')
-      // console.log(this.$store.state.headerState)
     },
     changeToZeroHeader(){
       this.$store.commit('changeToZeroHeader')
-      // console.log(this.$store.state.headerState)
     },
     clicked(){
       let arrow = document.getElementById("arrow-ls")
@@ -360,8 +358,8 @@ export default {
         z-index: 5;
         opacity: 1;
         position: absolute;
-        top: 32px;
-        right: -80px;
+        top: 16px;
+        right: -96px;
         cursor: pointer;
       }
     }
