@@ -1,27 +1,43 @@
-<template v-on:scroll="isScrolled">
+<template v-on:scroll="isScrolled" xmlns:margin="http://www.w3.org/1999/xhtml">
   <div  class="ddb-portfolio-main">
     <div class="ddb-portfolio-main__container container">
       <div  class="ddb-portfolio-main__bread-crumb">
         <a class="ddb-portfolio-main__bread-crumb__text">
           Главная
         </a>
-        <a class="ddb-portfolio-main__bread-crumb__text ddb-portfolio-main__bread-crumb__last">
+        <a  class="ddb-portfolio-main__bread-crumb__text ddb-portfolio-main__bread-crumb__last">
           / Портфолио
         </a>
       </div>
       <div class="ddb-portfolio-main__heading">
-        <h2 class="ddb-portfolio-main__heading__text">Портфолио</h2>
+        <h2  class="ddb-portfolio-main__heading__text">Портфолио</h2>
       </div>
       <div class="ddb-portfolio-main__first-block">
-        <div    class="ddb-portfolio-main__first-block__element">
+        <div @mouseover="mouseOver" @mouseleave="mouseMove=false"  class="ddb-portfolio-main__first-block__element">
           <ddb-picture>
-            <img  class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/2.jpg">
+            <img  class="ddb-portfolio-main__first-block__element__picture"
+                  v-bind:class="{'ddb-portfolio-main__first-block__element__picture__blur': mouseMove}"
+                  src="/images/portfolio/2.jpg">
           </ddb-picture>
+          <div>
           <a href="http://localhost:3001/portfolio-love">
             <h3 class="ddb-portfolio-main__first-block__element__title">
               Love Story
             </h3>
           </a>
+            <p  v-show="mouseMove" class="ddb-portfolio-main__first-block__element__description">
+              Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и материального ци
+            </p>
+            <div  class="ddb-portfolio-main__first-block__element__more">
+            <ddb-button v-show="mouseMove">
+              <p>
+                ПОДРОБНЕЕ
+              </p>
+              <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
+            </ddb-button>
+            </div>
+          </div>
+          <ddb-portfolio-pick @mouseover="mouseOver" v-show="mouseMove" class="ddb-portfolio-main__first-block__element__ddb-picture"/>
         </div>
 
         <div class="ddb-portfolio-main__first-block__element">
@@ -127,13 +143,18 @@
 <script>
 import DDBPicture from "@/components/DDBPicture";
 import DDBButton from "@/components/DDBButton";
+import DDBPortfolioPick from "@/components/DDBPortfolioPick";
 export default {
   components: {
     'ddb-button': DDBButton,
-    'ddb-picture': DDBPicture
+    'ddb-picture': DDBPicture,
+    'ddb-portfolio-pick' : DDBPortfolioPick
   },
   mounted () {
     window.addEventListener('scroll', this.isScrolled);
+    if(window.innerWidth < 960){
+      this.mouseMove= true
+    }
   },
   destroyed () {
     window.removeEventListener('scroll', this.isScrolled);
@@ -142,9 +163,12 @@ export default {
     active: {
       type: Boolean,
       default: false
+    },
+    mouseMove:{
+      type: Boolean,
+      default: false
     }
   },
-
   methods:{
     clicked(){
       let arrow = document.getElementById("arrow")
@@ -160,6 +184,9 @@ export default {
       else {
         arrow.style.display = "none"
       }
+    },
+    mouseOver(){
+      this.mouseMove = true;
     }
   },
   name: "DDBPortfolioMain",
@@ -169,10 +196,10 @@ export default {
 <style lang="scss" scoped>
 .ddb-portfolio-main{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   &__container{
-    padding-top: 48px;
+    padding-left: 0;
     display: flex;
     flex-direction: column;
   }
@@ -193,11 +220,12 @@ export default {
   }
   &__first-block{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     &__element{
       padding-top: 12px;
       padding-bottom: 12px;
-      width: 100%;
       position: relative;
 
       &__picture{
@@ -211,13 +239,38 @@ export default {
         border-right: 0;
         border-color: white;
         border-style: solid;
-
+        &__blur{
+          filter: blur(10px);
+        }
       }
       &__title{
         position: absolute;
         left: 24px;
         top:24px;
-
+        margin: 0;
+      }
+      &__description{
+        margin: 0;
+        position: absolute;
+        left: 24px;
+        top:96px;
+        width: 312px;
+      }
+      &__more{
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 210px;
+        height: 32px;
+        width: 100px;
+        margin: 0;
+      }
+      &__ddb-picture{
+        display: none;
+        position: absolute;
+        right: 12px;
+        bottom: 36px;
+        width: 833px;
       }
     }
   }
@@ -309,6 +362,11 @@ export default {
           &__title{
             left: 90px;
             top: 64px;
+          }
+          &__description{
+          }
+          &__ddb-picture{
+            display: flex;
           }
         }
       }

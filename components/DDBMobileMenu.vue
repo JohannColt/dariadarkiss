@@ -1,17 +1,17 @@
 <template>
   <div class="ddb-header__menu" :class="themeClass">
     <div class="ddb-header__menu__elem">
-      <NuxtLink class="default-text" to="/portfolio">
+      <NuxtLink v-bind:class=themeClassText to="/portfolio">
         Портфолио
       </NuxtLink>
     </div>
-    <div v-on:click="isClickedPrice" class="ddb-header__menu__elem">
+    <div v-on:click="isClickedPrice"  class="ddb-header__menu__elem" v-bind:class=themeClassText>
       Цены
     </div>
-    <div v-on:click="isClickedPop" class="ddb-header__menu__elem">
+    <div v-on:click="isClickedPop" class="ddb-header__menu__elem" v-bind:class=themeClassText>
       Услуги
     </div>
-    <div v-on:click="isClickedSend" class="ddb-header__menu__elem">
+    <div v-on:click="isClickedSend" class="ddb-header__menu__elem" v-bind:class=themeClassText>
       Контакты
     </div>
   </div>
@@ -21,6 +21,14 @@
 export default {
   name: "ddb-mobile-menu",
   computed: {
+    themeClassText() {
+      if (this.$store.state.headerState === 0){
+        return "default-text"
+      }
+      if (this.$store.state.headerState === 1){
+        return "default-text-on-black"
+      }
+    },
     themeClass() {
       if (this.$store.state.headerState === 0){
         return "ddb-header__menu__white"
@@ -77,6 +85,11 @@ export default {
   background-color: transparentize($primary-color2, 0.6);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba($primary-color1, 0.2);
+  &__black{
+    background-color: #3F2D2D;
+    color: #F0ECEC;
+    border-top: 1px solid rgba($primary-color2, 0.2);
+  }
 }
 
 

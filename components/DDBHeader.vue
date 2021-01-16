@@ -1,13 +1,15 @@
 <template>
   <header  class="ddb-header">
     <div class="ddb-header__mobile" v-bind:class=themeClassMobile>
-      <div class="ddb-header__container">
+      <div class="ddb-header__container" v-bind:class="{'ddb-header__container__white':!themeNumber,'ddb-header__container__black':themeNumber}">
         <div class="ddb-header__burger">
           <button v-show="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
-            <img src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
+            <img v-if="!themeNumber" src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
+            <img v-if="themeNumber" src="/images/ui-elements/FrameWhite.png" alt="burger-icon">
           </button>
           <button v-show="isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
-            <img src="/images/ui-elements/arrow.svg" alt="burger-icon">
+            <img v-if="!themeNumber" src="/images/ui-elements/arrow.svg" alt="burger-icon">
+            <img v-if="themeNumber" src="/images/ui-elements/arrowWhite.png" alt="burger-icon">
           </button>
         </div>
         <div class="ddb-header__text">
@@ -16,7 +18,8 @@
         <div class="ddb-header__inst">
           <button class="ddb-header__menu-button">
             <a href="https://www.instagram.com/dariadarkiss" target="_blank">
-              <img src="/images/ui-elements/instagram.svg" alt="insta-icon">
+              <img v-if="!themeNumber" src="/images/ui-elements/instagram.svg" alt="insta-icon">
+              <img width="24px" height="24px" v-if="themeNumber" src="/images/ui-elements/instagram-white.png" alt="insta-icon">
             </a>
           </button>
         </div>
@@ -191,6 +194,10 @@ export default {
   justify-content: space-between;
   background-color: transparentize($primary-color2, 0.6);
   backdrop-filter: blur(8px);
+  &__black{
+    background-color: #3F2D2D;
+    color: #F0ECEC;
+  }
 }
 
 .ddb-header__text {
