@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="clicked(); changeTheHeader()" class="ddb-picture">
+  <div v-on:click="clicked(); changePick(); changeTheHeader()" class="ddb-picture">
     <slot></slot>
     <div v-if="isActivePic" class="ddb-picture__slot">
       <slot  class="ddb-picture__slot__elem"></slot>
@@ -33,10 +33,22 @@
       changeToZeroHeader(){
         this.$store.commit('changeToZeroHeader')
       },
+      changePick() {
+        if(this.pickNumber === 0) {
+          this.$store.commit('changeToOnePick')
+        }
+        else if(this.pickNumber === 1) {
+          this.$store.commit('changeToZeroPick')
+        }
+        console.log(this.pickNumber)
+      }
     },
     computed: {
       themeNumber() {
         return this.$store.state.headerState
+      },
+      pickNumber() {
+        return this.$store.state.isClickedPick
       }
     }
   }

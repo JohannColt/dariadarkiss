@@ -79,6 +79,13 @@ a:hover {
   color: #F0ECEC;
 }
 
+.ddb-picture{
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: cover;
+
+}
+
 * {
   box-sizing: border-box;
 }

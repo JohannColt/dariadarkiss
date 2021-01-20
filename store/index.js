@@ -8,7 +8,8 @@ const store = () =>
     state: {
       blockCounter: 0,
       pageCounter: 0,
-      headerState: 0
+      headerState: 0,
+      isClickedPick: 0
     },
     mutations: {
       changeToZeroBlock(state) {
@@ -34,6 +35,12 @@ const store = () =>
       },
       changeToZeroHeader(state){
         state.headerState = 0;
+      },
+      changeToZeroPick(state){
+        state.isClickedPick = 0;
+      },
+      changeToOnePick(state){
+        state.isClickedPick = 1;
       }
     },
     getters: {

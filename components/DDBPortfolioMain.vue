@@ -1,4 +1,4 @@
-<template v-on:scroll="isScrolled" xmlns:margin="http://www.w3.org/1999/xhtml">
+<template v-on:scroll="isScrolled">
   <div  class="ddb-portfolio-main">
     <div class="ddb-portfolio-main__container container">
       <div  class="ddb-portfolio-main__bread-crumb">
@@ -15,7 +15,7 @@
       <div class="ddb-portfolio-main__first-block">
         <div @mouseover="mouseOver" @mouseleave="mouseMove=false"  class="ddb-portfolio-main__first-block__element">
           <ddb-picture>
-            <img  class="ddb-portfolio-main__first-block__element__picture"
+            <img class="ddb-portfolio-main__first-block__element__picture"
                   v-bind:class="{'ddb-portfolio-main__first-block__element__picture__blur': mouseMove}"
                   src="/images/portfolio/2.jpg">
           </ddb-picture>
@@ -42,7 +42,8 @@
 
         <div class="ddb-portfolio-main__first-block__element">
           <ddb-picture>
-            <img class="ddb-portfolio-main__first-block__element__picture" src="/images/portfolio/1.jpg">
+            <img  v-bind:class="{'ddb-portfolio-main__first-block__element__picture':!pickNumber,'ddb-picture': pickNumber}"
+                   src="/images/portfolio/1.jpg">
           </ddb-picture>
           <h3 class="ddb-portfolio-main__first-block__element__title">
             Fashion
@@ -92,7 +93,8 @@
           <div class="ddb-portfolio-main__second-block__element">
             <div >
               <ddb-picture>
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/4.jpg">
+                <img v-bind:class="{'ddb-portfolio-main__second-block__picture': !pickNumber,'ddb-picture': pickNumber}"
+                     src="/images/portfolio/4.jpg">
               </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
@@ -169,6 +171,11 @@ export default {
       default: false
     }
   },
+  computed: {
+    pickNumber() {
+      return this.$store.state.isClickedPick
+    }
+  },
   methods:{
     clicked(){
       let arrow = document.getElementById("arrow")
@@ -187,7 +194,7 @@ export default {
     },
     mouseOver(){
       this.mouseMove = true;
-    }
+    },
   },
   name: "DDBPortfolioMain",
 }

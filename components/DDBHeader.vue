@@ -1,7 +1,8 @@
 <template>
   <header  class="ddb-header">
     <div class="ddb-header__mobile" v-bind:class=themeClassMobile>
-      <div class="ddb-header__container" v-bind:class="{'ddb-header__container__white':!themeNumber,'ddb-header__container__black':themeNumber}">
+      <div class="ddb-header__container" v-bind:class="{
+        'ddb-header__container__white':!themeNumber,'ddb-header__container__black':themeNumber}">
         <div class="ddb-header__burger">
           <button v-show="!isActive" v-on:click="isActive=!isActive" class="ddb-header__menu-button">
             <img v-if="!themeNumber" src="/images/ui-elements/burger-menu.svg" alt="burger-icon">
