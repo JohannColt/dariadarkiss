@@ -14,11 +14,9 @@
       </div>
       <div class="ddb-portfolio-main__first-block">
         <div @mouseover="mouseOver" @mouseleave="mouseMove=false"  class="ddb-portfolio-main__first-block__element">
-          <ddb-picture>
             <img class="ddb-portfolio-main__first-block__element__picture"
                   v-bind:class="{'ddb-portfolio-main__first-block__element__picture__blur': mouseMove}"
                   src="/images/portfolio/2.jpg">
-          </ddb-picture>
           <div>
           <a href="http://localhost:3001/portfolio-love">
             <h3 class="ddb-portfolio-main__first-block__element__title">
@@ -41,10 +39,9 @@
         </div>
 
         <div class="ddb-portfolio-main__first-block__element">
-          <ddb-picture>
-            <img  v-bind:class="{'ddb-portfolio-main__first-block__element__picture':!pickNumber,'ddb-picture': pickNumber}"
+            <img  v-bind:class="{'ddb-portfolio-main__first-block__element__picture':!pickNumber,
+            'ddb-pic': pickNumber}"
                    src="/images/portfolio/1.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-main__first-block__element__title">
             Fashion
           </h3>
@@ -54,9 +51,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -66,9 +61,7 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -80,9 +73,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -92,10 +83,8 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img v-bind:class="{'ddb-portfolio-main__second-block__picture': !pickNumber,'ddb-picture': pickNumber}"
                      src="/images/portfolio/4.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -107,9 +96,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -119,9 +106,7 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-              <ddb-picture>
                 <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
-              </ddb-picture>
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -161,15 +146,16 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.isScrolled);
   },
+  data(){
+    return {
+      mouseMove: false,
+    }
+  },
   props: {
     active: {
       type: Boolean,
       default: false
     },
-    mouseMove:{
-      type: Boolean,
-      default: false
-    }
   },
   computed: {
     pickNumber() {
@@ -226,11 +212,13 @@ export default {
     }
   }
   &__first-block{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     &__element{
+      width: 100%;
       padding-top: 12px;
       padding-bottom: 12px;
       position: relative;

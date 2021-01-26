@@ -20,15 +20,11 @@
           </ddb-button>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">11 Mirrors</h3>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">Cinderella story</h3>
         </div>
       </div>
@@ -40,37 +36,27 @@
           <h3 class="ddb-portfolio-love-story__element__name">Тимур+Катерина</h3>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/4.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">Zinchenko Wedding</h3>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
           <a href="http://localhost:3001/portfolio-florence">
-            <ddb-picture>
               <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/5.jpg">
-            </ddb-picture>
             <h3 class="ddb-portfolio-love-story__element__name">Florence Love</h3>
           </a>
         </div>
       </div>
       <div class="ddb-portfolio-love-story__line">
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__left">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/6.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">Côte d’Azur</h3>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__central">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/1.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">Light me up!</h3>
         </div>
         <div class="ddb-portfolio-love-story__element ddb-portfolio-love-story__element__right">
-          <ddb-picture>
             <img class="ddb-portfolio-love-story__picture" src="/images/portfolio/2.jpg">
-          </ddb-picture>
           <h3 class="ddb-portfolio-love-story__element__name">Paris Mon Amour</h3>
         </div>
       </div>
