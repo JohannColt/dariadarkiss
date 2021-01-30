@@ -1,20 +1,20 @@
 <template>
-<div class="ddb-portfolio-pick">
-  <div>
-    <img class="ddb-portfolio-pick__image" src="/images/portfolio/1.jpg">
+  <div class="ddb-portfolio-pick">
+    <div>
+      <img class="ddb-portfolio-pick__image" src="/images/portfolio/1.jpg">
+    </div>
+    <div>
+      <img class="ddb-portfolio-pick__image" src="/images/portfolio/2.jpg">
+    </div>
+    <div>
+      <img class="ddb-portfolio-pick__image" src="/images/portfolio/3.jpg">
+    </div>
   </div>
-  <div>
-    <img class="ddb-portfolio-pick__image" src="/images/portfolio/2.jpg">
-  </div>
-  <div>
-    <img class="ddb-portfolio-pick__image" src="/images/portfolio/3.jpg">
-  </div>
-</div>
 </template>
 
 <script>
 export default {
-name: "DDBPortfolioPick"
+  name: "DDBPortfolioPick"
 }
 </script>
 

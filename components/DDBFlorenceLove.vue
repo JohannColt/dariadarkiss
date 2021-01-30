@@ -17,99 +17,183 @@
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__first-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__big-picture':!pickNumber,
-            'ddb-pic': pickNumber}"  src="/images/portfolio/1.jpg">
+            <template v-slot:default>
+              <img  class="ddb-portfolio-florence-love__big-picture"  src="/images/portfolio/1.jpg">
+            </template>
+            <template v-slot:big-pic>
+              <img  class="ddb-pic"  src="/images/portfolio/1.jpg">
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/2.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/2.jpg">
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/3.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/3.jpg">
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/3.jpg">
+            </template>
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__second-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/4.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/4.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__big-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/5.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/5.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/5.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-            <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/6.jpg">
+
+            </template>
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__third-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/1.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/1.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/2.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/2.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/2.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__big-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/3.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/3.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/3.jpg">
+
+            </template>
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__four-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/4.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/4.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/4.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/5.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/5.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/5.jpg">
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__central">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/6.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/6.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/6.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__small-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/1.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__small-picture" src="/images/portfolio/1.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/1.jpg">
+
+            </template>
           </ddb-picture>
         </div>
       </div>
       <div class="ddb-portfolio-florence-love__line ddb-portfolio-florence-love__five-line">
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__left">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__big-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/1.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/1.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/1.jpg">
+
+            </template>
           </ddb-picture>
         </div>
         <div class="ddb-portfolio-florence-love__element ddb-portfolio-florence-love__right">
           <ddb-picture>
-            <img v-bind:class="{'ddb-portfolio-florence-love__big-picture':!pickNumber,
-            'ddb-pic': pickNumber}" src="/images/portfolio/2.jpg">
+            <template v-slot:default>
+              <img class="ddb-portfolio-florence-love__big-picture" src="/images/portfolio/2.jpg">
+
+            </template>
+            <template v-slot:big-pic>
+              <img class="ddb-pic" src="/images/portfolio/2.jpg">
+
+            </template>
           </ddb-picture>
         </div>
       </div>

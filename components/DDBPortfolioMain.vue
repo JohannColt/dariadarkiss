@@ -14,34 +14,34 @@
       </div>
       <div class="ddb-portfolio-main__first-block">
         <div @mouseover="mouseOver" @mouseleave="mouseMove=false"  class="ddb-portfolio-main__first-block__element">
-            <img class="ddb-portfolio-main__first-block__element__picture"
-                  v-bind:class="{'ddb-portfolio-main__first-block__element__picture__blur': mouseMove}"
-                  src="/images/portfolio/2.jpg">
+          <img class="ddb-portfolio-main__first-block__element__picture"
+               v-bind:class="{'ddb-portfolio-main__first-block__element__picture__blur': mouseMove}"
+               src="/images/portfolio/2.jpg">
           <div>
-          <a href="http://localhost:3001/portfolio-love">
-            <h3 class="ddb-portfolio-main__first-block__element__title">
-              Love Story
-            </h3>
-          </a>
+            <a href="http://localhost:3001/portfolio-love">
+              <h3 class="ddb-portfolio-main__first-block__element__title">
+                Love Story
+              </h3>
+            </a>
             <p  v-show="mouseMove" class="ddb-portfolio-main__first-block__element__description">
               Суждение преобразует онтологический дуализм. Отвечая на вопрос о взаимоотношении идеального ли и материального ци
             </p>
             <div  class="ddb-portfolio-main__first-block__element__more">
-            <ddb-button v-show="mouseMove">
-              <p>
-                ПОДРОБНЕЕ
-              </p>
-              <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
-            </ddb-button>
+              <ddb-button v-show="mouseMove">
+                <p>
+                  ПОДРОБНЕЕ
+                </p>
+                <img class="ddb-portfolio-main__more__image" src="/images/ui-elements/anchor.png">
+              </ddb-button>
             </div>
           </div>
           <ddb-portfolio-pick @mouseover="mouseOver" v-show="mouseMove" class="ddb-portfolio-main__first-block__element__ddb-picture"/>
         </div>
 
         <div class="ddb-portfolio-main__first-block__element">
-            <img  v-bind:class="{'ddb-portfolio-main__first-block__element__picture':!pickNumber,
+          <img  v-bind:class="{'ddb-portfolio-main__first-block__element__picture':!pickNumber,
             'ddb-pic': pickNumber}"
-                   src="/images/portfolio/1.jpg">
+                src="/images/portfolio/1.jpg">
           <h3 class="ddb-portfolio-main__first-block__element__title">
             Fashion
           </h3>
@@ -51,7 +51,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
+              <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/1.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -61,7 +61,7 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
+              <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/2.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -73,7 +73,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
+              <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/3.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -83,8 +83,8 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img v-bind:class="{'ddb-portfolio-main__second-block__picture': !pickNumber,'ddb-picture': pickNumber}"
-                     src="/images/portfolio/4.jpg">
+              <img v-bind:class="{'ddb-portfolio-main__second-block__picture': !pickNumber,'ddb-picture': pickNumber}"
+                   src="/images/portfolio/4.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -96,7 +96,7 @@
         <div class="ddb-portfolio-main__second-block__line">
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
+              <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/5.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
@@ -106,7 +106,7 @@
           </div>
           <div class="ddb-portfolio-main__second-block__element">
             <div >
-                <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
+              <img class="ddb-portfolio-main__second-block__picture" src="/images/portfolio/6.jpg">
             </div>
             <div class="ddb-portfolio-main__second-block__title">
               <h3 class="ddb-portfolio-main__second-block__title__text">
