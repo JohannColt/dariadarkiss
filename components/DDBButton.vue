@@ -1,12 +1,12 @@
 <template>
-  <div v-on:click="Clicked" :class="mainClass">
+  <button :type="type" v-on:click="clicked" v-on:submit="submit" :class="mainClass">
     <slot/>
     <svg v-if="isActive" class="ddb-button__line"  width="48" height="1" viewBox="0 0 48 1" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="48" y="1" width="4" height="1" transform="rotate(180 48 1)" fill="#3F2D2D"/>
-      <rect x="40" y="1" width="4" height="1" transform="rotate(180 40 1)" fill="#3F2D2D"/>
-      <rect x="32" y="1" width="32" height="1" transform="rotate(180 32 1)" fill="#3F2D2D"/>
+      <rect class="ddb-button__rect" v-bind:class="{ 'ddb-button__rect__black' : themeBool}" x="48" y="1" width="4" height="1" transform="rotate(180 48 1)"/>
+      <rect class="ddb-button__rect" v-bind:class="{ 'ddb-button__rect__black' : themeBool}" x="40" y="1" width="4" height="1" transform="rotate(180 40 1)"/>
+      <rect class="ddb-button__rect" v-bind:class="{ 'ddb-button__rect__black' : themeBool}" x="32" y="1" width="32" height="1" transform="rotate(180 32 1)"/>
     </svg>
-  </div>
+  </button>
 </template>
 
 <script>
@@ -20,6 +20,10 @@ export default {
     isBigButton: {
       type: Boolean,
       default: false
+    },
+    type: {
+      type: String,
+      default: 'button'
     }
   },
   computed: {
@@ -27,13 +31,26 @@ export default {
       let resultClasses = this.isActive ? 'ddb-button ddb-button--active' : 'ddb-button';
       resultClasses = this.isBigButton ? resultClasses + ' ddb-button--big' : resultClasses;
       return resultClasses;
+    },
+    themeNumber() {
+      return this.$store.state.headerState
+    },
+    themeBool() {
+      if (this.themeNumber === 1){
+        return true
+      }
     }
   },
   methods:{
-    Clicked(){
+    clicked() {
       this.$emit('click')
+    },
+    submit(e) {
+      this.$emit('submit', e)
+      console.log({e})
     }
-  }
+  },
+
 }
 </script>
 
@@ -45,6 +62,9 @@ export default {
     justify-content: center;
     align-items: center;
     line-height: 1.6rem;
+    border: none;
+    background: unset;
+    outline:none;
     &__line {
       display: none;
       width: 60%;
@@ -55,6 +75,12 @@ export default {
       line-height: 32px;
       letter-spacing: 0.04em;
       font-weight: $font-weight-bold;
+    }
+    &__rect{
+      fill:#3F2D2D;
+      &__black{
+        fill: $primary-color2;
+      }
     }
   }
   @include for-large {

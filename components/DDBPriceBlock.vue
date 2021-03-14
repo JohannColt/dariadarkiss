@@ -68,7 +68,7 @@
                 <p class="ddb-price__text">2-2,5 часа работы.</p>
                 <p class="ddb-price__text">3-4 образа.</p>
                 <p class="ddb-price__text">20 фото в ретуши.</p>
-                <p class="ddb-price__text">Печать лучших 10 фотографий<br/> (размер 15х21 см).</p>
+                <p class="ddb-price__text">Печать лучших <br class="ddb-price__br"> 10 фотографий<br/> (размер 15х21 см).</p>
                 <h3 class="ddb-price__last">2 300 гривен</h3>
               </div>
             </transition>
@@ -91,23 +91,23 @@
     },
     methods: {
       setIsActiveBronze() {
-        if (window.innerWidth < 1200) {
+        if (window.innerWidth < 1024) {
           this.isActiveBronze = !this.isActiveBronze;
         }
       },
       setIsActiveSilver() {
-        if (window.innerWidth < 1200) {
+        if (window.innerWidth < 1024) {
           this.isActiveSilver = !this.isActiveSilver;
         }
       },
       setIsActiveGold() {
-        if (window.innerWidth < 1200) {
+        if (window.innerWidth < 1024) {
           this.isActiveGold = !this.isActiveGold;
         }
       }
     },
     mounted() {
-      if (window.innerWidth >= 1200) {
+      if (window.innerWidth >= 1024) {
         this.isActiveBronze = true;
         this.isActiveSilver = true;
         this.isActiveGold = true;
@@ -123,6 +123,8 @@
 <style lang="scss" scoped>
 
   .ddb-price {
+    display: flex;
+    justify-content: center;
     &__container {
       padding: 20px 0;
     }
@@ -191,6 +193,7 @@
     }
 
     &__content {
+      padding-left: 20px;
       background: #ffffff;
       display: flex;
       flex-direction: column;
@@ -217,6 +220,117 @@
     &__last {
       margin-top: 22px;
       margin-bottom: 35px;
+    }
+    &__br{
+      display: none;
+    }
+  }
+
+  @include for-large{
+    .ddb-price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 104px;
+        padding-bottom: 0;
+      }
+
+      &__heading {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 48px;
+        padding-left: 0;
+
+        &__text {
+          margin: 0 0 24px;
+        }
+      }
+
+      &__blocks {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__title {
+        padding-left: 20px;
+
+        &__text {
+          margin-top: 10px;
+          margin-bottom: 6px;
+        }
+      }
+
+      &__button {
+        display: none;
+      }
+
+      &__element {
+        display: flex;
+        flex-direction: column;
+
+        &__bronze {
+          padding: 12px;
+          margin-top: 0;
+          margin-right: 8px;
+          width: 100%;
+          min-width: 300px;
+          max-width: 341px;
+        }
+
+        &__silver {
+          padding: 12px;
+          margin: 0 8px;
+          width: 100%;
+          min-width: 300px;
+          max-width: 341px;
+        }
+
+        &__gold {
+          padding: 12px;
+          margin-top: 0;
+          margin-left: 8px;
+          width: 100%;
+          min-width: 300px;
+          max-width: 341px;
+        }
+      }
+
+      &__content {
+        padding-left: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 32px;
+
+        &__line {
+          padding-top: 10px;
+          width: 100%;
+          border: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      &__text {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+
+      &__last {
+        margin-top: 6px;
+        margin-bottom: 10px;
+      }
+      &__br{
+        display: flex;
+      }
     }
   }
 
@@ -321,6 +435,9 @@
       &__last {
         margin-top: 32px;
         margin-bottom: 28px;
+      }
+      &__br{
+        display: none;
       }
     }
   }

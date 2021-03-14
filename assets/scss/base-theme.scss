@@ -34,6 +34,14 @@ h3 {
   width: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: $primary-color1;
+}
+a:hover {
+  font-weight: $font-weight-semi-bold;
+}
+
 @include for-large {
   .container {
     max-width: 960px;
@@ -64,6 +72,17 @@ h3 {
 .default-text {
   text-decoration: none;
   color: $primary-color1;
+}
+.default-text-on-black{
+  background-color: $primary-color1;
+  text-decoration: none;
+  color: #F0ECEC;
+}
+
+.ddb-pic{
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: cover;
 }
 
 * {
